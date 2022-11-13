@@ -205,10 +205,10 @@ function scene:create( event )
 	sceneGroup:insert(p_edge)
 
 
-	local S1text = display.newText("        상품을\n구매하시겠습니까?",display.contentWidth*0.5,display.contentHeight*0.54)
-	S1text:setFillColor(0)
-	S1text.size =40
-	sceneGroup:insert(S1text)
+	local buyText = display.newText("        상품을\n구매하시겠습니까?",display.contentWidth*0.5,display.contentHeight*0.54)
+	buyText:setFillColor(0)
+	buyText.size =40
+	sceneGroup:insert(buyText)
 
 
 		local selectItem1 = display.newImageRect("image/상점/과잠_1.png",150,150)
@@ -326,8 +326,18 @@ function scene:create( event )
 	S2text.size =40
 	sceneGroup:insert(S2text)
 
+	local S3=display.newRect(display.contentWidth*0.5, display.contentHeight*0.69,150,70)
+	S3:setFillColor(0)
+	sceneGroup:insert(S3)
+
+	local S3text = display.newText("",display.contentWidth*0.5,display.contentHeight*0.69)
+	S3text:setFillColor(1)
+	S3text.size =40
+	sceneGroup:insert(S3text)
+	S3.alpha=0
+
 	 local function buy_popup(event)
-	 				if loadedItem.money-money>=0 then
+	 		if loadedItem.money-money>=0 then
 	         if item=="gwajam1" then
 	            loadedItem.gwajam1_count=loadedItem.gwajam1_count+1            
 	         end
@@ -375,14 +385,31 @@ function scene:create( event )
 	         if item=="twopiece5" then
 	            loadedItem.twopiece5_count=loadedItem.twopiece5_count+1            
 	         end
-	        loadedItem.money=loadedItem.money-money
-       		end
+			 S1.alpha=0
+			 S2text.alpha=0
+			 buyText.text="구매가 완료되었습니다"
+			 S2.alpha=0
+			 S3.alpha=1
+			 S3text.text="나가기"
+ 
+			 loadedItem.money=loadedItem.money-money
+			 loadsave.saveTable(loadedItem,"setting.json")
+				else
+				 S1.alpha=0
+				 S2text.alpha=0
+				 buyText.text="잔액이 부족합니다."
+				 S2.alpha=0
+				 S3.alpha=1
+				 S3text.text="나가기"
+				 
+					
+				end
+
+       		
 
 
 
-         loadsave.saveTable(loadedItem,"setting.json")
-         composer.removeScene("상점_옷_popup")
-         composer.gotoScene("상점_옷")
+         
       end
       S1:addEventListener("tap",buy_popup)
 
@@ -391,6 +418,8 @@ function scene:create( event )
         composer.gotoScene("상점_옷")
        end
        S2:addEventListener("tap",popup_down)
+	   S3:addEventListener("tap",popup_down)
+	   
 
 
 
