@@ -52,18 +52,63 @@ function scene:create( event )
 	   	sceneGroup:insert(guide)
 	   	sceneGroup:insert(gBox)
 
-	   	composer.gotoScene("상점", { time=800, effect="crossFade" })
+	   	composer.gotoScene("가방_옷", { time=800, effect="crossFade" })
 	end
 
 	gBox:addEventListener("tap", goToGuide)
 
-    local path = system.pathForFile( "setting.json", system.DocumentsDirectory)
+    --기본설정 DB
+
+    local path = system.pathForFile( "settings.json", system.DocumentsDirectory)
+    print(path)
  
     local file, errorString = io.open( path, "r" )
     if not file then
         print("make an item file")
         --엔딩관련 데이터 파일 생성
-        local setting = {
+    end
+        local settings = {
+			money = 2000
+        }
+        loadsave.saveTable( settings, "settings.json" )
+
+    --음식 DB
+
+    local path = system.pathForFile( "food.json", system.DocumentsDirectory)
+    print(path)
+    local file, errorString = io.open( path, "r" )
+    if not file then
+        print("make an item file")
+        --엔딩관련 데이터 파일 생성
+    end
+        local food ={
+            foodCount=0,
+
+            food1="",
+            food2="",
+            food3="",
+            food4="",
+            food5="",
+
+            tteokbokki_count=0,
+            fishCake_count=0,
+            sundae_count=0,
+            steak_count=0,
+            fried_count=0,
+        }
+
+        loadsave.saveTable( food, "food.json" )
+
+    --옷DB
+
+    local path = system.pathForFile( "clothes.json", system.DocumentsDirectory)
+    print(path)
+    local file, errorString = io.open( path, "r" )
+    if not file then
+        print("make an item file")
+        --엔딩관련 데이터 파일 생성
+    end
+        local clothes ={
             clo1_apply= 0,
             clo2_apply= 0,
             clo3_apply= 0,
@@ -80,6 +125,91 @@ function scene:create( event )
             clo14_apply= 0,
             clo15_apply= 0,
 
+            gwajamCount=0,
+            animalCount=0,
+            twopieceCount=0,
+
+            g1Sold=1,
+            g2Sold=1,
+            g3Sold=1,
+            g4Sold=1,
+            g5Sold=1,
+            a1Sold=1,
+            a2Sold=1,
+            a3Sold=1,
+            a4Sold=1,
+            a5Sold=1,
+            t1Sold=1,
+            t2Sold=1,
+            t3Sold=1,
+            t4Sold=1,
+            t5Sold=1,
+
+            clo1="과잠_1",
+            clo2="과잠_2",
+            clo3="과잠_3",
+            clo4="과잠_4",
+            clo5="과잠_5",
+            clo6="동물_1",
+            clo7="동물_2",
+            clo8="동물_3",
+            clo9="동물_4",
+            clo10="동물_5",
+            clo11="투피스_1",
+            clo12="투피스_2",
+            clo13="투피스_3",
+            clo14="투피스_4",
+            clo15="투피스_5",
+
+            cloCount=0,
+
+            gwajam1="",
+            gwajam2="",
+            gwajam3="",
+            gwajam4="",
+            gwajam5="",
+
+            animal1="",
+            animal2="",
+            animal3="",
+            animal4="",
+            animal5="",
+
+            twopiece1="",
+            twopiece2="",
+            twopiece3="",
+            twopiece4="",
+            twopiece5="",
+
+            clothes1="",
+            clothes2="",
+            clothes3="",
+            clothes4="",
+            clothes5="",
+            clothes6="",
+            clothes7="",
+            clothes8="",
+            clothes9="",
+            clothes10="",
+            clothes11="",
+            clothes12="",
+            clothes13="",
+            clothes14="",
+            clothes15=""
+        }
+
+        loadsave.saveTable( clothes, "clothes.json" )
+
+    --아이템DB
+
+    local path = system.pathForFile( "items.json", system.DocumentsDirectory)
+    print(path)
+    local file, errorString = io.open( path, "r" )
+    if not file then
+        print("make an item file")
+        --엔딩관련 데이터 파일 생성
+    end
+        local items = {
             item1_apply= 0,
             item2_apply= 0,
             item3_apply= 0,
@@ -98,54 +228,7 @@ function scene:create( event )
             item16_apply= 0,
             item17_apply= 0,
 
-			money = 2000,
-
-			tteokbokki_count=0,
-            fishCake_count=0,
-            sundae_count=0,
-            steak_count=0,
-            fried_count=0,
-
-            gwajam1_count=0,
-            gwajam2_count=0,
-            gwajam3_count=0,
-            gwajam4_count=0,
-            gwajam5_count=0,
-            animal1_count=0,
-            animal2_count=0,
-            animal3_count=0,
-            animal4_count=0,
-            animal5_count=0,
-            twopiece1_count=0,
-            twopiece2_count=0,
-            twopiece3_count=0,
-            twopiece4_count=0,
-            twopiece5_count=0
-        }
-        loadsave.saveTable( setting, "setting.json" )
-
-    local path = system.pathForFile( "items.json", system.DocumentsDirectory)
- 
-    local file, errorString = io.open( path, "r" )
-    if not file then
-        print("make an item file")
-        --엔딩관련 데이터 파일 생성
-        local items = {
-            clo1="과잠_1",
-            clo2="과잠_2",
-            clo3="과잠_3",
-            clo4="과잠_4",
-            clo5="과잠_5",
-            clo6="동물_1",
-            clo7="동물_2",
-            clo8="동물_3",
-            clo9="동물_4",
-            clo10="동물_5",
-            clo11="투피스_1",
-            clo12="투피스_2",
-            clo13="투피스_3",
-            clo14="투피스_4",
-            clo15="투피스_5",
+        	itemCount=0,
 
             item1="리본_1",
             item2="리본_2",
@@ -204,8 +287,7 @@ function scene:create( event )
         }
         loadsave.saveTable( items, "items.json" )
     end
-end
-end
+
 
 function scene:show( event )
 	local sceneGroup = self.view

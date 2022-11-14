@@ -8,7 +8,8 @@ local loadsave = require( "loadsave" )
 local composer = require( "composer" )
 local json = require( "json" )
 local scene = composer.newScene()
-local loadedItem= loadsave.loadTable( "setting.json" )
+local loadedItem= loadsave.loadTable( "clothes.json" )
+local loadedSetting= loadsave.loadTable( "settings.json" )
 
 
 function scene:create( event )
@@ -23,7 +24,7 @@ function scene:create( event )
 	sceneGroup:insert(background)
 
 	--돈
-	local m = loadedItem.money
+	local m = loadedSetting.money
 	local showLimit = display.newText(m,display.contentWidth*0.85,display.contentHeight*0.2)
 	showLimit:setFillColor(0)
 	showLimit.size =40
@@ -337,53 +338,132 @@ function scene:create( event )
 	S3.alpha=0
 
 	 local function buy_popup(event)
-	 		if loadedItem.money-money>=0 then
+	 		if loadedSetting.money-money>=0 then
+	 						loadedItem.cloCount=loadedItem.cloCount+1
+
+	 						if loadedItem.cloCount == 1 then
+						loadedItem.clothes1 = item
+					elseif loadedItem.cloCount == 2 then
+						loadedItem.clothes2 = item
+					elseif loadedItem.cloCount == 3 then
+						loadedItem.clothes3 = item
+					elseif loadedItem.cloCount == 4 then
+						loadedItem.clothes4 = item
+					elseif loadedItem.cloCount == 5 then
+						loadedItem.clothes5 = item
+					elseif loadedItem.cloCount == 6 then
+						loadedItem.clothes6 = item
+					elseif loadedItem.cloCount == 7 then
+						loadedItem.clothes7 = item
+					elseif loadedItem.cloCount == 8 then
+						loadedItem.clothes8 = item
+					elseif loadedItem.cloCount == 9 then
+						loadedItem.clothes9 = item
+					elseif loadedItem.cloCount == 10 then
+						loadedItem.clothes10 = item
+					elseif loadedItem.cloCount == 11 then
+						loadedItem.clothes11 = item
+					elseif loadedItem.cloCount == 12 then
+						loadedItem.clothes12 = item
+					elseif loadedItem.cloCount == 13 then
+						loadedItem.clothes13 = item
+					elseif loadedItem.cloCount == 14 then
+						loadedItem.clothes14 = item
+					elseif loadedItem.cloCount == 15 then
+						loadedItem.clothes15 = item
+					end
+
+					--옷 수량 체크
+					if (item=="gwajam1") or (item=="gwajam2") or (item=="gwajam3") or (item=="gwajam4") or (item=="gwajam5") then
+						loadedItem.gwajamCount=loadedItem.gwajamCount+1
+						if loadedItem.gwajamCount==1 then
+							loadedItem.gwajam1=item
+						elseif loadedItem.gwajamCount==2 then
+							loadedItem.gwajam2=item
+						elseif loadedItem.gwajamCount==3 then
+							loadedItem.gwajam3=item
+						elseif loadedItem.gwajamCount==4 then 
+							loadedItem.gwajam4=item
+						elseif loadedItem.gwajamCount==5 then
+							loadedItem.gwajam5=item
+						end
+					end
+					if (item=="animal1") or (item=="animal2") or (item=="animal3") or (item=="animal4") or (item=="animal5") then
+						loadedItem.animalCount=loadedItem.animalCount+1
+						if loadedItem.animalCount==1 then
+							loadedItem.animal1=item
+						elseif loadedItem.animalCount==2 then
+							loadedItem.animal2=item
+						elseif loadedItem.animalCount==3 then
+							loadedItem.animal3=item
+						elseif loadedItem.animalCount==4 then
+							loadedItem.animal4=item
+						elseif loadedItem.animalCount==5 then
+							loadedItem.animal5=item
+						end
+					end
+					if (item=="twopiece1") or (item=="twopiece2") or (item=="twopiece3") or (item=="twopiece4") or (item=="twopiece5") then
+						loadedItem.twopieceCount=loadedItem.twopieceCount+1
+						if loadedItem.twopieceCount==1 then
+							loadedItem.twopiece1=item
+						elseif loadedItem.twopieceCount==2 then
+							loadedItem.twopiece2=item
+						elseif loadedItem.twopieceCount==3 then
+							loadedItem.twopiece3=item
+						elseif loadedItem.twopieceCount==4 then
+							loadedItem.twopiece4=item
+						elseif loadedItem.twopieceCount==5 then
+							loadedItem.twopiece5=item
+						end
+					end
+
+					--판매소진
 	         if item=="gwajam1" then
-	            loadedItem.gwajam1_count=loadedItem.gwajam1_count+1            
+	            loadedItem.g1Sold=0          
 	         end
 	         if item=="gwajam2" then
-	            loadedItem.gwajam2_count=loadedItem.gwajam2_count+1            
+	            loadedItem.g2Sold=0         
 	         end
 	         if item=="gwajam3" then
-	            loadedItem.gwajam3_count=loadedItem.gwajam3_count+1            
+	            loadedItem.g3Sold=0           
 	         end
 	         if item=="gwajam4" then
-	            loadedItem.gwajam4_count=loadedItem.gwajam4_count+1            
+	            loadedItem.g4Sold=0          
 	         end
 	         if item=="gwajam5" then
-	            loadedItem.gwajam5_count=loadedItem.gwajam5_count+1            
+	            loadedItem.g5Sold=0            
 	         end
 
 	         if item=="animal1" then
-	            loadedItem.animal1_count=loadedItem.animal1_count+1            
+	            loadedItem.a1Sold=0           
 	         end
 	         if item=="animal2" then
-	            loadedItem.animal2_count=loadedItem.animal2_count+1            
+	            loadedItem.a2Sold=0            
 	         end
 	         if item=="animal3" then
-	            loadedItem.animal3_count=loadedItem.animal3_count+1            
+	            loadedItem.a3Sold=0            
 	         end
 	         if item=="animal4" then
-	            loadedItem.animal4_count=loadedItem.animal4_count+1            
+	            loadedItem.a4Sold=0         
 	         end
 	         if item=="animal5" then
-	            loadedItem.animal5_count=loadedItem.animal5_count+1            
+	            loadedItem.a5Sold=0          
 	         end
 
 	         if item=="twopiece1" then
-	            loadedItem.twopiece1_count=loadedItem.twopiece1_count+1            
+	            loadedItem.t1Sold=0            
 	         end
 	         if item=="twopiece2" then
-	            loadedItem.twopiece2_count=loadedItem.twopiece2_count+1            
+	            loadedItem.t2Sold=0            
 	         end
 	         if item=="twopiece3" then
-	            loadedItem.twopiece3_count=loadedItem.twopiece3_count+1            
+	            loadedItem.t3Sold=0            
 	         end
 	         if item=="twopiece4" then
-	            loadedItem.twopiece4_count=loadedItem.twopiece4_count+1            
+	            loadedItem.t4Sold=0          
 	         end
 	         if item=="twopiece5" then
-	            loadedItem.twopiece5_count=loadedItem.twopiece5_count+1            
+	            loadedItem.t5Sold=0            
 	         end
 			 S1.alpha=0
 			 S2text.alpha=0
@@ -392,8 +472,9 @@ function scene:create( event )
 			 S3.alpha=1
 			 S3text.text="나가기"
  
-			 loadedItem.money=loadedItem.money-money
-			 loadsave.saveTable(loadedItem,"setting.json")
+			 loadedSetting.money=loadedSetting.money-money
+			 loadsave.saveTable(loadedSetting,"settings.json")
+			 loadsave.saveTable(loadedItem,"clothes.json")
 				else
 				 S1.alpha=0
 				 S2text.alpha=0
@@ -404,13 +485,7 @@ function scene:create( event )
 				 
 					
 				end
-
-       		
-
-
-
-         
-      end
+			end
       S1:addEventListener("tap",buy_popup)
 
       local function popup_down(event)

@@ -8,7 +8,7 @@ local loadsave = require( "loadsave" )
 local composer = require( "composer" )
 local json = require( "json" )
 local scene = composer.newScene()
-local loadedItem= loadsave.loadTable( "setting.json" )
+local loadedItem= loadsave.loadTable( "settings.json" )
 
 function scene:create( event )
 	local sceneGroup = self.view
