@@ -46,7 +46,6 @@ function scene:create( event )
 	   	sceneGroup:insert(gBox)
 	   	sceneGroup:insert(sBox)
 	   	sceneGroup:insert(startButton)
-	   	audio.pause( backgroundMusicChannel )
 		composer.removeScene("학점받기")
 
 	   	composer.gotoScene("game_main", { time=800, effect="crossFade" })
@@ -62,7 +61,7 @@ function scene:create( event )
 	   	sceneGroup:insert(gBox)
 	   	sceneGroup:insert(sBox)
 	   	sceneGroup:insert(startButton)
-		audio.pause( backgroundMusicChannel )
+
 		composer.removeScene("학점받기")
 	   	composer.gotoScene("gameGuide", { time=800, effect="crossFade" })
 	end
