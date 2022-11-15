@@ -225,6 +225,7 @@ function scene:create( event )
 
             loadedSettings.money=loadedSettings.money-money
 			loadsave.saveTable(loadedSettings,"settings.json")
+			loadsave.saveTable(loadedFood,"food.json")
        		else
 				S1.alpha=0
 				S2text.alpha=0

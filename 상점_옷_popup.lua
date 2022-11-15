@@ -519,9 +519,9 @@ print(item)
 
 	 local function buy_popup(event)
 	 		if loadedSetting.money-money>=0 then
-	 						loadedClothes.cloCount=loadedClothes.cloCount+1
+	 				loadedClothes.cloCount=loadedClothes.cloCount+1
 
-	 						if loadedClothes.cloCount == 1 then
+	 				if loadedClothes.cloCount == 1 then
 						loadedClothes.clothes1 = item
 					elseif loadedClothes.cloCount == 2 then
 						loadedClothes.clothes2 = item
@@ -597,82 +597,73 @@ print(item)
 						end
 					end
 
-					--판매소진
-	         if item=="gwajam1" then
-	            loadedClothes.g1Sold=0        
-	         end
-	         if item=="gwajam2" then
-	            loadedClothes.g2Sold=0         
-	         end
-	         if item=="gwajam3" then
-	            loadedClothes.g3Sold=0           
-	         end
-	         if item=="gwajam4" then
-	            loadedClothes.g4Sold=0          
-	         end
-	         if item=="gwajam5" then
-	            loadedClothes.g5Sold=0            
-	         end
+						--판매소진
+			         if item=="gwajam1" then
+			            loadedClothes.g1Sold=0        
+			         end
+			         if item=="gwajam2" then
+			            loadedClothes.g2Sold=0         
+			         end
+			         if item=="gwajam3" then
+			            loadedClothes.g3Sold=0           
+			         end
+			         if item=="gwajam4" then
+			            loadedClothes.g4Sold=0          
+			         end
+			         if item=="gwajam5" then
+			            loadedClothes.g5Sold=0            
+			         end
 
-	         if item=="animal1" then
-	            loadedClothes.a1Sold=0          
-	         end
-	         if item=="animal2" then
-	            loadedClothes.a2Sold=0           
-	         end
-	         if item=="animal3" then
-	            loadedClothes.a3Sold=0           
-	         end
-	         if item=="animal4" then
-	            loadedClothes.a4Sold=0        
-	         end
-	         if item=="animal5" then
-	            loadedClothes.a5Sold=0         
-	         end
+			         if item=="animal1" then
+			            loadedClothes.a1Sold=0          
+			         end
+			         if item=="animal2" then
+			            loadedClothes.a2Sold=0           
+			         end
+			         if item=="animal3" then
+			            loadedClothes.a3Sold=0           
+			         end
+			         if item=="animal4" then
+			            loadedClothes.a4Sold=0        
+			         end
+			         if item=="animal5" then
+			            loadedClothes.a5Sold=0         
+			         end
 
-	         if item=="twopiece1" then
-	            loadedClothes.t1Sold=0           
-	         end
-	         if item=="twopiece2" then
-	            loadedClothes.t2Sold=0           
-	         end
-	         if item=="twopiece3" then
-	            loadedClothes.t3Sold=0           
-	         end
-	         if item=="twopiece4" then
-	            loadedClothes.t4Sold=0         
-	         end
-	         if item=="twopiece5" then
-	            loadedClothes.t5Sold=0           
-	         end
-			 S1.alpha=0
-			 S2text.alpha=0
-			 buyText.text="구매가 완료되었습니다"
-			 S2.alpha=0
-			 S3.alpha=1
-			 S3text.text="나가기"
+			         if item=="twopiece1" then
+			            loadedClothes.t1Sold=0           
+			         end
+			         if item=="twopiece2" then
+			            loadedClothes.t2Sold=0           
+			         end
+			         if item=="twopiece3" then
+			            loadedClothes.t3Sold=0           
+			         end
+			         if item=="twopiece4" then
+			            loadedClothes.t4Sold=0         
+			         end
+			         if item=="twopiece5" then
+			            loadedClothes.t5Sold=0           
+			         end
+					 S1.alpha=0
+					 S2text.alpha=0
+					 buyText.text="구매가 완료되었습니다"
+					 S2.alpha=0
+					 S3.alpha=1
+					 S3text.text="나가기"
 
-			 loadedSetting.money=loadedSetting.money-money
-			 loadsave.saveTable(loadedSetting,"settings.json")
-			 loadsave.saveTable(loadedClothes,"clothes.json")
-				else
-				 S1.alpha=0
-				 S2text.alpha=0
-				 buyText.text="잔액이 부족합니다."
-				 S2.alpha=0
-				 S3.alpha=1
-				 S3text.text="나가기"
-				 
-					
-				end
+					 loadedSetting.money=loadedSetting.money-money
+					 loadsave.saveTable(loadedSetting,"settings.json")
+					 loadsave.saveTable(loadedClothes,"clothes.json")
+			else
+				S1.alpha=0
+				S2text.alpha=0
+				buyText.text="잔액이 부족합니다."
+				S2.alpha=0
+				S3.alpha=1
+				S3text.text="나가기"				
 			end
-
-
-       		
-
-
-
-       
+		end  
       S1:addEventListener("tap",buy_popup)
 
       local function popup_down(event)

@@ -63,8 +63,6 @@ function scene:create( event )
 	local gwajamImage = {}
 	local animalImage = {}
 	local twopieceImage = {}
-
-	print(loadedItems.gwajam1)
 	
 	gwajamImage[1] = loadedItems.gwajam1
 	gwajamImage[2] = loadedItems.gwajam2
@@ -83,6 +81,7 @@ function scene:create( event )
 	twopieceImage[3] = loadedItems.twopiece3
 	twopieceImage[4] = loadedItems.twopiece4
 	twopieceImage[4] = loadedItems.twopiece5
+	print(gwajamImage[1])
 
 	local gwajam = {}
 	local animal = {}
