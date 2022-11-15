@@ -147,6 +147,7 @@ function scene:create( event )
 	sceneGroup:insert(exitText)
 
 	local function exitFunc(event)
+		audio.pause( backgroundMusicChannel )
 		composer.removeScene("가방_음식")
 	   	composer.gotoScene("메인화면")
 	end

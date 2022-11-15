@@ -15,12 +15,6 @@ local soundTable = {
 		storeSound = audio.loadSound( "bgm/store_cilck.mp3" )
 	}
 
-local function tapListener( event )
-    -- Code executed when the button is tapped
-    audio.play( soundTable["storeSound"], {loops=0} )
-    return true
-end
-
 function scene:create( event )
 	local sceneGroup = self.view
    local loadedClothes = loadsave.loadTable( "clothes.json" )
@@ -373,14 +367,15 @@ function scene:create( event )
 	end
 
 	function gotoStore( event )
+		audio.play( soundTable["storeSound"], {loops=0} )
 		audio.pause( backgroundMusicChannel )
 		composer.gotoScene("상점")
 	end
 
-	function gotoBag( event )
-		audio.pause( backgroundMusicChannel )
-		composer.gotoScene("가방_음식")
-	end
+   function gotoBag( event )
+      audio.pause( backgroundMusicChannel )
+      composer.gotoScene("가방_음식")
+   end
 
 	function inputEvent( event )
         if event.target.name == "picture" then
@@ -410,10 +405,10 @@ function scene:create( event )
 				display.remove(guideExit)
 			end
 			guideExit:addEventListener("tap", exitGuide)
-		elseif event.target.name == "bag" then
+		  elseif event.target.name == "bag" then
             --transition.to(buttonUI[4], {time = 500, alpha = 0})
-            local t4 = timer.performWithDelay(1000, gotoStore, 1)
-        end
+            local t5 = timer.performWithDelay(1000, gotoBag, 1)
+         end
     end
 
 	
@@ -454,7 +449,6 @@ function scene:create( event )
 	buttonUI[4].y = 450
 	buttonUI[4].name = "store"
 	sceneGroup:insert(buttonUI[4])
-	buttonUI[4]:addEventListener( "tap", tapListener )
 
 	buttonUI[5] = widget.newButton(
 		{	defaultFile = "image/메인/question3.png", overFile = "image/메인/question3.png",
@@ -464,14 +458,13 @@ function scene:create( event )
 	buttonUI[5].name = "question"
 	sceneGroup:insert(buttonUI[5])
 
-	buttonUI[6] = widget.newButton( 
-		{ defaultFile = "image/메인/bag.png", overFile = "image/메인/bag.png",
-		width = 110, height = 110, onPress = inputEvent})
-	buttonUI[6].x = 380
-	buttonUI[6].y = 500
-	buttonUI[6].name = "bag"
-	sceneGroup:insert(buttonUI[6])
-
+   buttonUI[6] = widget.newButton( 
+      { defaultFile = "image/메인/bag.png", overFile = "image/메인/bag.png",
+      width = 110, height = 110, onPress = inputEvent})
+   buttonUI[6].x = 380
+   buttonUI[6].y = 500
+   buttonUI[6].name = "bag"
+   sceneGroup:insert(buttonUI[6])
    	
 end
 
