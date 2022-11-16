@@ -29,12 +29,10 @@ function scene:create( event )
 
 	local pn= display.newImageRect("image/UI/pannel.png",420,180)
 	pn.x,pn.y = display.contentWidth/2,display.contentHeight*0.13
-	sceneGroup:insert(pn)
 
 	local coin = display.newText("+ 500 coin!",display.contentWidth*0.47, display.contentHeight*0.18,"font/NanumJangMiCe.ttf")
 	coin:setFillColor(0.8,0.2,0.2)
 	coin.size = 68
-	sceneGroup:insert(coin)
 
 	local somsom = display.newImageRect("image/풍선터트리기/솜솜이_성공.png",700,700)
 	somsom.x,somsom.y = display.contentWidth*0.84,display.contentHeight*0.6
@@ -52,6 +50,8 @@ function scene:create( event )
 	exitText:setFillColor(0)
 	exitText.size =40
 	sceneGroup:insert(exitText)
+		sceneGroup:insert(pn)
+		sceneGroup:insert(coin)
 
 	local function exitFunc(event)
 		composer.removeScene("상점")

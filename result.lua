@@ -51,40 +51,25 @@ function scene:create( event )
 	    end
     end
 
-	local function reGame(event)
 		sceneGroup:insert(bg2)
 		sceneGroup:insert(endText)
 		sceneGroup:insert(mainGroup)
 	    sceneGroup:insert(retry)
 	   	sceneGroup:insert(quit)
 	   	sceneGroup:insert(quit2)
-
+	local function reGame(event)
 		composer.removeScene("result")
 	   	composer.gotoScene("game_main", { time=800, effect="crossFade" })
 	end
 
 	local function exitGame(event)
-		sceneGroup:insert(bg2)
-		sceneGroup:insert(endText)
-		sceneGroup:insert(mainGroup)
-	    sceneGroup:insert(retry)
-	   	sceneGroup:insert(quit)
-	   	sceneGroup:insert(quit2)
-
-	loadedSettings.money = loadedSettings.money + 500
-	loadsave.saveTable(loadedSettings,"settings.json")
+		loadedSettings.money = loadedSettings.money + 500
+		loadsave.saveTable(loadedSettings,"settings.json")
 		composer.removeScene("result")
 	   	composer.gotoScene("메인화면", { time=800, effect="crossFade" })
 	end
 
 	local function exitGame2(event)
-		sceneGroup:insert(bg2)
-		sceneGroup:insert(endText)
-		sceneGroup:insert(mainGroup)
-	    sceneGroup:insert(retry)
-	   	sceneGroup:insert(quit)
-	   	sceneGroup:insert(quit2)
-
 		loadedSettings.money = loadedSettings.money + 100
 		loadsave.saveTable(loadedSettings,"settings.json")
 		composer.removeScene("result")
@@ -95,6 +80,17 @@ function scene:create( event )
 		quit.text = "quit"
 		quit:addEventListener("tap", exitGame)
 
+	elseif resultScore <= 0 then
+		endText.text = "GAME OVER"
+		endText.size = 170
+		endText.y = display.contentHeight/2 - 150
+
+		retry.alpha = 1
+		retry:addEventListener("tap", reGame)
+		quit2.alpha = 1		
+		quit2:addEventListener("tap", exitGame2)
+	end	
+if resultScore >= 1200 then
 		local pn= display.newImageRect("image/UI/pannel.png",420,180)
 		pn.x,pn.y = display.contentWidth/2,display.contentHeight*0.13
 		sceneGroup:insert(pn)
@@ -104,10 +100,6 @@ function scene:create( event )
 		coin.size = 68
 		sceneGroup:insert(coin)
 	elseif resultScore <= 0 then
-		endText.text = "GAME OVER"
-		endText.size = 170
-		endText.y = display.contentHeight/2 - 150
-			
 		local pn= display.newImageRect("image/UI/pannel.png",420,180)
 		pn.x,pn.y = display.contentWidth/2,display.contentHeight*0.13
 		sceneGroup:insert(pn)
@@ -116,13 +108,7 @@ function scene:create( event )
 		coin:setFillColor(0.8,0.2,0.2)
 		coin.size = 68
 		sceneGroup:insert(coin)
-
-		retry.alpha = 1
-		retry:addEventListener("tap", reGame)
-		quit2.alpha = 1		
-		quit2:addEventListener("tap", exitGame2)
 	end	
-
 end
 
 function scene:show( event )

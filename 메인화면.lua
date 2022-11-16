@@ -400,7 +400,7 @@ function scene:create( event )
     local opc3 = display.newImageRect("image/옷/투피스_3.png", 435, 373)
     opc3.x, opc3.y = display.contentWidth/2 -77, 390
     opc3:scale( -1, 1 ) 
-    if loadedClothes.clo1_apply == 1 then 
+    if loadedClothes.clo13_apply == 1 then 
        opc3.alpha=1
     else
        opc3.alpha = 0
@@ -409,7 +409,7 @@ function scene:create( event )
     local opc4 = display.newImageRect("image/옷/투피스_4.png", 435, 373)
     opc4.x, opc4.y = display.contentWidth/2 -77, 390
     opc4:scale( -1, 1 ) 
-    if loadedClothes.clo1_apply == 1 then 
+    if loadedClothes.clo14_apply == 1 then 
        opc4.alpha=1
     else
        opc4.alpha = 0
@@ -418,7 +418,7 @@ function scene:create( event )
     local opc5 = display.newImageRect("image/옷/투피스_5.png", 435, 373)
     opc5.x, opc5.y = display.contentWidth/2 -77, 390
     opc5:scale( -1, 1 ) 
-    if loadedClothes.clo13_apply == 1 then 
+    if loadedClothes.clo15_apply == 1 then 
        opc5.alpha=1
     else
        opc5.alpha = 0

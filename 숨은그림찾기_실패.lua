@@ -37,13 +37,11 @@ function scene:create( event )
 
 	local pn= display.newImageRect("image/UI/pannel.png",420,180)
 	pn.x,pn.y = display.contentWidth/2,display.contentHeight*0.13
-	sceneGroup:insert(pn)
 
 	local coin = display.newText("+ 100 coin!",display.contentWidth*0.47, display.contentHeight*0.18,"font/NanumJangMiCe.ttf")
 	coin:setFillColor(0.8,0.2,0.2)
 	coin.size = 68
-	sceneGroup:insert(coin)
-	
+
 	local hintText = display.newText("실패!",display.contentWidth*0.5, display.contentHeight*0.5,"font/NanumSquare_acB.ttf")
 	hintText:setFillColor(0)
 	hintText.size = 100
@@ -53,6 +51,8 @@ function scene:create( event )
 	somsom.x,somsom.y = display.contentWidth*0.67,display.contentHeight*0.2
 	sceneGroup:insert(somsom)
 
+		sceneGroup:insert(pn)
+		sceneGroup:insert(coin)
 	local function exitFunc(event)
 		composer.removeScene("상점")
 	   	composer.gotoScene("메인화면")
