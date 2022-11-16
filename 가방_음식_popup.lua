@@ -18,9 +18,9 @@ local loadedSettings= loadsave.loadTable( "settings.json" )
 	j=0
 
 	print("item"..item)
-	local update = display.newImageRect("image/숨은그림찾기/white.png",1280,720)
-	update.x, update.y = display.contentWidth*0.5, display.contentHeight*0.5
-	sceneGroup:insert(update)
+	local background= display.newImageRect("image/상점/음식_배경.jpg",1280,720)
+	background.x,background.y = display.contentWidth/2,display.contentHeight/2
+	sceneGroup:insert(background)
 
 	local tteokbokki = display.newImageRect("image/상점/떡볶이.jpeg",150,150)
 	tteokbokki.x,tteokbokki.y = display.contentWidth*0.15,display.contentHeight*0.4

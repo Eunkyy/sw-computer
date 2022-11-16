@@ -19,6 +19,11 @@ function scene:create( event )
 	background.x,background.y = display.contentWidth/2,display.contentHeight/2
 	sceneGroup:insert(background)
 
+	local background2= display.newImageRect("image/상점/옷_배경.jpg",1280,720)
+	background2.alpha=0.6
+	background2.x,background2.y = display.contentWidth/2,display.contentHeight/2
+	sceneGroup:insert(background2)
+
 
 
 	
