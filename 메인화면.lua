@@ -678,7 +678,7 @@ local ht = display.newImageRect( "image/UI/ht.png", 100, 100 )
    			local guideBg = display.newRect(display.contentCenterX, display.contentCenterY, 600, 400)
    			local guideText = display.newText(" ", display.contentWidth/2, display.contentHeight/ 2, "font/NanumJangMiCe.ttf", 30)
    			guideText:setFillColor(0)
-   			guideText.text = "솜솜이 키우기\n\n오른쪽에 있는 미니게임으로 코인을 모으세요\n모은 코인으로 상점에서 음식을 구매해 솜솜이를 키워보세요!\n\n돋보기-숨은그림찾기\n솜-솜터트리기(미정)\n시험지-학점받기 "
+   			guideText.text = "솜솜이 키우기\n\n오른쪽에 있는 미니게임으로 코인을 모으세요\n모은 코인으로 상점에서 음식을 구매해 솜솜이를 키워보세요!\n\n돋보기-숨은그림찾기\n솜-솜수집하기\n시험지-학점받기 "
    			local guideExit = display.newImage("image/메인/exit.png")
    			guideExit.x = guideBg.x + 260
    			guideExit.y = guideBg.y - 170

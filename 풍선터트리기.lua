@@ -17,29 +17,22 @@ function scene:create( event )
 	local background = display.newImageRect("image/풍선터트리기/bg.jpg", display.contentWidth, display.contentHeight)
 	background.x, background.y = display.contentWidth/2, display.contentHeight/2
 
-	local gameTitle = display.newText("풍선터트리기", display.contentWidth/2, display.contentHeight/2 - 200, "font/꽃소금체.ttf", 130)
+	local gameTitle = display.newText("솜 수집하기", display.contentWidth/2, display.contentHeight/2 - 200, "font/NanumYeBbeunMinGyeongCe.ttf", 130)
 	gameTitle:setFillColor(0)
 
 	local gBox = display.newRect( display.contentWidth/2, display.contentHeight/2 + 125,370, 80)
 	gBox:setFillColor( 0.5, 0.7, 0.7 )
 	gBox.alpha = 0.8
 
-	local guide = display.newText("GAME GUIDE", display.contentWidth/2, display.contentHeight/2+130, "font/꽃소금체.ttf", 70)
+	local guide = display.newText("GAME GUIDE", display.contentWidth/2, display.contentHeight/2+130, "font/SunriseInternationalDemo.otf", 70)
 	guide:setFillColor(0)
 	
-	local twentyBox = display.newRect( display.contentWidth/2 - 200, display.contentHeight/2 + 245,370, 80)
+	local twentyBox = display.newRect( display.contentWidth/2, display.contentHeight/2+250,370, 80)
 	twentyBox:setFillColor( 0.5, 0.7, 0.7 )
 	twentyBox.alpha = 0.8
 
-	local twentyButton = display.newText("20초", display.contentWidth/2 - 200, display.contentHeight/2+250, "font/꽃소금체.ttf", 70)
+	local twentyButton = display.newText("GAME START", display.contentWidth/2, display.contentHeight/2+250, "font/SunriseInternationalDemo.otf", 70)
 	twentyButton:setFillColor(0)
-
-    local threeBox = display.newRect( display.contentWidth/2 + 200, display.contentHeight/2 + 245,370, 80)
-	threeBox:setFillColor( 0.5, 0.7, 0.7 )
-	threeBox.alpha = 0.8
-
-	local threeButton = display.newText("30초", display.contentWidth/2 + 200, display.contentHeight/2+250, "font/꽃소금체.ttf", 70)
-	threeButton:setFillColor(0)
 
 	local guideExit = display.newImage("image/메인/exit.png")
 	guideExit.x = 1220
@@ -52,8 +45,6 @@ function scene:create( event )
 	   	sceneGroup:insert(gBox)
 	   	sceneGroup:insert(twentyBox)
 	   	sceneGroup:insert(twentyButton)
-		sceneGroup:insert(threeBox)
-	   	sceneGroup:insert(threeButton)
 		sceneGroup:insert(guideExit)
 		audio.pause( backgroundMusicChannel )
 		composer.removeScene("풍선터트리기")
@@ -61,24 +52,7 @@ function scene:create( event )
 	   	composer.gotoScene("풍선터트리기_20초", { time=800, effect="crossFade" })
 	end
 
-	local function ThirtyGame(event)
-		sceneGroup:insert(background)
-		sceneGroup:insert(gameTitle)
-		sceneGroup:insert(guide)
-		sceneGroup:insert(gBox)
-		sceneGroup:insert(twentyBox)
-		sceneGroup:insert(twentyButton)
-	 	sceneGroup:insert(threeBox)
-		sceneGroup:insert(threeButton)
-		sceneGroup:insert(guideExit)
-		audio.pause( backgroundMusicChannel )
-		composer.removeScene("풍선터트리기")
-
-		composer.gotoScene("풍선터트리기_30초", { time=800, effect="crossFade" })
- 	end
-
 	 twentyBox:addEventListener("tap", twentyGame)
-	 threeButton:addEventListener("tap", ThirtyGame)
 
 	local function goToGuide(event)
 		sceneGroup:insert(background)
@@ -87,8 +61,6 @@ function scene:create( event )
 		sceneGroup:insert(gBox)
 		sceneGroup:insert(twentyBox)
 		sceneGroup:insert(twentyButton)
-		sceneGroup:insert(threeBox)
-		sceneGroup:insert(threeButton)
 		sceneGroup:insert(guideExit)
 		audio.pause( backgroundMusicChannel )
 		composer.removeScene("풍선터트리기")
@@ -105,8 +77,6 @@ function scene:create( event )
 		sceneGroup:insert(gBox)
 		sceneGroup:insert(twentyBox)
 		sceneGroup:insert(twentyButton)
-		sceneGroup:insert(threeBox)
-		sceneGroup:insert(threeButton)
 		sceneGroup:insert(guideExit)
 		audio.pause( backgroundMusicChannel )
 		composer.removeScene("풍선터트리기")
