@@ -18,12 +18,12 @@ function scene:create( event )
 	local sceneGroup = self.view
    local loadedClothes = loadsave.loadTable( "clothes.json" )
    local loadedItems= loadsave.loadTable( "items.json" )
-local loadedSettings= loadsave.loadTable( "settings.json" )
+   local loadedSettings= loadsave.loadTable( "settings.json" )
 	
-  eat = loadedSettings.eat
-  apply = loadedSettings.apply
+   eat = loadedSettings.eat
+   apply = loadedSettings.apply
 
-  print("eat"..eat.."apply"..apply)
+   print("eat"..eat.."apply"..apply)
    local soundEffect = audio.loadSound( "bgm/main_bg.mp3" )
    local backgroundMusicChannel = audio.play( soundEffect, {loops=-1} )
 	audio.setVolume( 2 )
@@ -60,10 +60,10 @@ local loadedSettings= loadsave.loadTable( "settings.json" )
 	}
 
 	
-	local sheet1 = graphics.newImageSheet("image/모션/ad.png", option1)
+	local sheet1 = graphics.newImageSheet("image/모션/ad2.png", option1)
 	local sheet2 = graphics.newImageSheet("image/모션/bb.png", option2)
-	local sheet3 = graphics.newImageSheet("image/모션/tn.png", option3)
-	local sheet4 = graphics.newImageSheet("image/모션/kd.png", option4)
+	local sheet3 = graphics.newImageSheet("image/모션/tn2.png", option3)
+	local sheet4 = graphics.newImageSheet("image/모션/kd2.png", option4)
 	
 	local sq1 = {
 		-- consecutive frames sequence
@@ -79,18 +79,18 @@ local loadedSettings= loadsave.loadTable( "settings.json" )
 		{
 			name="ad-eat",
 			frames= {4, 1},
-			time = 1500,
+			time = 2000,
 			loopCount = 3,
 		},
 		{
 			name="ad-click",
-			frames= {3, 1},
+			frames= {5, 1},
 			time = 1000,
 			loopCount = 3,
 		},
       {
 			name="ad-apply",
-			frames= {2, 1},
+			frames= {3, 1},
 			time = 1000,
 			loopCount = 3,
 		},
@@ -98,27 +98,27 @@ local loadedSettings= loadsave.loadTable( "settings.json" )
 		{
 			name="tn-eat",
 			frames= {4, 1},
-			time = 1500,
+			time = 2000,
 			loopCount = 3,
 		},
 		{
 			name="tn-click",
-			frames= {3, 1},
+			frames= {5, 1},
 			time = 1000,
-			loopCount = 3,
+			loopCount = 2,
 		},
 
 		{
 			name="kd-eat",
 			frames= {4, 1},
-			time = 1500,
+			time = 2000,
 			loopCount = 3,
 		},
 		{
 			name="kd-click",
-			frames= {3, 1},
+			frames= {5, 1},
 			time = 1000,
-			loopCount = 3,
+			loopCount = 2,
 		}
 	}
 	local sq2 = {
@@ -134,14 +134,14 @@ local loadedSettings= loadsave.loadTable( "settings.json" )
 		{
 			name="bb-eat",
 			frames= {2, 3},
-			time = 1500,
+			time = 2000,
 			loopCount = 3,
 		},
 		{
 			name="bb-click",
 			frames= {2, 4},
 			time = 1000,
-			loopCount = 3,
+			loopCount = 2,
 		}
 	}
 
@@ -170,11 +170,11 @@ local loadedSettings= loadsave.loadTable( "settings.json" )
 	-- ad.name = "adult"
  --   sceneGroup:insert(ad)
 
-local ad
-local tn
-local kd
-local bb
-  function clickSom(event)
+   local ad
+   local tn
+   local kd
+   local bb
+   function clickSom(event)
       if event.target.name == "adult" then
          ad:setSequence("ad-click")
          ad:play()
@@ -189,40 +189,100 @@ local bb
          bb:play()
       end
    end
-   if loadedSettings.level >= 20 then
-    ad = display.newSprite(sheet1, sq1)
-  	ad:setSequence("stay")
-  	ad:play()
-  	ad.x = display.contentCenterX + 300
-  	ad.y = display.contentCenterY - 50
-  	ad.name = "adult"
-    ad:addEventListener("tap", clickSom)
-  elseif  loadedSettings.level >= 10 then
-    tn = display.newSprite(sheet3, sq1)
-    tn:setSequence("stay")
-    tn:play()
-    tn.x = display.contentCenterX 
-    tn.y = display.contentCenterY - 60
-    tn.name = "teen"
-    tn:addEventListener("tap", clickSom)
-  elseif loadedSettings.level >= 5 then
-    kd = display.newSprite(sheet4, sq1)
-    kd:setSequence("stay")
-    kd:play()
-    kd.x = display.contentCenterX - 240
-    kd.y = display.contentCenterY + 35
-    kd.name = "kid"
-    kd:addEventListener("tap", clickSom)
-  else
-    bb = display.newSprite(sheet2, sq2)
-    bb:setSequence("stay")
-    bb:play()
-    bb.x = display.contentCenterX - 450
-    bb.y = display.contentCenterY + 150
-    bb.name = "baby"
-    bb:addEventListener("tap", clickSom)
-  end
 
+   if loadedSettings.level >= 20 then
+      ad = display.newSprite(sheet1, sq1)
+      ad:setSequence("stay")
+      ad:play()
+      ad.x = display.contentCenterX - 2
+      ad.y = 412
+      ad.name = "adult"
+      sceneGroup:insert(ad)
+      ad:addEventListener("tap", clickSom)
+
+      if apply == 1 then
+         ad:setSequence("ad-apply")
+         ad:play()
+         loadedSettings.apply=0
+         loadsave.saveTable(loadedSettings,"settings.json")      
+      end
+   
+      if eat == 1 then
+         ad:setSequence("ad-eat")
+         ad:play()
+         loadedSettings.eat = 0
+         loadsave.saveTable(loadedSettings,"settings.json")
+      end
+   elseif  loadedSettings.level >= 10 then
+      tn = display.newSprite(sheet3, sq1)
+      tn:setSequence("stay")
+      tn:play()
+      tn.x = display.contentCenterX 
+      tn.y = display.contentCenterY + 80
+      tn.name = "teen"
+      sceneGroup:insert(tn)
+      tn:addEventListener("tap", clickSom)
+
+      if apply == 1 then
+         tn:setSequence("tn-apply")
+         tn:play()
+         loadedSettings.apply=0
+         loadsave.saveTable(loadedSettings,"settings.json")      
+      end
+
+      if eat == 1 then
+         tn:setSequence("tn-eat")
+         tn:play()
+         loadedSettings.eat = 0
+         loadsave.saveTable(loadedSettings,"settings.json")
+      end
+   elseif loadedSettings.level >= 5 then
+      kd = display.newSprite(sheet4, sq1)
+      kd:setSequence("stay")
+      kd:play()
+      kd.x = display.contentCenterX 
+      kd.y = display.contentCenterY + 95
+      kd.name = "kid"
+      sceneGroup:insert(kd)
+      kd:addEventListener("tap", clickSom)
+
+      if apply == 1 then
+         kd:setSequence("kd-apply")
+         kd:play()
+         loadedSettings.apply=0
+         loadsave.saveTable(loadedSettings,"settings.json")      
+      end
+   
+      if eat == 1 then
+         kd:setSequence("kd-eat")
+         kd:play()
+         loadedSettings.eat = 0
+         loadsave.saveTable(loadedSettings,"settings.json")
+      end
+   else
+      bb = display.newSprite(sheet2, sq2)
+      bb:setSequence("stay")
+      bb:play()
+      bb.x = display.contentCenterX 
+      bb.y = display.contentCenterY + 180
+      bb.name = "baby"
+      sceneGroup:insert(bb)
+      bb:addEventListener("tap", clickSom)
+
+      if apply == 1 then
+         bb:setSequence("bb-apply")
+         bb:play()
+         loadedSettings.apply=0
+         loadsave.saveTable(loadedSettings,"settings.json")      
+      end
+   
+      if eat == 1 then
+         bb:setSequence("bb-eat")
+         bb:play()
+         loadedSettings.eat = 0
+         loadsave.saveTable(loadedSettings,"settings.json")
+      end
+   end
 
 	-- bb:addEventListener("tap", clickSom)
 	-- tn:addEventListener("tap", clickSom)
@@ -559,21 +619,6 @@ local bb
 	cloud5.x = 980
 	cloud5.y = 285
 	sceneGroup:insert(cloud5)
-
-   if apply == 1 then
-      ad:setSequence("ad-apply")
-      ad:play()
-      loadedSettings.apply=0
-      loadsave.saveTable(loadedSettings,"settings.json")      
-   end
-
-
-   if eat == 1 then
-      ad:setSequence("ad-eat")
-      ad:play()
-      loadedSettings.eat = 0
-      loadsave.saveTable(loadedSettings,"settings.json")
-   end
 
 
 	function gotoPic( event )
