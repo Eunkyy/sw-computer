@@ -36,6 +36,15 @@ function scene:create( event )
 	exit.x,exit.y = display.contentWidth*0.05,display.contentHeight*0.1
 	sceneGroup:insert(exit)
 
+	local pn= display.newImageRect("image/UI/pannel.png",420,180)
+	pn.x,pn.y = display.contentWidth/2,display.contentHeight*0.13
+	sceneGroup:insert(pn)
+
+	local coin = display.newText("+ 500 coin!",display.contentWidth*0.47, display.contentHeight*0.18,"font/NanumJangMiCe.ttf")
+	coin:setFillColor(0.8,0.2,0.2)
+	coin.size = 68
+	sceneGroup:insert(coin)
+
 	local exitText = display.newText("나가기",display.contentWidth*0.05,display.contentHeight*0.2)
 	exitText:setFillColor(0)
 	exitText.size =40

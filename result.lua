@@ -94,10 +94,29 @@ function scene:create( event )
 		endText.text = "CLEAR"
 		quit.text = "quit"
 		quit:addEventListener("tap", exitGame)
+
+		local pn= display.newImageRect("image/UI/pannel.png",420,180)
+		pn.x,pn.y = display.contentWidth/2,display.contentHeight*0.13
+		sceneGroup:insert(pn)
+
+		local coin = display.newText("+ 500 coin!",display.contentWidth*0.47, display.contentHeight*0.18,"font/NanumJangMiCe.ttf")
+		coin:setFillColor(0.8,0.2,0.2)
+		coin.size = 68
+		sceneGroup:insert(coin)
 	elseif resultScore <= 0 then
 		endText.text = "GAME OVER"
 		endText.size = 170
 		endText.y = display.contentHeight/2 - 150
+			
+		local pn= display.newImageRect("image/UI/pannel.png",420,180)
+		pn.x,pn.y = display.contentWidth/2,display.contentHeight*0.13
+		sceneGroup:insert(pn)
+
+		local coin = display.newText("+ 100 coin!",display.contentWidth*0.47, display.contentHeight*0.18,"font/NanumJangMiCe.ttf")
+		coin:setFillColor(0.8,0.2,0.2)
+		coin.size = 68
+		sceneGroup:insert(coin)
+
 		retry.alpha = 1
 		retry:addEventListener("tap", reGame)
 		quit2.alpha = 1		
