@@ -174,7 +174,7 @@ local function apply_function2(event)
 	popup.x, popup.y = display.contentWidth*0.5, display.contentHeight*0.5
 	sceneGroup:insert(popup)
 
-	local itemImg = display.newImageRect("image/가방/" .. item .. ".jpeg",300,200)
+	local itemImg = display.newImageRect("image/가방/" .. item .. ".jpeg",200,200)
 	itemImg.x, itemImg.y = display.contentWidth*0.5, display.contentHeight*0.45
 	sceneGroup:insert(itemImg)
 
