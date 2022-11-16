@@ -19,8 +19,8 @@ function scene:create( event )
 	local backgroundMusicChannel = audio.play( soundEffect, {loops=0} )
 	audio.setVolume( 2 )
 
-	local background= display.newImageRect("image/풍선터트리기/white.png",1280,720)
-	background.x,background.y = display.contentWidth/2,display.contentHeight/2
+	local background = display.newImageRect("image/풍선터트리기/bg.jpg", display.contentWidth, display.contentHeight)
+	background.x, background.y = display.contentWidth/2, display.contentHeight/2
 	sceneGroup:insert(background)
 
 	local t= display.newImageRect("image/풍선터트리기/실패테두리.png",500,500)

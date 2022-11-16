@@ -10,17 +10,12 @@ local scene = composer.newScene()
 local widget = require( "widget" )
 
 local num = {}	
-for i = 0, 5, 1 do
-	local x = math.random(1, 20)
-	if x ~= num[0] and x ~= num[1] and x ~= num[2] then
-		num[i] = x
-	end
-
-	if #num == 3 then
-		break
-	end
-end
-
+local x1 = math.random(1, 7)
+local x2 = math.random(8, 14)
+local x3 = math.random(15, 20)
+num[0] = x1
+num[1] = x2
+num[2] = x3
 print(num[0],num[1], num[2])
 
 local ok = {}
@@ -53,40 +48,35 @@ function scene:create( event )
 	sceneGroup:insert(som)
 
     --timer
-    local  time = 20
+    local  time = 21
     local  cText = display.newText("20", background.x + 450, background.y-300, "font/꽃소금체.ttf", 80)
     cText:setFillColor(1, 0.2, 0.2) -- 빨간 색
 	sceneGroup:insert(cText)
 
 	local function gotoResult(flag)
-		timer.cancelAll() 
 		composer.removeScene("풍선터트리기_20초")
 		audio.pause( backgroundMusicChannel )
 		if flag == 1 then
 			composer.gotoScene("풍선_success")
-		elseif flag == -1 then
-			composer.gotoScene("풍선_over")
 		end
+		timer.cancelAll() 
 	end
 
 	local function Timer( event )
 		time = time - 1
 		local tLeft = string.format("%02d", time)
-       cText.text = tLeft
+       	cText.text = tLeft
 
-       if time < 0.5 then
-    		flag = -1
-       		gotoResult(flag)
+       if time == 0 or time < 0 then
+			timer.cancelAll() 
+			composer.removeScene("풍선터트리기_20초")
+			composer.gotoScene("풍선_over")
        end
     end	
 
-
-	-- 풍선 or 폭탄 누르면 점수 처리하는 함수
-	local image = {} -- 풍선과 폭탄
+	local image = {}
 	function tapEvent(event)
 		if event.phase == "began" then
-			print("tapEvent() called")
-			local flag = 0
 
 			if event.target.name == "b1" then -- balloon	
 				transition.fadeOut(image[ok[1]], {time=40})
@@ -124,15 +114,15 @@ function scene:create( event )
 				transition.fadeOut(image[ok[17]], {time=40})
 			elseif event.target.name == "b18" then
 				transition.fadeOut(image[ok[18]], {time=40})
-				time = time-3
+				time = time-5
 				print("시간")
 			elseif event.target.name == "b19" then
 				transition.fadeOut(image[ok[19]], {time=40})
-				time = time-3
+				time = time-5
 				print("시간")
 			elseif event.target.name == "b20" then
 				transition.fadeOut(image[ok[20]], {time=40})
-				time = time-3
+				time = time-5
 				print("시간")
 			end
 
@@ -146,22 +136,12 @@ function scene:create( event )
 					image[ok[10]].alpha == 0 and image[ok[11]].alpha == 0 and image[ok[12]].alpha == 0 and image[ok[13]].alpha == 0 and
 					image[ok[14]].alpha == 0 and image[ok[15]].alpha == 0 and image[ok[16]].alpha == 0 and image[ok[17]].alpha == 0 then
 				flag = 1
+				print(flag)
 				gotoResult(flag)
 			end
 		end
 
-		function checkBomb()
-			-- 폭탄이 다 터졌을 때	
-			if image[num[0]].alpha == 0 and image[num[1]].alpha == 0 and image[num[2]].alpha == 0 then
-				flag = 0
-			end
-		end
-
-		-- 풍선과 폭탄이 시간을 두고 fadeOut 하기 때문에 체크 함수는 100ms 후에 돌아가도록 설정
-		
 		timer.performWithDelay(100, checkSom)
-		timer.performWithDelay(100, checkBomb)
-
 	end
 
 	-- create image button
@@ -224,7 +204,34 @@ function scene:create( event )
 		sceneGroup:insert(image[i])
 	end
 	local tmr1 = timer.performWithDelay(1000, Timer, time) --1초마다 Timer를 불러와줌
-	local tmr2 = timer.performWithDelay(20*1000, gotoResult, time)
+
+		
+	local startBG = display.newImageRect("image/풍선터트리기/bg.jpg", display.contentWidth, display.contentHeight)
+	startBG.x, startBG.y = display.contentWidth/2, display.contentHeight/2
+	local b1 = display.newImage("image/풍선터트리기/bomb.png")
+	b1.x = image[ok[18]].x
+	b1.y = image[ok[18]].y
+	local b2 = display.newImage("image/풍선터트리기/bomb.png")
+	b2.x = image[ok[19]].x
+	b2.y = image[ok[19]].y
+	local b3 = display.newImage("image/풍선터트리기/bomb.png")
+	b3.x = image[ok[20]].x
+	b3.y = image[ok[20]].y
+
+	local time2 = 0.5
+
+	local function timer_start( event )
+		time2 = time2 - 0.5
+
+		if time2 == 0 then
+			transition.fadeOut(startBG, {time=500, delay=500})
+			transition.fadeOut(b1, {time=500, delay=500})
+			transition.fadeOut(b2, {time=500, delay=500})
+			transition.fadeOut(b3, {time=500, delay=500})		
+		end
+	end
+	local tmr2 = timer.performWithDelay(500, timer_start, time2) -- 초기 화면
+
 
 end
 
