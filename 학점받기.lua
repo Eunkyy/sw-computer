@@ -38,6 +38,10 @@ function scene:create( event )
 	local startButton = display.newText("GAME START", display.contentWidth/2, display.contentHeight/2+250, "font/SunriseInternationalDemo.otf", 70)
 	startButton:setFillColor(0)
 
+	local guideExit = display.newImage("image/메인/exit.png")
+	guideExit.x = 1220
+	guideExit.y = 22
+
 	local function startGame(event)
 	   	sceneGroup:insert(background)
 	   	sceneGroup:insert(gameTitle)
@@ -46,6 +50,7 @@ function scene:create( event )
 	   	sceneGroup:insert(gBox)
 	   	sceneGroup:insert(sBox)
 	   	sceneGroup:insert(startButton)
+	   	sceneGroup:insert(guideExit)
 		composer.removeScene("학점받기")
 
 	   	composer.gotoScene("game_main", { time=800, effect="crossFade" })
@@ -61,12 +66,30 @@ function scene:create( event )
 	   	sceneGroup:insert(gBox)
 	   	sceneGroup:insert(sBox)
 	   	sceneGroup:insert(startButton)
+	   	sceneGroup:insert(guideExit)
 
 		composer.removeScene("학점받기")
 	   	composer.gotoScene("gameGuide", { time=800, effect="crossFade" })
 	end
 
 	gBox:addEventListener("tap", goToGuide)
+
+	local function goToMain(event)
+		sceneGroup:insert(background)
+		sceneGroup:insert(gameTitle)
+		sceneGroup:insert(gameTitle1)
+		sceneGroup:insert(guide)
+		sceneGroup:insert(gBox)
+		sceneGroup:insert(sBox)
+		sceneGroup:insert(startButton)
+		sceneGroup:insert(guideExit)
+
+		composer.removeScene("학점받기")
+		composer.gotoScene("메인화면", { time=800, effect="crossFade" })
+ 	end
+
+ 	guideExit:addEventListener("tap", goToMain)
+
 end
 
 function scene:show( event )

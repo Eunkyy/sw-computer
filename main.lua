@@ -12,7 +12,7 @@ local widget = require "widget"
 local composer = require "composer"
 
 local function goStart( event )
-    composer.gotoScene( "intro" )
+    composer.gotoScene( "풍선터트리기" )
 end
 
 goStart()
