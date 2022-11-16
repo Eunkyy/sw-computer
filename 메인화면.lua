@@ -617,20 +617,20 @@ function scene:create( event )
 	sceneGroup:insert(cloud5)
 
    --레벨&돈
-   local text = display.newText("LEVEL : ".. loadedSettings.level.."  money : "..loadedSettings.money, display.contentWidth/2, display.contentHeight*0.12, "font/NanumSquareRoundB.ttf", 20)
-   text:setFillColor(1,0,0)
+   local text = display.newText("| LV.".. loadedSettings.level.." | money:"..loadedSettings.money.." |", display.contentWidth * 0.2, display.contentHeight*0.058, "font/NanumJangMiCe.ttf", 50)
+   text:setFillColor(0)
    sceneGroup:insert(text)
 
 local gage = display.newImageRect( "image/UI/gage.png", 550, 200 )
-  gage.x = display.contentWidth/2
+  gage.x = display.contentWidth/2 + 100
   gage.y = display.contentHeight*0.17
   sceneGroup:insert(gage)
 
 local ht = display.newImageRect( "image/UI/ht.png", 100, 100 )
   if loadedSettings.level < 29 then
-      ht.x = 340+ loadedSettings.level * 18
+      ht.x = 340+ loadedSettings.level * 18 + 100
   else
-      ht.x = 340+ 540
+      ht.x = 340+ 640
   end
    ht.y = display.contentHeight*0.065
   sceneGroup:insert(ht)

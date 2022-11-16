@@ -121,6 +121,24 @@ function scene:create( event )
     time = 2000
   }
 
+  function inputEvent( event )
+      if event.target.name=="T" then
+                transition.to(player,{x=player.x-display.contentHeight/10})
+      elseif event.target.name=="B" then
+                transition.to(player,{x = player.x+display.contentHeight/10})
+      end
+    end
+
+    local buttonUI={}
+-- 8) 버튼 이미지 삽입 및 함수연결
+    buttonUI[1] = widget.newButton ({ defaultFile = "image/Left.png", overFile = "image/Left.png", width = 150, height = 150, onPress = inputEvent})
+    buttonUI[1].x, buttonUI [1].y = display.contentWidth/2 +400, display.contentHeight - 150
+    buttonUI[1].name = "T"
+
+    buttonUI[2] = widget.newButton ({ defaultFile = "image/Right.png", overFile = "image/Right.png", width = 150, height = 150, onPress = inputEvent})
+    buttonUI[2].x, buttonUI [2].y = display.contentWidth/2 + 550,  display.contentHeight- 150
+    buttonUI[2].name = "B"
+
     local function endGame(event)
         for i = #goodGrade,1,-1 do
              sceneGroup:insert(goodGrade[i])
@@ -131,6 +149,8 @@ function scene:create( event )
              table.remove(badGrade, i)
         end
 
+    sceneGroup:insert(buttonUI[1])
+    sceneGroup:insert(buttonUI[2])
         composer.setVariable("score", score)
         audio.pause( backgroundMusicChannel )
         composer.removeScene("game_main")
@@ -192,7 +212,7 @@ function scene:create( event )
                           break
                       end
                     end
-                    score = score - 100
+                    score = score - 500
                    scoreText.text = "Score: " .. score
 
                     print(score.."-score 점수 1")
@@ -223,23 +243,6 @@ function scene:create( event )
     end
     Runtime:addEventListener( "collision", onCollision, 0)
 
-  function inputEvent( event )
-      if event.target.name=="T" then
-                transition.to(player,{x=player.x-display.contentHeight/10})
-      elseif event.target.name=="B" then
-                transition.to(player,{x = player.x+display.contentHeight/10})
-      end
-    end
-
-local buttonUI={}
--- 8) 버튼 이미지 삽입 및 함수연결
-    buttonUI[1] = widget.newButton ({ defaultFile = "image/Left.png", overFile = "image/Left.png", width = 150, height = 150, onPress = inputEvent})
-    buttonUI[1].x, buttonUI [1].y = display.contentWidth/2 +400, display.contentHeight - 150
-    buttonUI[1].name = "T"
-
-    buttonUI[2] = widget.newButton ({ defaultFile = "image/Right.png", overFile = "image/Right.png", width = 150, height = 150, onPress = inputEvent})
-    buttonUI[2].x, buttonUI [2].y = display.contentWidth/2 + 550,  display.contentHeight- 150
-    buttonUI[2].name = "B"
 
       sceneGroup:insert(backGroup)
       sceneGroup:insert(mainGroup)
