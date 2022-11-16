@@ -9,7 +9,7 @@ local composer = require( "composer" )
 local scene = composer.newScene()
 local json = require( "json" ) 
 
-local loadedSettings = loadsave.loadTable( "setting.json" )
+local loadedSettings = loadsave.loadTable( "settings.json" )
 local loadedItems= loadsave.loadTable( "items.json" )
 
 -- 2) 전달한 변수값 불러오기
