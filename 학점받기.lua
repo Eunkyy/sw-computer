@@ -10,7 +10,7 @@ local scene = composer.newScene()
 function scene:create( event )
 	local sceneGroup = self.view
 
-	local soundEffect = audio.loadSound( "bgm/report_bg.mp3" )
+	local soundEffect = audio.loadSound( "bgm/game_main.mp3" )
 	local backgroundMusicChannel = audio.play( soundEffect, {loops=-1} )
 	audio.setVolume( 1 )
 	
@@ -51,6 +51,7 @@ function scene:create( event )
 	   	sceneGroup:insert(sBox)
 	   	sceneGroup:insert(startButton)
 	   	sceneGroup:insert(guideExit)
+	   	audio.pause( backgroundMusicChannel )
 		composer.removeScene("학점받기")
 
 	   	composer.gotoScene("game_main", { time=800, effect="crossFade" })
@@ -67,7 +68,7 @@ function scene:create( event )
 	   	sceneGroup:insert(sBox)
 	   	sceneGroup:insert(startButton)
 	   	sceneGroup:insert(guideExit)
-
+	   	audio.pause( backgroundMusicChannel )
 		composer.removeScene("학점받기")
 	   	composer.gotoScene("gameGuide", { time=800, effect="crossFade" })
 	end
@@ -83,7 +84,7 @@ function scene:create( event )
 		sceneGroup:insert(sBox)
 		sceneGroup:insert(startButton)
 		sceneGroup:insert(guideExit)
-
+		audio.pause( backgroundMusicChannel )
 		composer.removeScene("학점받기")
 		composer.gotoScene("메인화면", { time=800, effect="crossFade" })
  	end

@@ -10,11 +10,6 @@ local json = require( "json" )
 local widget = require "widget"
 
 local buttonUI = {}
-local soundTable = {
-		bgSound = audio.loadSound( "bgm/main_bg.mp3" ),
-		storeSound = audio.loadSound( "bgm/store_cilck.mp3" )
-	}
-
   -- eat = composer.getVariable("eat")
   -- apply = composer.getVariable("apply")
 
@@ -29,7 +24,8 @@ local loadedSettings= loadsave.loadTable( "settings.json" )
   apply = loadedSettings.apply
 
   print("eat"..eat.."apply"..apply)
-	local backgroundMusicChannel = audio.play( soundTable["bgSound"], {loops=-1} )
+   local soundEffect = audio.loadSound( "bgm/main_bg.mp3" )
+   local backgroundMusicChannel = audio.play( soundEffect, {loops=-1} )
 	audio.setVolume( 2 )
 
    local option1 =
@@ -562,8 +558,8 @@ local loadedSettings= loadsave.loadTable( "settings.json" )
 	end
 
 	function gotoStore( event )
-		audio.play( soundTable["storeSound"], {loops=0} )
 		audio.pause( backgroundMusicChannel )
+      composer.removeScene("메인화면")
 		composer.gotoScene("상점")
 	end
 
@@ -582,28 +578,30 @@ local loadedSettings= loadsave.loadTable( "settings.json" )
         elseif event.target.name == "report" then
             --transition.to(buttonUI[3], {time = 500, alpha = 0})
             local t3 = timer.performWithDelay(1000, gotoRepo, 1)
-        elseif event.target.name == "store" then
+        --elseif event.target.name == "store" then
             --transition.to(buttonUI[4], {time = 500, alpha = 0})
-            local t4 = timer.performWithDelay(1000, gotoStore, 1)
+            --local t4 = timer.performWithDelay(1000, gotoStore, 1)
         elseif event.target.name == "question" then
-			local guideBg = display.newRect(display.contentCenterX, display.contentCenterY, 600, 400)
-			local guideText = display.newText(" ", display.contentWidth/2, display.contentHeight/ 2, "font/NanumJangMiCe.ttf", 30)
-			guideText:setFillColor(0)
-			guideText.text = "솜솜이 키우기\n\n오른쪽에 있는 미니게임으로 코인을 모으세요\n모은 코인으로 상점에서 음식을 구매해 솜솜이를 키워보세요!\n\n돋보기-숨은그림찾기\n솜-솜터트리기(미정)\n시험지-학점받기 "
-			local guideExit = display.newImage("image/메인/exit.png")
-			guideExit.x = guideBg.x + 260
-			guideExit.y = guideBg.y - 170
+   			local guideBg = display.newRect(display.contentCenterX, display.contentCenterY, 600, 400)
+   			local guideText = display.newText(" ", display.contentWidth/2, display.contentHeight/ 2, "font/NanumJangMiCe.ttf", 30)
+   			guideText:setFillColor(0)
+   			guideText.text = "솜솜이 키우기\n\n오른쪽에 있는 미니게임으로 코인을 모으세요\n모은 코인으로 상점에서 음식을 구매해 솜솜이를 키워보세요!\n\n돋보기-숨은그림찾기\n솜-솜터트리기(미정)\n시험지-학점받기 "
+   			local guideExit = display.newImage("image/메인/exit.png")
+   			guideExit.x = guideBg.x + 260
+   			guideExit.y = guideBg.y - 170
 
-			function exitGuide(event)
-				display.remove(guideBg)
-				display.remove(guideText)
-				display.remove(guideExit)
-			end
-			guideExit:addEventListener("tap", exitGuide)
-		  elseif event.target.name == "bag" then
-            --transition.to(buttonUI[4], {time = 500, alpha = 0})
-            local t5 = timer.performWithDelay(1000, gotoBag, 1)
+   			function exitGuide(event)
+   				display.remove(guideBg)
+   				display.remove(guideText)
+   				display.remove(guideExit)
+   			end
+
+			   guideExit:addEventListener("tap", exitGuide)
          end
+         --elseif event.target.name == "bag" then
+           -- --transition.to(buttonUI[4], {time = 500, alpha = 0})
+            --local t5 = timer.performWithDelay(1000, gotoBag, 1)
+         --end
     end
 
 	
@@ -637,13 +635,25 @@ local loadedSettings= loadsave.loadTable( "settings.json" )
 	buttonUI[3].name = "report"
 	sceneGroup:insert(buttonUI[3])
 
-	buttonUI[4] = widget.newButton(
-		{	defaultFile = "image/메인/store.png", overFile = "image/메인/store.png",
-			width = 300, height = 310, onPress = inputEvent})
-	buttonUI[4].x = 180
-	buttonUI[4].y = 450
-	buttonUI[4].name = "store"
-	sceneGroup:insert(buttonUI[4])
+   function tapListener( event )
+      local clicksoundEffect = audio.loadSound( "bgm/Door Open.mp3" )
+      local CilckMusicChannel = audio.play( clicksoundEffect, {loops=0} )
+      audio.setVolume( 5 )
+   end
+
+   local store = display.newImageRect("image/메인/store.png", 300, 310)
+   store.x = 180
+   store.y = 450
+	--buttonUI[4] = widget.newButton(
+		--{	defaultFile = "image/메인/store.png", overFile = "image/메인/store.png",
+		--	width = 300, height = 310, onPress = inputEvent})
+	--buttonUI[4].x = 180
+	--buttonUI[4].y = 450
+	--buttonUI[4].name = "store"
+	sceneGroup:insert(store)
+
+   store:addEventListener("tap", tapListener)
+   store:addEventListener("tap", gotoStore)
 
 	buttonUI[5] = widget.newButton(
 		{	defaultFile = "image/메인/question3.png", overFile = "image/메인/question3.png",
@@ -651,15 +661,29 @@ local loadedSettings= loadsave.loadTable( "settings.json" )
 	buttonUI[5].x = 30
 	buttonUI[5].y = 40
 	buttonUI[5].name = "question"
-	sceneGroup:insert(buttonUI[5])
+   sceneGroup:insert(buttonUI[5])
+	
+   
+   function tapListener2( event )
+      local bagclickSound = audio.loadSound( "bgm/bag_click.mp3" )
+      local bagCilckChannel = audio.play( bagclickSound, {loops=0} )
+      audio.setVolume( 5 )
+   end
 
-   buttonUI[6] = widget.newButton( 
-      { defaultFile = "image/메인/bag.png", overFile = "image/메인/bag.png",
-      width = 110, height = 110, onPress = inputEvent})
-   buttonUI[6].x = 380
-   buttonUI[6].y = 500
-   buttonUI[6].name = "bag"
-   sceneGroup:insert(buttonUI[6])
+   local bag = display.newImageRect("image/메인/bag.png", 110, 110)
+   bag.x = 380
+   bag.y = 500
+   sceneGroup:insert(bag)
+   bag:addEventListener("tap", tapListener2)
+   bag:addEventListener("tap", gotoBag)
+
+   --buttonUI[6] = widget.newButton( 
+     -- { defaultFile = "image/메인/bag.png", overFile = "image/메인/bag.png",
+      --width = 110, height = 110, onPress = inputEvent})
+   --buttonUI[6].x = 380
+   --buttonUI[6].y = 500
+   --buttonUI[6].name = "bag"
+   --sceneGroup:insert(buttonUI[6])
    	
 end
 

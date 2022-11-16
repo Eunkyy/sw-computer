@@ -260,28 +260,37 @@ function scene:create( event )
 	        loadsave.saveTable( items, "items.json" )
 
 
+	function tapListener( event )
+		local clicksoundEffect = audio.loadSound( "bgm/start_click.mp3" )
+		local CilckMusicChannel = audio.play( clicksoundEffect, {loops=0} )
+		audio.setVolume( 7 )
+	end
+
 	function gotoMain( event )
 		audio.pause( backgroundMusicChannel )
 		composer.removeScene("intro")
 		composer.gotoScene( "메인화면" )
 	end
 
-	function inputEvent( event )
-		if event.target.name == "start" then
-			local t = timer.performWithDelay(1000, gotoMain, 1)
-		end
-	end
+	--function inputEvent( event )
+	--	if event.target.name == "start" then
+	--		local t = timer.performWithDelay(1000, gotoMain, 1)
+	--	end
+	--end
 
-	buttonUI[1] = widget.newButton(
-		{ defaultFile = "image/시작화면/start_button.png", overFile = "image/시작화면/start_button.png",
-		width = 980, height = 550, onPress = inputEvent }
-	)
-	buttonUI[1].x = 700
-	buttonUI[1].y = 360
-	buttonUI[1].name = "start"
+	local startButton = display.newImageRect("image/시작화면/start_button.png",980, 550)
+	--buttonUI[1] = widget.newButton(
+	--	{ defaultFile = "image/시작화면/start_button.png", overFile = "image/시작화면/start_button.png",
+	--	width = 980, height = 550, onPress = inputEvent }
+	--)
+	startButton.x = 700
+	startButton.y = 360
 
 	sceneGroup:insert(background)
-	sceneGroup:insert(buttonUI[1])
+	sceneGroup:insert(startButton)
+
+	startButton:addEventListener("tap", tapListener)
+	startButton:addEventListener("tap", gotoMain)
 end
 
 function scene:show( event )

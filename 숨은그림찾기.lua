@@ -9,6 +9,9 @@ local scene = composer.newScene()
 
 function scene:create( event )
 	local sceneGroup = self.view
+	local soundEffect = audio.loadSound( "bgm/game_main.mp3" )
+    local backgroundMusicChannel = audio.play( soundEffect, {loops=-1} )
+    audio.setVolume( 1 )
 	
 	local background = display.newImageRect("image/bg3.jpg", display.contentWidth, display.contentHeight)
 	background.x, background.y = display.contentWidth/2, display.contentHeight/2
@@ -74,6 +77,7 @@ function scene:create( event )
 		sceneGroup:insert(bookBox)
 		sceneGroup:insert(bookButton)
 		sceneGroup:insert(guideExit)
+		audio.pause( backgroundMusicChannel )
 		composer.removeScene("숨은그림찾기")
 
 		composer.gotoScene("숨은그림찾기_노트북", { time=800, effect="crossFade" })
@@ -93,6 +97,7 @@ function scene:create( event )
 		sceneGroup:insert(bookBox)
 		sceneGroup:insert(bookButton)
 		sceneGroup:insert(guideExit)
+		audio.pause( backgroundMusicChannel )
 		composer.removeScene("숨은그림찾기")
 
 		composer.gotoScene("숨은그림찾기_솜솜", { time=800, effect="crossFade" })
@@ -112,6 +117,7 @@ function scene:create( event )
 		sceneGroup:insert(bookBox)
 		sceneGroup:insert(bookButton)
 		sceneGroup:insert(guideExit)
+		audio.pause( backgroundMusicChannel )
 		composer.removeScene("숨은그림찾기")
 
 		composer.gotoScene("숨은그림찾기_연필", { time=800, effect="crossFade" })
@@ -131,6 +137,7 @@ function scene:create( event )
 		sceneGroup:insert(bookBox)
 		sceneGroup:insert(bookButton)
 		sceneGroup:insert(guideExit)
+		audio.pause( backgroundMusicChannel )
 		composer.removeScene("숨은그림찾기")
 
 		composer.gotoScene("숨은그림찾기_전공책", { time=800, effect="crossFade" })
@@ -157,6 +164,7 @@ function scene:create( event )
 		sceneGroup:insert(bookBox)
 		sceneGroup:insert(bookButton)
 		sceneGroup:insert(guideExit)
+		audio.pause( backgroundMusicChannel )
 		composer.removeScene("숨은그림찾기")
 
 	   	composer.gotoScene("gameGuide_숨은그림", { time=800, effect="crossFade" })
@@ -178,7 +186,7 @@ function scene:create( event )
 		sceneGroup:insert(bookBox)
 		sceneGroup:insert(bookButton)
 		sceneGroup:insert(guideExit)
-
+		audio.pause( backgroundMusicChannel )
 		composer.removeScene("숨은그림찾기")
 		composer.gotoScene("메인화면", { time=800, effect="crossFade" })
  	end

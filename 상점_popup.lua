@@ -15,11 +15,6 @@ local loadedFood=loadsave.loadTable("food.json")
 function scene:create( event )
 	local sceneGroup = self.view
 
-
-	local soundEffect = audio.loadSound( "bgm/store_bg.mp3" )
-	local backgroundMusicChannel = audio.play( soundEffect, {loops=-1} )
-	audio.setVolume( 2 )
-
 	local item=composer.getVariable("item", item)
 	local money=composer.getVariable("money", money)
 

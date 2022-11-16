@@ -13,6 +13,9 @@ local lives = composer.getVariable("live")
 
 function scene:create( event )
 	local sceneGroup = self.view
+	local soundEffect = audio.loadSound( "bgm/game_guide.mp3" )
+	local backgroundMusicChannel = audio.play( soundEffect, {loops=-1} )
+	audio.setVolume( 1 )
 
 	local background = display.newImageRect("image/bg2_.jpg", display.contentWidth, display.contentHeight)
 	background.x, background.y = display.contentWidth/2, display.contentHeight/2
@@ -40,6 +43,7 @@ function scene:create( event )
 	button:setFillColor(0.9, 0.5, 0.5)
 
 	local function buttonClick()
+		audio.pause( backgroundMusicChannel )
 		composer.removeScene("gameGuide")
 
 		sceneGroup:insert(background)

@@ -161,6 +161,7 @@ function scene:create( event )
 		money = event.target.id
 		composer.setVariable("item", item)
 		composer.setVariable("money", money)
+		--audio.pause( backgroundMusicChannel )
 		composer.removeScene("가방_음식")
 	   	composer.gotoScene("가방_음식_popup")
 

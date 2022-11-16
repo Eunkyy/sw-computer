@@ -9,6 +9,10 @@ local scene = composer.newScene()
 
 function scene:create( event )
 	local sceneGroup = self.view
+	local soundEffect = audio.loadSound( "bgm/game_main.mp3" )
+    local backgroundMusicChannel = audio.play( soundEffect, {loops=-1} )
+    audio.setVolume( 1 )
+	
 	
 	local background = display.newImageRect("image/풍선터트리기/bg.jpg", display.contentWidth, display.contentHeight)
 	background.x, background.y = display.contentWidth/2, display.contentHeight/2
@@ -51,6 +55,7 @@ function scene:create( event )
 		sceneGroup:insert(threeBox)
 	   	sceneGroup:insert(threeButton)
 		sceneGroup:insert(guideExit)
+		audio.pause( backgroundMusicChannel )
 		composer.removeScene("풍선터트리기")
 
 	   	composer.gotoScene("풍선터트리기_20초", { time=800, effect="crossFade" })
@@ -66,6 +71,7 @@ function scene:create( event )
 	 	sceneGroup:insert(threeBox)
 		sceneGroup:insert(threeButton)
 		sceneGroup:insert(guideExit)
+		audio.pause( backgroundMusicChannel )
 		composer.removeScene("풍선터트리기")
 
 		composer.gotoScene("풍선터트리기_30초", { time=800, effect="crossFade" })
@@ -84,6 +90,7 @@ function scene:create( event )
 		sceneGroup:insert(threeBox)
 		sceneGroup:insert(threeButton)
 		sceneGroup:insert(guideExit)
+		audio.pause( backgroundMusicChannel )
 		composer.removeScene("풍선터트리기")
 
 	   	composer.gotoScene("gameGuide_풍선", { time=800, effect="crossFade" })
@@ -101,7 +108,7 @@ function scene:create( event )
 		sceneGroup:insert(threeBox)
 		sceneGroup:insert(threeButton)
 		sceneGroup:insert(guideExit)
-
+		audio.pause( backgroundMusicChannel )
 		composer.removeScene("풍선터트리기")
 		composer.gotoScene("메인화면", { time=800, effect="crossFade" })
  	end

@@ -15,6 +15,9 @@ local widget=require("widget")
    
 function scene:create( event )
     local sceneGroup = self.view
+    local soundEffect = audio.loadSound( "bgm/report_bg.mp3" )
+    local backgroundMusicChannel = audio.play( soundEffect, {loops=-1} )
+    audio.setVolume( 1 )
 -- Seed the random number generator
     math.randomseed( os.time() )
 
@@ -129,6 +132,7 @@ function scene:create( event )
         end
 
         composer.setVariable("score", score)
+        audio.pause( backgroundMusicChannel )
         composer.removeScene("game_main")
         composer.gotoScene("result", option)
 
