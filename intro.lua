@@ -31,9 +31,16 @@ function scene:create( event )
 	        --엔딩관련 데이터 파일 생성
 	    end
 	        local settings = {
-				money = 2000,
+				money = 8000,
 				eat = 0,
-				apply =0
+				apply =0,
+
+				level=0,
+				baby=0,
+				child=0,
+				teenager=0,
+				adult=0,
+				state=""
 	        }
 	        loadsave.saveTable( settings, "settings.json" )
 
