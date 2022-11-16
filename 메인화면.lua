@@ -158,11 +158,6 @@ function scene:create( event )
 	--som.alpha = 1
 	--sceneGroup:insert(som)
 
-   --레벨&돈
-   local text = display.newText("LEVEL : ".. loadedSettings.level.."  money : "..loadedSettings.money, display.contentWidth/2, display.contentHeight*0.05, "font/NanumSquareRoundB.ttf", 40)
-   text:setFillColor(1,0,0)
-   sceneGroup:insert(text)
-
  --   local ad = display.newSprite(sheet1, sq1)
 	-- ad:setSequence("stay")
 	-- ad:play()
@@ -621,6 +616,24 @@ function scene:create( event )
 	cloud5.y = 285
 	sceneGroup:insert(cloud5)
 
+   --레벨&돈
+   local text = display.newText("LEVEL : ".. loadedSettings.level.."  money : "..loadedSettings.money, display.contentWidth/2, display.contentHeight*0.12, "font/NanumSquareRoundB.ttf", 20)
+   text:setFillColor(1,0,0)
+   sceneGroup:insert(text)
+
+local gage = display.newImageRect( "image/UI/gage.png", 550, 200 )
+  gage.x = display.contentWidth/2
+  gage.y = display.contentHeight*0.17
+  sceneGroup:insert(gage)
+
+local ht = display.newImageRect( "image/UI/ht.png", 100, 100 )
+  if loadedSettings.level < 29 then
+      ht.x = 340+ loadedSettings.level * 18
+  else
+      ht.x = 340+ 540
+  end
+   ht.y = display.contentHeight*0.065
+  sceneGroup:insert(ht)
 
 	function gotoPic( event )
 		audio.pause( backgroundMusicChannel )
