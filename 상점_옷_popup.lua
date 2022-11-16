@@ -518,6 +518,7 @@ print(item)
 	S3.alpha=0
 
 	 local function buy_popup(event)
+	 	if loadedSetting.level>=20 then
 	 		if loadedSetting.money-money>=0 then
 	 				loadedClothes.cloCount=loadedClothes.cloCount+1
 
@@ -663,8 +664,17 @@ print(item)
 				S3.alpha=1
 				S3text.text="나가기"				
 			end
-		end  
-      S1:addEventListener("tap",buy_popup)
+		else
+			S1.alpha=0
+			S2text.alpha=0
+			buyText.text="  아직 구매할 수 없어요!\n솜솜이가 성인이 돼야해요."
+			S2.alpha=0
+			S3.alpha=1
+			S3text.text="나가기"	
+		end
+
+	end  
+    S1:addEventListener("tap",buy_popup)
 
       local function popup_down(event)
       	composer.removeScene("상점_옷_popup")
