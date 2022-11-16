@@ -73,6 +73,7 @@ function scene:create( event )
 				time=1000
 				}
 			timer.cancelAll()
+			audio.pause( backgroundMusicChannel )
 			composer.removeScene("숨은그림찾기_솜솜")
 			composer.gotoScene("숨은그림찾기_실패",options)
 		end
@@ -82,7 +83,8 @@ function scene:create( event )
 
 	local function find(event)
 		correct.alpha=1
-		timer.cancelAll()      
+		timer.cancelAll()
+		audio.pause( backgroundMusicChannel )      
 		composer.removeScene( "숨은그림찾기_솜솜" )
       local options={
 			effect ="fade",

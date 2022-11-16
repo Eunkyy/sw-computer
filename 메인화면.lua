@@ -204,7 +204,10 @@ function scene:create( event )
          ad:setSequence("ad-apply")
          ad:play()
          loadedSettings.apply=0
-         loadsave.saveTable(loadedSettings,"settings.json")      
+         loadsave.saveTable(loadedSettings,"settings.json")   
+         local ClothesSoundEffect = audio.loadSound("bgm/clothes_change.mp3")
+         local ClothesMusicChannel = audio.play( ClothesSoundEffect, {loop=0})
+         audio.setVolume( 5 )   
       end
    
       if eat == 1 then
@@ -212,6 +215,9 @@ function scene:create( event )
          ad:play()
          loadedSettings.eat = 0
          loadsave.saveTable(loadedSettings,"settings.json")
+         local eatSoundEffect = audio.loadSound("bgm/eat.mp3")
+         local EatMusicChannel = audio.play( eatSoundEffect, {loop=0})
+         audio.setVolume( 5 )
       end
    elseif  loadedSettings.level >= 10 then
       tn = display.newSprite(sheet3, sq1)
@@ -235,6 +241,9 @@ function scene:create( event )
          tn:play()
          loadedSettings.eat = 0
          loadsave.saveTable(loadedSettings,"settings.json")
+         local eatSoundEffect = audio.loadSound("bgm/eat.mp3")
+         local EatMusicChannel = audio.play( eatSoundEffect, {loop=0})
+         audio.setVolume( 5 )
       end
    elseif loadedSettings.level >= 5 then
       kd = display.newSprite(sheet4, sq1)
@@ -258,6 +267,9 @@ function scene:create( event )
          kd:play()
          loadedSettings.eat = 0
          loadsave.saveTable(loadedSettings,"settings.json")
+         local eatSoundEffect = audio.loadSound("bgm/eat.mp3")
+         local EatMusicChannel = audio.play( eatSoundEffect, {loop=0})
+         audio.setVolume( 5 )
       end
    else
       bb = display.newSprite(sheet2, sq2)
@@ -281,6 +293,9 @@ function scene:create( event )
          bb:play()
          loadedSettings.eat = 0
          loadsave.saveTable(loadedSettings,"settings.json")
+         local eatSoundEffect = audio.loadSound("bgm/eat.mp3")
+         local EatMusicChannel = audio.play( eatSoundEffect, {loop=0})
+         audio.setVolume( 5 )
       end
    end
 
