@@ -166,7 +166,7 @@ local function apply_function2(event)
 			loadsave.saveTable(loadedSettings,"settings.json")
 			audio.pause( backgroundMusicChannel )
 			composer.removeScene("가방_음식_popup")
-			composer.gotoScene("메인화면")
+			composer.gotoScene("가방_음식")
 		end
 	end
 
@@ -188,7 +188,7 @@ local function apply_function2(event)
 
 		if (item == "tteokbokki") then
 			if loadedFood.tteokbokki_count > 0 then
-					apply = display.newImageRect("image/UI/bbt.png",130,50)
+					apply = display.newImageRect("image/UI/bbt.png",190,60)
 					apply.x, apply.y = display.contentWidth*0.5, display.contentHeight*0.65
 					sceneGroup:insert(apply)
 					apply:addEventListener("touch",apply_function)
@@ -196,7 +196,7 @@ local function apply_function2(event)
 					text:setFillColor(1)
 					sceneGroup:insert(text)
 			else
-				apply2 = display.newImageRect("image/UI/rbt.png",180,50) --적용중
+				apply2 = display.newImageRect("image/UI/rbt.png",190,60) --적용중
 				apply2.x, apply2.y = display.contentWidth*0.5, display.contentHeight*0.65
 				sceneGroup:insert(apply2)
 				apply2:addEventListener("touch",apply_function2)
@@ -206,7 +206,7 @@ local function apply_function2(event)
 			end
 		elseif (item == "fishCake") then
 			if loadedFood.fishCake_count > 0 then
-					apply = display.newImageRect("image/UI/bbt.png",130,50)
+					apply = display.newImageRect("image/UI/bbt.png",190,60)
 					apply.x, apply.y = display.contentWidth*0.5, display.contentHeight*0.65
 					sceneGroup:insert(apply)
 					apply:addEventListener("touch",apply_function)
@@ -214,7 +214,7 @@ local function apply_function2(event)
 					text:setFillColor(1)
 					sceneGroup:insert(text)
 			else
-				apply2 = display.newImageRect("image/UI/rbt.png",180,50) --적용중
+				apply2 = display.newImageRect("image/UI/rbt.png",190,60) --적용중
 				apply2.x, apply2.y = display.contentWidth*0.5, display.contentHeight*0.65
 				sceneGroup:insert(apply2)
 				apply2:addEventListener("touch",apply_function2)
@@ -224,7 +224,7 @@ local function apply_function2(event)
 			end
 		elseif (item == "sundae") then
 			if loadedFood.sundae_count > 0 then
-					apply = display.newImageRect("image/UI/bbt.png",130,50)
+					apply = display.newImageRect("image/UI/bbt.png",190,60)
 					apply.x, apply.y = display.contentWidth*0.5, display.contentHeight*0.65
 					sceneGroup:insert(apply)
 					apply:addEventListener("touch",apply_function)
@@ -232,7 +232,7 @@ local function apply_function2(event)
 					text:setFillColor(1)
 					sceneGroup:insert(text)
 			else
-				apply2 = display.newImageRect("image/UI/rbt.png",180,50) --적용중
+				apply2 = display.newImageRect("image/UI/rbt.png",190,60) --적용중
 				apply2.x, apply2.y = display.contentWidth*0.5, display.contentHeight*0.65
 				sceneGroup:insert(apply2)
 				apply2:addEventListener("touch",apply_function2)
@@ -242,7 +242,7 @@ local function apply_function2(event)
 			end
 		elseif (item == "steak") then
 			if loadedFood.steak_count > 0 then
-					apply = display.newImageRect("image/UI/bbt.png",130,50)
+					apply = display.newImageRect("image/UI/bbt.png",190,60)
 					apply.x, apply.y = display.contentWidth*0.5, display.contentHeight*0.65
 					sceneGroup:insert(apply)
 					apply:addEventListener("touch",apply_function)
@@ -250,7 +250,7 @@ local function apply_function2(event)
 					text:setFillColor(1)
 					sceneGroup:insert(text)
 			else
-				apply2 = display.newImageRect("image/UI/rbt.png",180,50) --적용중
+				apply2 = display.newImageRect("image/UI/rbt.png",190,60) --적용중
 				apply2.x, apply2.y = display.contentWidth*0.5, display.contentHeight*0.65
 				sceneGroup:insert(apply2)
 				apply2:addEventListener("touch",apply_function2)
@@ -260,7 +260,7 @@ local function apply_function2(event)
 			end
 		elseif (item == "fried") then
 			if loadedFood.fried_count > 0 then
-					apply = display.newImageRect("image/UI/bbt.png",130,50)
+					apply = display.newImageRect("image/UI/bbt.png",190,60)
 					apply.x, apply.y = display.contentWidth*0.5, display.contentHeight*0.65
 					sceneGroup:insert(apply)
 					apply:addEventListener("touch",apply_function)
@@ -268,7 +268,7 @@ local function apply_function2(event)
 					text:setFillColor(1)
 					sceneGroup:insert(text)
 			else
-				apply2 = display.newImageRect("image/UI/rbt.png",180,50) --적용중
+				apply2 = display.newImageRect("image/UI/rbt.png",190,60) --적용중
 				apply2.x, apply2.y = display.contentWidth*0.5, display.contentHeight*0.65
 				sceneGroup:insert(apply2)
 				apply2:addEventListener("touch",apply_function2)

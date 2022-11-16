@@ -27,6 +27,12 @@ function scene:create( event )
 	t.x,t.y = display.contentWidth/2,display.contentHeight/2
 	sceneGroup:insert(t)
 	
+	local pn= display.newImageRect("image/UI/pannel.png",420,180)
+	pn.x,pn.y = display.contentWidth/2,display.contentHeight*0.13
+
+	local coin = display.newText("+ 100 coin!",display.contentWidth*0.47, display.contentHeight*0.18,"font/NanumJangMiCe.ttf")
+	coin:setFillColor(0.8,0.2,0.2)
+	coin.size = 68
 
 	local hintText = display.newText("실패!",display.contentWidth*0.5, display.contentHeight*0.5,"font/NanumSquare_acB.ttf")
 	hintText:setFillColor(0)
@@ -36,6 +42,23 @@ function scene:create( event )
 	local somsom = display.newImageRect("image/풍선터트리기/솜솜이_실패.png",800,800)
 	somsom.x,somsom.y = display.contentWidth*0.67,display.contentHeight*0.2
 	sceneGroup:insert(somsom)
+
+	local exit = display.newImageRect("image/상점/화살표_왼.png",80,140)
+	exit.x,exit.y = display.contentWidth*0.05,display.contentHeight*0.1
+	sceneGroup:insert(exit)
+
+	local exitText = display.newText("나가기",display.contentWidth*0.05,display.contentHeight*0.2)
+	exitText:setFillColor(0)
+	exitText.size =40
+	sceneGroup:insert(exitText)
+		sceneGroup:insert(pn)
+		sceneGroup:insert(coin)
+
+	local function exitFunc(event)
+		composer.removeScene("상점")
+	   	composer.gotoScene("메인화면")
+	end
+	exit:addEventListener("tap",exitFunc)
 
 	loadedSettings.money = loadedSettings.money + 100
 	loadsave.saveTable(loadedSettings,"settings.json")

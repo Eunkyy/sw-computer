@@ -36,6 +36,13 @@ function scene:create( event )
 	exit.x,exit.y = display.contentWidth*0.05,display.contentHeight*0.1
 	sceneGroup:insert(exit)
 
+	local pn= display.newImageRect("image/UI/pannel.png",420,180)
+	pn.x,pn.y = display.contentWidth/2,display.contentHeight*0.13
+
+	local coin = display.newText("+ 500 coin!",display.contentWidth*0.47, display.contentHeight*0.18,"font/NanumJangMiCe.ttf")
+	coin:setFillColor(0.8,0.2,0.2)
+	coin.size = 68
+
 	local exitText = display.newText("나가기",display.contentWidth*0.05,display.contentHeight*0.2)
 	exitText:setFillColor(0)
 	exitText.size =40
@@ -50,6 +57,8 @@ function scene:create( event )
 	local t= display.newImageRect("image/숨은그림찾기/테두리.png",750,750)
 	t.x,t.y = display.contentWidth/2,display.contentHeight/2
 	sceneGroup:insert(t)
+		sceneGroup:insert(pn)
+		sceneGroup:insert(coin)
 	
 	loadedSettings.money = loadedSettings.money + 500
 	loadsave.saveTable(loadedSettings,"settings.json")
