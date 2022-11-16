@@ -17,6 +17,7 @@ function scene:create( event )
 
 	local function go_back(event)
 		if event.phase == "began" then
+			audio.pause( backgroundMusicChannel )
 			composer.removeScene("가방_옷")
 			composer.gotoScene("메인화면")
 		end
