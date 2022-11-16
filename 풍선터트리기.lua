@@ -24,14 +24,14 @@ function scene:create( event )
 	gBox:setFillColor( 0.5, 0.7, 0.7 )
 	gBox.alpha = 0.8
 
-	local guide = display.newText("GAME GUIDE", display.contentWidth/2, display.contentHeight/2+130, "font/꽃소금체.ttf", 70)
+	local guide = display.newText("GAME GUIDE", display.contentWidth/2, display.contentHeight/2+130, "font/SunriseInternationalDemo.otf", 70)
 	guide:setFillColor(0)
 	
-	local twentyBox = display.newRect( display.contentWidth/2 - 200, display.contentHeight/2 + 245,370, 80)
+	local twentyBox = display.newRect( display.contentWidth/2, display.contentHeight/2+250,370, 80)
 	twentyBox:setFillColor( 0.5, 0.7, 0.7 )
 	twentyBox.alpha = 0.8
 
-	local twentyButton = display.newText("20초", display.contentWidth/2 - 200, display.contentHeight/2+250, "font/꽃소금체.ttf", 70)
+	local twentyButton = display.newText("GAME START", display.contentWidth/2, display.contentHeight/2+250, "font/SunriseInternationalDemo.otf", 70)
 	twentyButton:setFillColor(0)
 
 	local guideExit = display.newImage("image/메인/exit.png")
