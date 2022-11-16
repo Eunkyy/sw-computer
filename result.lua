@@ -95,6 +95,10 @@ if resultScore >= 1200 then
 		pn.x,pn.y = display.contentWidth/2,display.contentHeight*0.13
 		sceneGroup:insert(pn)
 
+		local winsound = audio.loadSound( "bgm/game_win.mp3" )
+		local winMusicChannel = audio.play( winsound, {loops=0} )
+		audio.setVolume( 2 )
+
 		local coin = display.newText("+ 500 coin!",display.contentWidth*0.47, display.contentHeight*0.18,"font/NanumJangMiCe.ttf")
 		coin:setFillColor(0.8,0.2,0.2)
 		coin.size = 68
@@ -103,6 +107,10 @@ if resultScore >= 1200 then
 		local pn= display.newImageRect("image/UI/pannel.png",420,180)
 		pn.x,pn.y = display.contentWidth/2,display.contentHeight*0.13
 		sceneGroup:insert(pn)
+
+		local losesound = audio.loadSound( "bgm/game_lose.mp3" )
+		local loseMusicChannel = audio.play( losesound, {loops=0} )
+		audio.setVolume( 2 )
 
 		local coin = display.newText("+ 100 coin!",display.contentWidth*0.47, display.contentHeight*0.18,"font/NanumJangMiCe.ttf")
 		coin:setFillColor(0.8,0.2,0.2)
