@@ -557,14 +557,15 @@ local loadedSettings= loadsave.loadTable( "settings.json" )
    if apply == 1 then
       ad:setSequence("ad-apply")
       ad:play()
-      apply = 0
-      loadsave.saveTable(loadedSettings,"settings.json")
+      loadedSettings.apply=0
+      loadsave.saveTable(loadedSettings,"settings.json")      
    end
+
 
    if eat == 1 then
       ad:setSequence("ad-eat")
       ad:play()
-      eat = 0
+      loadedSettings.eat = 0
       loadsave.saveTable(loadedSettings,"settings.json")
    end
 
