@@ -153,7 +153,7 @@ function scene:create( event )
 	som.alpha = 1
 	sceneGroup:insert(som)
 
-/* 모션-캐릭터 정지상태&click시 볼터치 함수
+--[[ 모션-캐릭터 정지상태&click시 볼터치 함수
    local ad = display.newSprite(sheet1, sq1)
 	ad:setSequence("stay")
 	ad:play()
@@ -202,7 +202,7 @@ function scene:create( event )
 	bb:addEventListener("tap", clickSom)
 	tn:addEventListener("tap", clickSom)
 	kd:addEventListener("tap", clickSom)
-  */ 
+  --]]
 
  local clo1 = display.newImageRect("image/옷/과잠_1.png", 600, 355)
     clo1.x, clo1.y = display.contentWidth/2 - 37, 405
@@ -599,9 +599,9 @@ function scene:create( event )
 
 	buttonUI[2] = widget.newButton(
 		{ defaultFile = "image/메인/balloon.png", overFile = "image/메인/balloon.png",
-		width = 100 , height = 100, onPress = inputEvent })
+		width = 150 , height = 180, onPress = inputEvent })
 	buttonUI[2].x = 1160
-	buttonUI[2].y = 250
+	buttonUI[2].y = 270
 	buttonUI[2].name = "balloon"
 	sceneGroup:insert(buttonUI[2])
 
