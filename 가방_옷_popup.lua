@@ -369,6 +369,7 @@ local function clo_clear()
 		 end
 	end
 	
+	flag = 0
 	local function go_back(event)
 		if event.phase == "began" then
 			composer.setVariable("apply",flag)
@@ -394,7 +395,6 @@ local function clo_clear()
 	-- 		end
 	-- 	end
 	-- end
-	flag = 0
 	local function apply_function(event)
 		if event.phase == "began" then
 			if (j==0) then 
