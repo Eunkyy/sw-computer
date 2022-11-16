@@ -17,39 +17,39 @@ function scene:create( event )
     local option1 =
 	{ 
 		
-		width = 1900,
-		height = 1900,
-		numFrames = 4,
+		width = 240,
+		height = 380,
+		numFrames = 5,
 
 	}
 
 	local option2 =
 	{
-		width = 1300,
-		height = 1300,
-		numFrames = 5,
+		width = 210,
+		height = 150,
+		numFrames = 4,
 	}
 
 	local option3 =
 	{
-		width = 2300,
-		height = 2300,
-		numFrames = 4,
+		width = 200,
+		height = 320,
+		numFrames = 5,
 	}
 
 
 	local option4 =
 	{
-		width = 1900,
-		height = 1900,
-		numFrames = 4,
+		width = 180,
+		height = 290,
+		numFrames = 5,
 	}
 
 	
-	local sheet1 = graphics.newImageSheet("image/모션/ad1.png", option1)
-	local sheet2 = graphics.newImageSheet("image/모션/bb1.png", option2)
-	local sheet3 = graphics.newImageSheet("image/모션/md1.png", option3)
-	local sheet4 = graphics.newImageSheet("image/모션/kd1.png", option4)
+	local sheet1 = graphics.newImageSheet("모션/ad3.png", option1)
+	local sheet2 = graphics.newImageSheet("모션/bb2.png", option2)
+	local sheet3 = graphics.newImageSheet("모션/tn3.png", option3)
+	local sheet4 = graphics.newImageSheet("모션/kd3.png", option4)
 	
 	local sq1 = {
 		-- consecutive frames sequence
@@ -127,7 +127,7 @@ function scene:create( event )
 
 
 	local ad = display.newSprite(sheet1, sq1)
-	ad:setSequence("ad-click")
+	ad:setSequence("ad-eat")
 	ad:play()
 	ad.x = display.contentCenterX + 300
 	ad.y = display.contentCenterY - 50
