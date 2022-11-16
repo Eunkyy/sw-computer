@@ -192,7 +192,7 @@ local function apply_function2(event)
 					apply.x, apply.y = display.contentWidth*0.5, display.contentHeight*0.65
 					sceneGroup:insert(apply)
 					apply:addEventListener("touch",apply_function)
-					local text = display.newText("적용하기", display.contentWidth/2, display.contentHeight*0.65, "font/NanumSquareRoundB.ttf", 30)
+					local text = display.newText("솜솜이 주기", display.contentWidth/2, display.contentHeight*0.65, "font/NanumSquareRoundB.ttf", 30)
 					text:setFillColor(1)
 					sceneGroup:insert(text)
 			else
@@ -210,7 +210,7 @@ local function apply_function2(event)
 					apply.x, apply.y = display.contentWidth*0.5, display.contentHeight*0.65
 					sceneGroup:insert(apply)
 					apply:addEventListener("touch",apply_function)
-					local text = display.newText("적용하기", display.contentWidth/2, display.contentHeight*0.65, "font/NanumSquareRoundB.ttf", 30)
+					local text = display.newText("솜솜이 주기", display.contentWidth/2, display.contentHeight*0.65, "font/NanumSquareRoundB.ttf", 30)
 					text:setFillColor(1)
 					sceneGroup:insert(text)
 			else
@@ -228,7 +228,7 @@ local function apply_function2(event)
 					apply.x, apply.y = display.contentWidth*0.5, display.contentHeight*0.65
 					sceneGroup:insert(apply)
 					apply:addEventListener("touch",apply_function)
-					local text = display.newText("적용하기", display.contentWidth/2, display.contentHeight*0.65, "font/NanumSquareRoundB.ttf", 30)
+					local text = display.newText("솜솜이 주기", display.contentWidth/2, display.contentHeight*0.65, "font/NanumSquareRoundB.ttf", 30)
 					text:setFillColor(1)
 					sceneGroup:insert(text)
 			else
@@ -246,7 +246,7 @@ local function apply_function2(event)
 					apply.x, apply.y = display.contentWidth*0.5, display.contentHeight*0.65
 					sceneGroup:insert(apply)
 					apply:addEventListener("touch",apply_function)
-					local text = display.newText("적용하기", display.contentWidth/2, display.contentHeight*0.65, "font/NanumSquareRoundB.ttf", 30)
+					local text = display.newText("솜솜이 주기", display.contentWidth/2, display.contentHeight*0.65, "font/NanumSquareRoundB.ttf", 30)
 					text:setFillColor(1)
 					sceneGroup:insert(text)
 			else
@@ -264,7 +264,7 @@ local function apply_function2(event)
 					apply.x, apply.y = display.contentWidth*0.5, display.contentHeight*0.65
 					sceneGroup:insert(apply)
 					apply:addEventListener("touch",apply_function)
-					local text = display.newText("적용하기", display.contentWidth/2, display.contentHeight*0.65, "font/NanumSquareRoundB.ttf", 30)
+					local text = display.newText("솜솜이 주기", display.contentWidth/2, display.contentHeight*0.65, "font/NanumSquareRoundB.ttf", 30)
 					text:setFillColor(1)
 					sceneGroup:insert(text)
 			else
