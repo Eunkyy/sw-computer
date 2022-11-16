@@ -42,17 +42,13 @@ function scene:create( event )
 	local backgroundMusicChannel = audio.play( soundEffect, {loops=-1} )
 	audio.setVolume( 2 )
 	
-   local space = display.newRect( display.contentCenterX, display.contentCenterY, 1280, 720 )
-	space.strokeWidth = 3
-	space:setFillColor( 0.5 )
-	space:setStrokeColor( 1, 0, 0 )
-	sceneGroup:insert(space)
+	local background = display.newImageRect("image/풍선터트리기/bg.jpg", display.contentWidth, display.contentHeight)
+	background.x, background.y = display.contentWidth/2, display.contentHeight/2
+	sceneGroup:insert(background)
 
-	local timeRect = display.newRect(space.x + 450, space.y-300, 150, 100)
 	local som = display.newImageRect("image/풍선터트리기/som.png", 450, 450)
 	som.x = display.contentCenterX+450
 	som.y = display.contentCenterY+100
-	sceneGroup:insert(timeRect)
 	sceneGroup:insert(som)
 
 	local function gotoResult(flag)
@@ -72,7 +68,7 @@ function scene:create( event )
 
     --timer
     local  time = 30
-    local  cText = display.newText("30", space.x + 450, space.y-300, native.systemFont, 80)
+    local  cText = display.newText("30", background.x + 450, background.y-300, "font/꽃소금체.ttf", 80)
     cText:setFillColor(1, 0.2, 0.2) -- 빨간 색
 	sceneGroup:insert(cText)
 
@@ -170,26 +166,26 @@ function scene:create( event )
 
 	end
 	-- create image button
-	image[1] = widget.newButton({defaultFile="image/풍선터트리기/balloon.png", overFile="image/풍선터트리기/balloon.png", width=150, height=170, onEvent = tapEvent}) -- gold x 2
-	image[2] = widget.newButton({defaultFile="image/풍선터트리기/balloon.png", overFile="image/풍선터트리기/balloon.png", width=150, height=170, onEvent = tapEvent})
-	image[3] = widget.newButton({defaultFile="image/풍선터트리기/balloon.png", overFile="image/풍선터트리기/balloon.png", width=150, height=170, onEvent = tapEvent}) -- silver x 3
-	image[4] = widget.newButton({defaultFile="image/풍선터트리기/balloon.png", overFile="image/풍선터트리기/balloon.png", width=150, height=170, onEvent = tapEvent}) 
-	image[5] = widget.newButton({defaultFile="image/풍선터트리기/balloon.png", overFile="image/풍선터트리기/balloon.png", width=150, height=170, onEvent = tapEvent})
-	image[6] = widget.newButton({defaultFile="image/풍선터트리기/balloon.png", overFile="image/풍선터트리기/balloon.png", width=150, height=170, onEvent = tapEvent}) -- bronse x 10
-	image[7] = widget.newButton({defaultFile="image/풍선터트리기/balloon.png", overFile="image/풍선터트리기/balloon.png", width=150, height=170, onEvent = tapEvent})
-	image[8] = widget.newButton({defaultFile="image/풍선터트리기/balloon.png", overFile="image/풍선터트리기/balloon.png", width=150, height=170, onEvent = tapEvent})
-	image[9] = widget.newButton({defaultFile="image/풍선터트리기/balloon.png", overFile="image/풍선터트리기/balloon.png", width=150, height=170, onEvent = tapEvent})
-	image[10] = widget.newButton({defaultFile="image/풍선터트리기/balloon.png", overFile="image/풍선터트리기/balloon.png", width=150, height=170, onEvent = tapEvent})
-	image[11] = widget.newButton({defaultFile="image/풍선터트리기/balloon.png", overFile="image/풍선터트리기/balloon.png", width=150, height=170, onEvent = tapEvent})
-	image[12] = widget.newButton({defaultFile="image/풍선터트리기/balloon.png", overFile="image/풍선터트리기/balloon.png", width=150, height=170, onEvent = tapEvent})
-	image[13] = widget.newButton({defaultFile="image/풍선터트리기/balloon.png", overFile="image/풍선터트리기/balloon.png", width=150, height=170, onEvent = tapEvent})
-	image[14] = widget.newButton({defaultFile="image/풍선터트리기/balloon.png", overFile="image/풍선터트리기/balloon.png", width=150, height=170, onEvent = tapEvent})
-	image[15] = widget.newButton({defaultFile="image/풍선터트리기/balloon.png", overFile="image/풍선터트리기/balloon.png", width=150, height=170, onEvent = tapEvent})
-	image[16] = widget.newButton({defaultFile="image/풍선터트리기/balloon.png", overFile="image/풍선터트리기/balloon.png", width=150, height=170, onEvent = tapEvent}) -- bomb x 5
-	image[17] = widget.newButton({defaultFile="image/풍선터트리기/balloon.png", overFile="image/풍선터트리기/balloon.png", width=150, height=170, onEvent = tapEvent})
-	image[18] = widget.newButton({defaultFile="image/풍선터트리기/balloon.png", overFile="image/풍선터트리기/balloon.png", width=150, height=170, onEvent = tapEvent})
-	image[19] = widget.newButton({defaultFile="image/풍선터트리기/balloon.png", overFile="image/풍선터트리기/balloon.png", width=150, height=170, onEvent = tapEvent})
-	image[20] = widget.newButton({defaultFile="image/풍선터트리기/balloon.png", overFile="image/풍선터트리기/balloon.png", width=150, height=170, onEvent = tapEvent})
+	image[ok[1]] = widget.newButton({defaultFile="image/풍선터트리기/balloon.png", overFile="image/풍선터트리기/balloon.png", width=150, height=180, onEvent = tapEvent}) -- gold x 2
+	image[ok[2]] = widget.newButton({defaultFile="image/풍선터트리기/balloon.png", overFile="image/풍선터트리기/balloon.png", width=150, height=180, onEvent = tapEvent})
+	image[ok[3]] = widget.newButton({defaultFile="image/풍선터트리기/balloon.png", overFile="image/풍선터트리기/balloon.png", width=150, height=180, onEvent = tapEvent}) -- silver x 3
+	image[ok[4]] = widget.newButton({defaultFile="image/풍선터트리기/balloon.png", overFile="image/풍선터트리기/balloon.png", width=150, height=180, onEvent = tapEvent}) 
+	image[ok[5]] = widget.newButton({defaultFile="image/풍선터트리기/balloon.png", overFile="image/풍선터트리기/balloon.png", width=150, height=180, onEvent = tapEvent})
+	image[ok[6]] = widget.newButton({defaultFile="image/풍선터트리기/balloon.png", overFile="image/풍선터트리기/balloon.png", width=150, height=180, onEvent = tapEvent}) -- bronse x 10
+	image[ok[7]] = widget.newButton({defaultFile="image/풍선터트리기/balloon.png", overFile="image/풍선터트리기/balloon.png", width=150, height=180, onEvent = tapEvent})
+	image[ok[8]] = widget.newButton({defaultFile="image/풍선터트리기/balloon.png", overFile="image/풍선터트리기/balloon.png", width=150, height=180, onEvent = tapEvent})
+	image[ok[9]] = widget.newButton({defaultFile="image/풍선터트리기/balloon.png", overFile="image/풍선터트리기/balloon.png", width=150, height=180, onEvent = tapEvent})
+	image[ok[10]] = widget.newButton({defaultFile="image/풍선터트리기/balloon.png", overFile="image/풍선터트리기/balloon.png", width=150, height=180, onEvent = tapEvent})
+	image[ok[11]] = widget.newButton({defaultFile="image/풍선터트리기/balloon.png", overFile="image/풍선터트리기/balloon.png", width=150, height=180, onEvent = tapEvent})
+	image[ok[12]] = widget.newButton({defaultFile="image/풍선터트리기/balloon.png", overFile="image/풍선터트리기/balloon.png", width=150, height=180, onEvent = tapEvent})
+	image[ok[13]] = widget.newButton({defaultFile="image/풍선터트리기/balloon.png", overFile="image/풍선터트리기/balloon.png", width=150, height=180, onEvent = tapEvent})
+	image[ok[14]] = widget.newButton({defaultFile="image/풍선터트리기/balloon.png", overFile="image/풍선터트리기/balloon.png", width=150, height=180, onEvent = tapEvent})
+	image[ok[15]] = widget.newButton({defaultFile="image/풍선터트리기/balloon.png", overFile="image/풍선터트리기/balloon.png", width=150, height=180, onEvent = tapEvent})
+	image[ok[16]] = widget.newButton({defaultFile="image/풍선터트리기/balloon.png", overFile="image/풍선터트리기/balloon.png", width=150, height=180, onEvent = tapEvent}) -- bomb x 5
+	image[ok[17]] = widget.newButton({defaultFile="image/풍선터트리기/balloon.png", overFile="image/풍선터트리기/balloon.png", width=150, height=180, onEvent = tapEvent})
+	image[ok[18]] = widget.newButton({defaultFile="image/풍선터트리기/balloon.png", overFile="image/풍선터트리기/bomb.png", width=150, height=180, onEvent = tapEvent})
+	image[ok[19]] = widget.newButton({defaultFile="image/풍선터트리기/balloon.png", overFile="image/풍선터트리기/bomb.png", width=150, height=180, onEvent = tapEvent})
+	image[ok[20]] = widget.newButton({defaultFile="image/풍선터트리기/balloon.png", overFile="image/풍선터트리기/bomb.png", width=150, height=180, onEvent = tapEvent})
 	
 	-- image naming
 	image[ok[1]].name = "b1"
