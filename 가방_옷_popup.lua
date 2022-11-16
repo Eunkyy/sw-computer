@@ -371,6 +371,7 @@ local function clo_clear()
 	
 	local function go_back(event)
 		if event.phase == "began" then
+			composer.setVariable("apply",flag)
 			loadsave.saveTable(loadedClothes,"clothes.json")
 			loadsave.saveTable(loadedItems,"items.json")
 			composer.removeScene("가방_옷_popup")
@@ -393,13 +394,14 @@ local function clo_clear()
 	-- 		end
 	-- 	end
 	-- end
+	flag = 0
 	local function apply_function(event)
 		if event.phase == "began" then
 			if (j==0) then 
 				j=1
 			end
 			put_apply()
-			print("파랑ㅇ")
+			flag=1
 		end
 	end
 
