@@ -15,11 +15,20 @@ local soundTable = {
 		storeSound = audio.loadSound( "bgm/store_cilck.mp3" )
 	}
 
+  -- eat = composer.getVariable("eat")
+  -- apply = composer.getVariable("apply")
+
+-- print("eat"..eat..",apply"..apply)
 function scene:create( event )
 	local sceneGroup = self.view
    local loadedClothes = loadsave.loadTable( "clothes.json" )
    local loadedItems= loadsave.loadTable( "items.json" )
+local loadedSettings= loadsave.loadTable( "settings.json" )
 	
+  eat = loadedSettings.eat
+  apply = loadedSettings.apply
+
+  print("eat"..eat.."apply"..apply)
 	local backgroundMusicChannel = audio.play( soundTable["bgSound"], {loops=-1} )
 	audio.setVolume( 2 )
 
