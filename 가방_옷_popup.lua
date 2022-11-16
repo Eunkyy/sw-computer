@@ -376,6 +376,7 @@ local function clo_clear()
 			loadsave.saveTable(loadedClothes,"clothes.json")
 			loadsave.saveTable(loadedItems,"items.json")
 			loadsave.saveTable(loadedSettings,"settings.json")
+			audio.pause( backgroundMusicChannel )
 			composer.removeScene("가방_옷_popup")
 			composer.gotoScene("메인화면")
 		end
