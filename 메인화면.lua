@@ -158,8 +158,9 @@ function scene:create( event )
 	--som.alpha = 1
 	--sceneGroup:insert(som)
 
-   local text = display.newText("LEVEL : ".. loadedSettings.level, display.contentWidth/2, display.contentHeight*0.05, "font/NanumSquareRoundB.ttf", 40)
-   text:setFillColor(0)
+   --레벨&돈
+   local text = display.newText("LEVEL : ".. loadedSettings.level.."  money : "..loadedSettings.money, display.contentWidth/2, display.contentHeight*0.05, "font/NanumSquareRoundB.ttf", 40)
+   text:setFillColor(1,0,0)
    sceneGroup:insert(text)
 
  --   local ad = display.newSprite(sheet1, sq1)

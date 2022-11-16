@@ -45,6 +45,12 @@ function scene:create( event )
 	somsom.x,somsom.y = display.contentWidth*0.67,display.contentHeight*0.2
 	sceneGroup:insert(somsom)
 
+	local function exitFunc(event)
+		composer.removeScene("상점")
+	   	composer.gotoScene("메인화면")
+	end
+	exit:addEventListener("tap",exitFunc)
+
 	loadedSettings.money = loadedSettings.money + 100
 	loadsave.saveTable(loadedSettings,"settings.json")
 	
