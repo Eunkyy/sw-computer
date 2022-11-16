@@ -370,9 +370,11 @@ local function clo_clear()
 	end
 	
 	flag = 0
+	f=0
 	local function go_back(event)
 		if event.phase == "began" then
 			composer.setVariable("apply",flag)
+			composer.setVariable("eat",f)
 			loadsave.saveTable(loadedClothes,"clothes.json")
 			loadsave.saveTable(loadedItems,"items.json")
 			composer.removeScene("가방_옷_popup")
