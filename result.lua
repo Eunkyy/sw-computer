@@ -72,7 +72,7 @@ function scene:create( event )
 	   	sceneGroup:insert(quit2)
 
 	loadedSettings.money = loadedSettings.money + 200
-	loadsave.saveTable(loadedSettings,"setting.json")
+	loadsave.saveTable(loadedSettings,"settings.json")
 		composer.removeScene("result")
 	   	composer.gotoScene("학점받기", { time=800, effect="crossFade" })
 	end
@@ -86,7 +86,7 @@ function scene:create( event )
 	   	sceneGroup:insert(quit2)
 
 	loadedSettings.money = loadedSettings.money + 20
-	loadsave.saveTable(loadedSettings,"setting.json")
+	loadsave.saveTable(loadedSettings,"settings.json")
 		composer.removeScene("result")
 	   	composer.gotoScene("학점받기", { time=800, effect="crossFade" })
 	end
