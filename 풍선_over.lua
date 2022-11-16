@@ -37,7 +37,7 @@ function scene:create( event )
 	somsom.x,somsom.y = display.contentWidth*0.67,display.contentHeight*0.2
 	sceneGroup:insert(somsom)
 
-	loadedSettings.money = loadedSettings.money + 20
+	loadedSettings.money = loadedSettings.money + 100
 	loadsave.saveTable(loadedSettings,"settings.json")
 	
 end

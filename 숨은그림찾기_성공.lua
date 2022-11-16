@@ -51,7 +51,7 @@ function scene:create( event )
 	t.x,t.y = display.contentWidth/2,display.contentHeight/2
 	sceneGroup:insert(t)
 	
-	loadedSettings.money = loadedSettings.money + 100
+	loadedSettings.money = loadedSettings.money + 500
 	loadsave.saveTable(loadedSettings,"settings.json")
 end
 

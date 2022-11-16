@@ -71,10 +71,10 @@ function scene:create( event )
 	   	sceneGroup:insert(quit)
 	   	sceneGroup:insert(quit2)
 
-	loadedSettings.money = loadedSettings.money + 200
+	loadedSettings.money = loadedSettings.money + 500
 	loadsave.saveTable(loadedSettings,"settings.json")
 		composer.removeScene("result")
-	   	composer.gotoScene("학점받기", { time=800, effect="crossFade" })
+	   	composer.gotoScene("메인화면", { time=800, effect="crossFade" })
 	end
 
 	local function exitGame2(event)
@@ -85,10 +85,10 @@ function scene:create( event )
 	   	sceneGroup:insert(quit)
 	   	sceneGroup:insert(quit2)
 
-	loadedSettings.money = loadedSettings.money + 20
-	loadsave.saveTable(loadedSettings,"settings.json")
+		loadedSettings.money = loadedSettings.money + 100
+		loadsave.saveTable(loadedSettings,"settings.json")
 		composer.removeScene("result")
-	   	composer.gotoScene("학점받기", { time=800, effect="crossFade" })
+	   	composer.gotoScene("메인화면", { time=800, effect="crossFade" })
 	end
 	if resultScore >= 1200 then
 		endText.text = "CLEAR"
