@@ -158,10 +158,6 @@ function scene:create( event )
 	--som.alpha = 1
 	--sceneGroup:insert(som)
 
-   local text = display.newText("LEVEL : ".. loadedSettings.level, display.contentWidth/2, display.contentHeight*0.05, "font/NanumSquareRoundB.ttf", 40)
-   text:setFillColor(0)
-   sceneGroup:insert(text)
-
  --   local ad = display.newSprite(sheet1, sq1)
 	-- ad:setSequence("stay")
 	-- ad:play()
@@ -414,7 +410,7 @@ function scene:create( event )
     local opc3 = display.newImageRect("image/옷/투피스_3.png", 435, 373)
     opc3.x, opc3.y = display.contentWidth/2 -77, 390
     opc3:scale( -1, 1 ) 
-    if loadedClothes.clo1_apply == 1 then 
+    if loadedClothes.clo13_apply == 1 then 
        opc3.alpha=1
     else
        opc3.alpha = 0
@@ -423,7 +419,7 @@ function scene:create( event )
     local opc4 = display.newImageRect("image/옷/투피스_4.png", 435, 373)
     opc4.x, opc4.y = display.contentWidth/2 -77, 390
     opc4:scale( -1, 1 ) 
-    if loadedClothes.clo1_apply == 1 then 
+    if loadedClothes.clo14_apply == 1 then 
        opc4.alpha=1
     else
        opc4.alpha = 0
@@ -432,7 +428,7 @@ function scene:create( event )
     local opc5 = display.newImageRect("image/옷/투피스_5.png", 435, 373)
     opc5.x, opc5.y = display.contentWidth/2 -77, 390
     opc5:scale( -1, 1 ) 
-    if loadedClothes.clo13_apply == 1 then 
+    if loadedClothes.clo15_apply == 1 then 
        opc5.alpha=1
     else
        opc5.alpha = 0
@@ -635,6 +631,24 @@ function scene:create( event )
 	cloud5.y = 285
 	sceneGroup:insert(cloud5)
 
+   --레벨&돈
+   local text = display.newText("| LV.".. loadedSettings.level.." | money:"..loadedSettings.money.." |", display.contentWidth * 0.2, display.contentHeight*0.058, "font/NanumJangMiCe.ttf", 50)
+   text:setFillColor(0)
+   sceneGroup:insert(text)
+
+local gage = display.newImageRect( "image/UI/gage.png", 550, 200 )
+  gage.x = display.contentWidth/2 + 100
+  gage.y = display.contentHeight*0.17
+  sceneGroup:insert(gage)
+
+local ht = display.newImageRect( "image/UI/ht.png", 100, 100 )
+  if loadedSettings.level < 29 then
+      ht.x = 340+ loadedSettings.level * 18 + 100
+  else
+      ht.x = 340+ 640
+  end
+   ht.y = display.contentHeight*0.065
+  sceneGroup:insert(ht)
 
 	function gotoPic( event )
 		audio.pause( backgroundMusicChannel )
@@ -679,7 +693,7 @@ function scene:create( event )
    			local guideBg = display.newRect(display.contentCenterX, display.contentCenterY, 600, 400)
    			local guideText = display.newText(" ", display.contentWidth/2, display.contentHeight/ 2, "font/NanumJangMiCe.ttf", 30)
    			guideText:setFillColor(0)
-   			guideText.text = "솜솜이 키우기\n\n오른쪽에 있는 미니게임으로 코인을 모으세요\n모은 코인으로 상점에서 음식을 구매해 솜솜이를 키워보세요!\n\n돋보기-숨은그림찾기\n솜-솜터트리기(미정)\n시험지-학점받기 "
+   			guideText.text = "솜솜이 키우기\n\n오른쪽에 있는 미니게임으로 코인을 모으세요\n모은 코인으로 상점에서 음식을 구매해 솜솜이를 키워보세요!\n\n돋보기-숨은그림찾기\n솜-솜수집하기\n시험지-학점받기 "
    			local guideExit = display.newImage("image/메인/exit.png")
    			guideExit.x = guideBg.x + 260
    			guideExit.y = guideBg.y - 170

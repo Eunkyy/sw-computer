@@ -18,7 +18,7 @@ function scene:create( event )
 	S1:setFillColor(0)
 	sceneGroup:insert(S1)
 
-	local background= display.newImageRect("image/숨은그림찾기/white.png",1280,720)
+	local background= display.newImageRect("image/숨은그림찾기/배경.jpg",1280,720)
 	background.x,background.y = display.contentWidth/2,display.contentHeight/2
 	sceneGroup:insert(background)
 

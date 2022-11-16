@@ -13,9 +13,14 @@ function scene:create( event )
 	item = composer.getVariable("item")
 	j=0
 
-	local update = display.newImageRect("image/숨은그림찾기/white.png",1280,720)
-	update.x, update.y = display.contentWidth*0.5, display.contentHeight*0.5
-	sceneGroup:insert(update)
+	local background= display.newImageRect("image/숨은그림찾기/white.png",1280,720)
+	background.x,background.y = display.contentWidth/2,display.contentHeight/2
+	sceneGroup:insert(background)
+
+	local background2= display.newImageRect("image/상점/옷_배경.jpg",1280,720)
+	background2.alpha=0.6
+	background2.x,background2.y = display.contentWidth/2,display.contentHeight/2
+	sceneGroup:insert(background2)
 
 	--아이템 목록--
 
@@ -207,6 +212,7 @@ local function clo_clear()
 	end
 
 	i=1
+	j=1
 	local function put_apply() 
 		if (item == "gwajam1") then
 			if (j==1) then
@@ -378,7 +384,7 @@ local function clo_clear()
 			loadsave.saveTable(loadedSettings,"settings.json")
 			audio.pause( backgroundMusicChannel )
 			composer.removeScene("가방_옷_popup")
-			composer.gotoScene("메인화면")
+			composer.gotoScene("가방_옷")
 		end
 	end
 
@@ -404,6 +410,12 @@ local function clo_clear()
 			end
 			put_apply()
 			loadedSettings.apply=1
+			loadsave.saveTable(loadedClothes,"clothes.json")
+			loadsave.saveTable(loadedItems,"items.json")
+			loadsave.saveTable(loadedSettings,"settings.json")
+			audio.pause( backgroundMusicChannel )
+			composer.removeScene("가방_옷_popup")
+			composer.gotoScene("메인화면")
 		end
 	end
 
@@ -414,6 +426,12 @@ local function apply_function2(event)
 			end
 				clo_clear()
 			loadedSettings.apply=0
+			loadsave.saveTable(loadedClothes,"clothes.json")
+			loadsave.saveTable(loadedItems,"items.json")
+			loadsave.saveTable(loadedSettings,"settings.json")
+			audio.pause( backgroundMusicChannel )
+			composer.removeScene("가방_옷_popup")
+			composer.gotoScene("메인화면")
 		end
 	end
 
@@ -434,7 +452,7 @@ local function apply_function2(event)
 	exit:addEventListener("touch",go_back)
 
 	if (apply_count==0) then
-		apply = display.newImageRect("image/UI/bbt.png",130,50)
+		apply = display.newImageRect("image/UI/bbt.png",190,60)
 
 		apply.x, apply.y = display.contentWidth*0.5, display.contentHeight*0.65
 		sceneGroup:insert(apply)
@@ -443,7 +461,7 @@ local function apply_function2(event)
 			text:setFillColor(1)
 			sceneGroup:insert(text)
 	else
-		apply2 = display.newImageRect("image/UI/rbt.png",130,50) --적용중
+		apply2 = display.newImageRect("image/UI/rbt.png",190,60) --적용중
 		apply2.x, apply2.y = display.contentWidth*0.5, display.contentHeight*0.65
 		sceneGroup:insert(apply2)
 		apply2:addEventListener("touch",apply_function2)

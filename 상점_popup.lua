@@ -20,16 +20,10 @@ function scene:create( event )
 
 
 
-	local background= display.newImageRect("image/숨은그림찾기/white.png",1280,720)
+	local background= display.newImageRect("image/상점/음식_배경.jpg",1280,720)
 	background.x,background.y = display.contentWidth/2,display.contentHeight/2
 	sceneGroup:insert(background)
 
-	--돈
-	local m = loadedSettings.money
-	local showLimit = display.newText(m,display.contentWidth*0.85,display.contentHeight*0.2)
-	showLimit:setFillColor(0)
-	showLimit.size =40
-	sceneGroup:insert(showLimit)
 
 	--음식
 	local tteokbokki = display.newImageRect("image/상점/떡볶이.jpeg",150,150)

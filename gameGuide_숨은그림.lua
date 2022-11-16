@@ -36,7 +36,7 @@ function scene:create( event )
 
 	local guideText = display.newText(" ", display.contentWidth/2, display.contentHeight/ 2 - 70, "font/NanumJangMiCe.ttf", 30)
 	guideText:setFillColor(0)
-	guideText.text = "[게임방법]\n\n"
+	guideText.text = "                 [게임방법]\n\n솜솜이의 잃어버린 물건을 함께 찾아주세요!\n말풍선을 클릭하면 솜솜이가 힌트를 알려줄지도?"
 	
 
 	local button = display.newText("돌아가기", display.contentWidth/2, display.contentHeight/ 2 +200, "font/NanumJangMiCe.ttf", 40)
