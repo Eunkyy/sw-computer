@@ -33,18 +33,7 @@ function scene:create( event )
 
 
 
-	--메인화면 나가기 버튼--
-	local exit = display.newImageRect("image/상점/화살표.png",30,30)
-	exit.x, exit.y = display.contentWidth*0.9207, display.contentHeight*0.0438
-	exit.anchorX, exit.anchorY = 0,0
-	sceneGroup:insert(exit)
-	exit:addEventListener("touch",go_back)
 
-	m="나가기"
-	local showLimit = display.newText(m,display.contentWidth*0.9,display.contentHeight*0.0438)
-	showLimit:setFillColor(0)
-	showLimit.size =40
-	sceneGroup:insert(showLimit)
 
 		local next = display.newImageRect("image/상점/화살표_왼.png",80,140)
 	next.x,next.y = display.contentWidth*0.04,display.contentHeight*0.5
@@ -63,8 +52,6 @@ function scene:create( event )
 	local gwajamImage = {}
 	local animalImage = {}
 	local twopieceImage = {}
-
-	print(loadedItems.gwajam1)
 	
 	gwajamImage[1] = loadedItems.gwajam1
 	gwajamImage[2] = loadedItems.gwajam2
@@ -83,6 +70,7 @@ function scene:create( event )
 	twopieceImage[3] = loadedItems.twopiece3
 	twopieceImage[4] = loadedItems.twopiece4
 	twopieceImage[4] = loadedItems.twopiece5
+	print(gwajamImage[1])
 
 	local gwajam = {}
 	local animal = {}

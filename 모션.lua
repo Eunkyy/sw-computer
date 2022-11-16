@@ -17,46 +17,46 @@ function scene:create( event )
     local option1 =
 	{ 
 		
-		width = 1900,
-		height = 1900,
-		numFrames = 4,
+		width = 240,
+		height = 380,
+		numFrames = 5,
 
 	}
 
 	local option2 =
 	{
-		width = 1300,
-		height = 1300,
-		numFrames = 5,
+		width = 210,
+		height = 150,
+		numFrames = 4,
 	}
 
 	local option3 =
 	{
-		width = 2300,
-		height = 2300,
-		numFrames = 4,
+		width = 200,
+		height = 320,
+		numFrames = 5,
 	}
 
 
 	local option4 =
 	{
-		width = 1900,
-		height = 1900,
-		numFrames = 4,
+		width = 180,
+		height = 290,
+		numFrames = 5,
 	}
 
 	
-	local sheet1 = graphics.newImageSheet("image/모션/ad1.png", option1)
-	local sheet2 = graphics.newImageSheet("image/모션/bb1.png", option2)
-	local sheet3 = graphics.newImageSheet("image/모션/md1.png", option3)
-	local sheet4 = graphics.newImageSheet("image/모션/kd1.png", option4)
+	local sheet1 = graphics.newImageSheet("image/모션/ad3.png", option1)
+	local sheet2 = graphics.newImageSheet("image/모션/bb2.png", option2)
+	local sheet3 = graphics.newImageSheet("image/모션/tn3.png", option3)
+	local sheet4 = graphics.newImageSheet("image/모션/kd3.png", option4)
 	
 	local sq1 = {
 		-- consecutive frames sequence
 		{
-			name="total",
+			name="stay",
 			start = 1,
-			count = 4,
+			count = 1,
 			time = 2000,
 			loopCount = 0,
 			loopDirection = "forward"
@@ -76,14 +76,21 @@ function scene:create( event )
 		},
 
 		{
-			name="md-eat",
-			frames= {4, 1},
+			name="tn-stay",
+			start = 2,
+			count = 1,
+			time = 1000,
+			loopCount = 0,
+		},
+		{
+			name="tn-eat",
+			frames= {2, 1},
 			time = 1500,
 			loopCount = 3,
 		},
 		{
-			name="md-click",
-			frames= {3, 1},
+			name="tn-click",
+			frames= {2, 4},
 			time = 1000,
 			loopCount = 3,
 		},
@@ -104,9 +111,9 @@ function scene:create( event )
 	local sq2 = {
 		-- consecutive frames sequence
 		{
-			name="total",
+			name="stay",
 			start = 1,
-			count = 5,
+			count = 1,
 			time = 2000,
 			loopCount = 0,
 			loopDirection = "forward"
@@ -125,32 +132,54 @@ function scene:create( event )
 		}
 	}
 
-
 	local ad = display.newSprite(sheet1, sq1)
-	ad:setSequence("ad-click")
+	ad:setSequence("stay")
 	ad:play()
 	ad.x = display.contentCenterX + 300
 	ad.y = display.contentCenterY - 50
-	
+	ad.name = "adult"
+
 	local bb = display.newSprite(sheet2, sq2)
-	bb:setSequence("bb-eat")
+	bb:setSequence("stay")
 	bb:play()
 	bb.x = display.contentCenterX - 450
 	bb.y = display.contentCenterY + 150
+	bb.name = "baby"
 
-	local md = display.newSprite(sheet3, sq1)
-	md:setSequence("md-eat")
-	md:play()
-	md.x = display.contentCenterX 
-	md.y = display.contentCenterY - 60
+	local tn = display.newSprite(sheet3, sq1)
+	tn:setSequence("tn-stay")
+	tn:play()
+	tn.x = display.contentCenterX 
+	tn.y = display.contentCenterY - 60
+	tn.name = "teen"
 
 	local kd = display.newSprite(sheet4, sq1)
-	kd:setSequence("kd-eat")
+	kd:setSequence("stay")
 	kd:play()
 	kd.x = display.contentCenterX - 240
 	kd.y = display.contentCenterY + 35
+	kd.name = "kid"
 
-	
+	function clickSom(event)
+		if event.target.name == "adult" then
+			ad:setSequence("ad-click")
+			ad:play()
+		elseif event.target.name == "kid" then
+			kd:setSequence("kd-click")
+			kd:play()
+		elseif event.target.name == "teen" then
+			tn:setSequence("tn-click")
+			tn:play()
+		elseif event.target.name == "baby" then
+			bb:setSequence("bb-click")
+			bb:play()
+		end
+	end
+
+	ad:addEventListener("tap", clickSom)
+	bb:addEventListener("tap", clickSom)
+	tn:addEventListener("tap", clickSom)
+	kd:addEventListener("tap", clickSom)
 end
 
 function scene:show( event )
