@@ -23,11 +23,11 @@ function scene:create( event )
 	local backgroundMusicChannel = audio.play( soundTable["bgSound"], {loops=-1} )
 	audio.setVolume( 2 )
 
-   local option1 =
+	local option1 =
 	{ 
 		
-		width = 240,
-		height = 380,
+		width = 230,
+		height = 370,
 		numFrames = 5,
 
 	}
@@ -55,10 +55,10 @@ function scene:create( event )
 	}
 
 	
-	local sheet1 = graphics.newImageSheet("image/모션/ad3.png", option1)
-	local sheet2 = graphics.newImageSheet("image/모션/bb2.png", option2)
-	local sheet3 = graphics.newImageSheet("image/모션/tn3.png", option3)
-	local sheet4 = graphics.newImageSheet("image/모션/kd3.png", option4)
+	local sheet1 = graphics.newImageSheet("image/모션/ad.png", option1)
+	local sheet2 = graphics.newImageSheet("image/모션/bb.png", option2)
+	local sheet3 = graphics.newImageSheet("image/모션/tn.png", option3)
+	local sheet4 = graphics.newImageSheet("image/모션/kd.png", option4)
 	
 	local sq1 = {
 		-- consecutive frames sequence
@@ -85,21 +85,14 @@ function scene:create( event )
 		},
 
 		{
-			name="tn-stay",
-			start = 2,
-			count = 1,
-			time = 1000,
-			loopCount = 0,
-		},
-		{
 			name="tn-eat",
-			frames= {2, 1},
+			frames= {4, 1},
 			time = 1500,
 			loopCount = 3,
 		},
 		{
 			name="tn-click",
-			frames= {2, 4},
+			frames= {3, 1},
 			time = 1000,
 			loopCount = 3,
 		},
@@ -141,6 +134,7 @@ function scene:create( event )
 		}
 	}
 
+
 	
 	local background = display.newImageRect( "image/메인/main_bg.jpg", 1280, 720 )
 	background.x = display.contentWidth/2
@@ -169,7 +163,7 @@ function scene:create( event )
 	bb.name = "baby"
 
 	local tn = display.newSprite(sheet3, sq1)
-	tn:setSequence("tn-stay")
+	tn:setSequence("stay")
 	tn:play()
 	tn.x = display.contentCenterX 
 	tn.y = display.contentCenterY - 60
