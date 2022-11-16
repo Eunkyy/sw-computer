@@ -7,6 +7,7 @@ function scene:create( event )
 	local sceneGroup = self.view
 local loadedFood=loadsave.loadTable("food.json")
 	local loadedItems= loadsave.loadTable( "items.json" )
+local loadedSettings= loadsave.loadTable( "settings.json" )
 	
 	-- local soundEffect = audio.loadSound( "bgm/store_bg.mp3" )
 	-- local backgroundMusicChannel = audio.play( soundEffect, {loops=-1} )
@@ -128,13 +129,12 @@ print(item.."---")
 			if (j==0) then 
 				j=1
 			end
-			flag=1
-			f=0
 			put_apply()
-			composer.setVariable("eat",flag)
-			composer.setVariable("apply",f)
+
+			loadedSettings.eat=1
 			loadsave.saveTable(loadedFood,"food.json")
 			loadsave.saveTable(loadedItems,"items.json")
+			loadsave.saveTable(loadedSettings,"settings.json")
 			composer.removeScene("가방_음식_popup")
 			composer.gotoScene("메인화면")
 		end
@@ -145,21 +145,21 @@ local function apply_function2(event)
 			if (j==0) then 
 				j=1
 			end
-			f=0
-			composer.setVariable("eat",flag)
-			composer.setVariable("apply",f)
+			loadedSettings.eat=0
 			loadsave.saveTable(loadedFood,"food.json")
 			loadsave.saveTable(loadedItems,"items.json")
+			loadsave.saveTable(loadedSettings,"settings.json")
 			composer.removeScene("가방_음식_popup")
 			composer.gotoScene("상점")
 		end
 	end
 
-	flag = 0
 	local function go_back(event)
 		if event.phase == "began" then
+			loadedSettings.eat=0
 			loadsave.saveTable(loadedFood,"food.json")
 			loadsave.saveTable(loadedItems,"items.json")
+			loadsave.saveTable(loadedSettings,"settings.json")
 			composer.removeScene("가방_음식_popup")
 			composer.gotoScene("메인화면")
 		end

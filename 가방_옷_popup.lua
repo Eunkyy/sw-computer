@@ -7,6 +7,8 @@ function scene:create( event )
 	local sceneGroup = self.view
 	local loadedClothes = loadsave.loadTable( "clothes.json" )
 	local loadedItems= loadsave.loadTable( "items.json" )
+	local loadedSettings= loadsave.loadTable( "settings.json" )
+
 	
 	item = composer.getVariable("item")
 	j=0
@@ -369,14 +371,11 @@ local function clo_clear()
 		 end
 	end
 	
-	flag = 0
-	f=0
 	local function go_back(event)
 		if event.phase == "began" then
-			composer.setVariable("apply",flag)
-			composer.setVariable("eat",f)
 			loadsave.saveTable(loadedClothes,"clothes.json")
 			loadsave.saveTable(loadedItems,"items.json")
+			loadsave.saveTable(loadedSettings,"settings.json")
 			composer.removeScene("가방_옷_popup")
 			composer.gotoScene("메인화면")
 		end
@@ -403,7 +402,7 @@ local function clo_clear()
 				j=1
 			end
 			put_apply()
-			flag=1
+			loadedSettings.apply=1
 		end
 	end
 
@@ -413,6 +412,7 @@ local function apply_function2(event)
 				j=1
 			end
 				clo_clear()
+			loadedSettings.apply=0
 		end
 	end
 
