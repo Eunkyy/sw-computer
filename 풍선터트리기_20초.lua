@@ -12,15 +12,16 @@ local widget = require( "widget" )
 local num = {}	
 for i = 0, 5, 1 do
 	local x = math.random(1, 20)
-	if x ~= num[i-1] and x ~= num[i-2]then
+	if x ~= num[0] and x ~= num[1] and x ~= num[2] then
 		num[i] = x
 	end
+
 	if #num == 3 then
 		break
 	end
-	print(num[i])
 end
 
+print(num[0],num[1], num[2])
 
 local ok = {}
 local count = 1
@@ -51,37 +52,34 @@ function scene:create( event )
 	som.y = display.contentCenterY+100
 	sceneGroup:insert(som)
 
-	local function gotoResult(flag)
-		print("gotoResult()")
-		composer.setVariable("time", time)
-		composer.setVariable("flag", flag)
-		composer.removeScene("game")
-		audio.pause( backgroundMusicChannel )
-		if flag == 1 then
-			composer.gotoScene("풍선_success")
-		elseif flag == -1 then
-			composer.gotoScene("풍선_over")
-		end
-			
-    	
-	end
-
     --timer
     local  time = 20
     local  cText = display.newText("20", background.x + 450, background.y-300, "font/꽃소금체.ttf", 80)
     cText:setFillColor(1, 0.2, 0.2) -- 빨간 색
 	sceneGroup:insert(cText)
 
-    local function Timer( event )
+	local function gotoResult(flag)
+		timer.cancelAll() 
+		composer.removeScene("풍선터트리기_20초")
+		audio.pause( backgroundMusicChannel )
+		if flag == 1 then
+			composer.gotoScene("풍선_success")
+		elseif flag == -1 then
+			composer.gotoScene("풍선_over")
+		end
+	end
+
+	local function Timer( event )
 		time = time - 1
 		local tLeft = string.format("%02d", time)
        cText.text = tLeft
 
-       if time < 1 then
+       if time < 0.5 then
     		flag = -1
-       	gotoResult(flag)
+       		gotoResult(flag)
        end
     end	
+
 
 	-- 풍선 or 폭탄 누르면 점수 처리하는 함수
 	local image = {} -- 풍선과 폭탄
@@ -165,6 +163,7 @@ function scene:create( event )
 		timer.performWithDelay(100, checkBomb)
 
 	end
+
 	-- create image button
 	image[ok[1]] = widget.newButton({defaultFile="image/풍선터트리기/balloon.png", overFile="image/풍선터트리기/balloon.png", width=150, height=180, onEvent = tapEvent}) -- gold x 2
 	image[ok[2]] = widget.newButton({defaultFile="image/풍선터트리기/balloon.png", overFile="image/풍선터트리기/balloon.png", width=150, height=180, onEvent = tapEvent})

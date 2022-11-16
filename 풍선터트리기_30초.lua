@@ -18,8 +18,9 @@ for i = 0, 5, 1 do
 	if #num == 3 then
 		break
 	end
-	print(num[i])
 end
+
+print(num[0],num[1], num[2])
 
 
 local ok = {}
@@ -49,39 +50,36 @@ function scene:create( event )
 	local som = display.newImageRect("image/풍선터트리기/som.png", 450, 450)
 	som.x = display.contentCenterX+450
 	som.y = display.contentCenterY+100
-	sceneGroup:insert(som)
+	sceneGroup:insert(som)	
 
 	local function gotoResult(flag)
-		print("gotoResult()")
-		composer.setVariable("time", time)
-		composer.setVariable("flag", flag)
-		composer.removeScene("game")
+		timer.cancelAll() 
+		composer.removeScene("풍선터트리기_30초")
 		audio.pause( backgroundMusicChannel )
 		if flag == 1 then
 			composer.gotoScene("풍선_success")
 		elseif flag == -1 then
 			composer.gotoScene("풍선_over")
 		end
-			
-    	
 	end
 
-    --timer
-    local  time = 30
-    local  cText = display.newText("30", background.x + 450, background.y-300, "font/꽃소금체.ttf", 80)
-    cText:setFillColor(1, 0.2, 0.2) -- 빨간 색
+	--timer
+	local  time = 30
+	local  cText = display.newText("30", background.x + 450, background.y-300, "font/꽃소금체.ttf", 80)
+	cText:setFillColor(1, 0.2, 0.2) -- 빨간 색
 	sceneGroup:insert(cText)
 
-    local function Timer( event )
+	local function Timer( event )
 		time = time - 1
 		local tLeft = string.format("%02d", time)
-       cText.text = tLeft
+		cText.text = tLeft
 
-       if time < 1 then
-    		flag = -1
-       	gotoResult(flag)
-       end
-    end	
+		if time < 1 then
+			flag = -1
+			gotoResult(flag)
+		end
+	end
+
 
 	-- 풍선 or 폭탄 누르면 점수 처리하는 함수
 	local image = {} -- 풍선과 폭탄

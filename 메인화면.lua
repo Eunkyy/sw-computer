@@ -92,6 +92,12 @@ local loadedSettings= loadsave.loadTable( "settings.json" )
 			time = 1000,
 			loopCount = 3,
 		},
+      {
+			name="ad-apply",
+			frames= {2, 1},
+			time = 1000,
+			loopCount = 3,
+		},
 
 		{
 			name="tn-eat",
@@ -123,7 +129,7 @@ local loadedSettings= loadsave.loadTable( "settings.json" )
 		-- consecutive frames sequence
 		{
 			name="stay",
-			start = 1,
+			start = 2,
 			count = 1,
 			time = 2000,
 			loopCount = 0,
@@ -150,11 +156,19 @@ local loadedSettings= loadsave.loadTable( "settings.json" )
 	background.y = display.contentHeight/2
 	sceneGroup:insert(background)
 
-	local som = display.newImageRect("image/som2.png", 635, 635)
-	som.x = display.contentCenterX
-	som.y = 310
-	som.alpha = 1
-	sceneGroup:insert(som)
+	--local som = display.newImageRect("image/som2.png", 635, 635)
+	--som.x = display.contentCenterX
+	--som.y = 310
+	--som.alpha = 1
+	--sceneGroup:insert(som)
+
+   local ad = display.newSprite(sheet1, sq1)
+	ad:setSequence("stay")
+	ad:play()
+	ad.x = display.contentCenterX - 3
+	ad.y = 410
+	ad.name = "adult"
+   sceneGroup:insert(ad)
 
 --[[ 모션-캐릭터 정지상태&click시 볼터치 함수
    local ad = display.newSprite(sheet1, sq1)
@@ -185,27 +199,28 @@ local loadedSettings= loadsave.loadTable( "settings.json" )
 	kd.y = display.contentCenterY + 35
 	kd.name = "kid"
 
-   function clickSom(event)
-		if event.target.name == "adult" then
-			ad:setSequence("ad-click")
-			ad:play()
-		elseif event.target.name == "kid" then
-			kd:setSequence("kd-click")
-			kd:play()
-		elseif event.target.name == "teen" then
-			tn:setSequence("tn-click")
-			tn:play()
-		elseif event.target.name == "baby" then
-			bb:setSequence("bb-click")
-			bb:play()
-		end
-	end
-
-	ad:addEventListener("tap", clickSom)
 	bb:addEventListener("tap", clickSom)
 	tn:addEventListener("tap", clickSom)
 	kd:addEventListener("tap", clickSom)
   --]]
+
+  function clickSom(event)
+      if event.target.name == "adult" then
+         ad:setSequence("ad-click")
+         ad:play()
+      elseif event.target.name == "kid" then
+         kd:setSequence("kd-click")
+         kd:play()
+      elseif event.target.name == "teen" then
+         tn:setSequence("tn-click")
+         tn:play()
+      elseif event.target.name == "baby" then
+         bb:setSequence("bb-click")
+         bb:play()
+      end
+   end
+
+   ad:addEventListener("tap", clickSom)
 
  local clo1 = display.newImageRect("image/옷/과잠_1.png", 600, 355)
     clo1.x, clo1.y = display.contentWidth/2 - 37, 405
@@ -538,6 +553,13 @@ local loadedSettings= loadsave.loadTable( "settings.json" )
 	cloud5.x = 980
 	cloud5.y = 285
 	sceneGroup:insert(cloud5)
+
+   if apply == 1 then
+      ad:setSequence("ad-apply")
+      ad:play()
+      apply = 0
+      loadsave.saveTable(loadedSettings,"settings.json")
+   end
 
 
 	function gotoPic( event )
