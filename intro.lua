@@ -58,6 +58,13 @@ function scene:create( event )
 	            sundae_count=0,
 	            steak_count=0,
 	            fried_count=0,
+
+	            tt_apply = 0,
+	            fs_apply=0,
+	            sd_apply=0,
+	            st_apply=0,
+	            fr_apply=0
+
 	        }
 
 	        loadsave.saveTable( food, "food.json" )

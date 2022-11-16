@@ -338,7 +338,22 @@ function scene:create( event )
     else
        opc5.alpha = 0
     end  
-
+  
+  sceneGroup:insert(clo1)
+  sceneGroup:insert(clo2)
+  sceneGroup:insert(clo3)
+  sceneGroup:insert(clo4)
+  sceneGroup:insert(clo5)
+  sceneGroup:insert(anm1)
+  sceneGroup:insert(anm2)
+  sceneGroup:insert(anm3)
+  sceneGroup:insert(anm4)
+  sceneGroup:insert(anm5)
+  sceneGroup:insert(opc1)
+  sceneGroup:insert(opc2)
+  sceneGroup:insert(opc3)
+  sceneGroup:insert(opc4)
+  sceneGroup:insert(opc5)
    -- local rb1 = display.newImageRect("image/아이템/리본_1.png", 160, 120)
    -- rb1.x, rb1.y = display.contentWidth/2 + 50, 270
    -- rb1.rotation = 10
