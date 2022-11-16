@@ -52,7 +52,7 @@ function scene:create( event )
 	sceneGroup:insert(t)
 	
 	loadedSettings.money = loadedSettings.money + 100
-	loadsave.saveTable(loadedSettings,"setting.json")
+	loadsave.saveTable(loadedSettings,"settings.json")
 end
 
 function scene:show( event )

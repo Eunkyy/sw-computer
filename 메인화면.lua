@@ -158,48 +158,22 @@ local loadedSettings= loadsave.loadTable( "settings.json" )
 	--som.alpha = 1
 	--sceneGroup:insert(som)
 
-   local ad = display.newSprite(sheet1, sq1)
-	ad:setSequence("stay")
-	ad:play()
-	ad.x = display.contentCenterX - 2
-	ad.y = 412
-	ad.name = "adult"
-   sceneGroup:insert(ad)
+   local text = display.newText("LEVEL : ".. loadedSettings.level, display.contentWidth/2, display.contentHeight*0.05, "font/NanumSquareRoundB.ttf", 40)
+   text:setFillColor(0)
+   sceneGroup:insert(text)
 
---[[ 모션-캐릭터 정지상태&click시 볼터치 함수
-   local ad = display.newSprite(sheet1, sq1)
-	ad:setSequence("stay")
-	ad:play()
-	ad.x = display.contentCenterX + 300
-	ad.y = display.contentCenterY - 50
-	ad.name = "adult"
+ --   local ad = display.newSprite(sheet1, sq1)
+	-- ad:setSequence("stay")
+	-- ad:play()
+	-- ad.x = display.contentCenterX - 2
+	-- ad.y = 412
+	-- ad.name = "adult"
+ --   sceneGroup:insert(ad)
 
-	local bb = display.newSprite(sheet2, sq2)
-	bb:setSequence("stay")
-	bb:play()
-	bb.x = display.contentCenterX - 450
-	bb.y = display.contentCenterY + 150
-	bb.name = "baby"
-
-	local tn = display.newSprite(sheet3, sq1)
-	tn:setSequence("stay")
-	tn:play()
-	tn.x = display.contentCenterX 
-	tn.y = display.contentCenterY - 60
-	tn.name = "teen"
-
-	local kd = display.newSprite(sheet4, sq1)
-	kd:setSequence("stay")
-	kd:play()
-	kd.x = display.contentCenterX - 240
-	kd.y = display.contentCenterY + 35
-	kd.name = "kid"
-
-	bb:addEventListener("tap", clickSom)
-	tn:addEventListener("tap", clickSom)
-	kd:addEventListener("tap", clickSom)
-  --]]
-
+local ad
+local tn
+local kd
+local bb
   function clickSom(event)
       if event.target.name == "adult" then
          ad:setSequence("ad-click")
@@ -215,8 +189,44 @@ local loadedSettings= loadsave.loadTable( "settings.json" )
          bb:play()
       end
    end
+   if loadedSettings.level >= 20 then
+    ad = display.newSprite(sheet1, sq1)
+  	ad:setSequence("stay")
+  	ad:play()
+  	ad.x = display.contentCenterX + 300
+  	ad.y = display.contentCenterY - 50
+  	ad.name = "adult"
+    ad:addEventListener("tap", clickSom)
+  elseif  loadedSettings.level >= 10 then
+    tn = display.newSprite(sheet3, sq1)
+    tn:setSequence("stay")
+    tn:play()
+    tn.x = display.contentCenterX 
+    tn.y = display.contentCenterY - 60
+    tn.name = "teen"
+    tn:addEventListener("tap", clickSom)
+  elseif loadedSettings.level >= 5 then
+    kd = display.newSprite(sheet4, sq1)
+    kd:setSequence("stay")
+    kd:play()
+    kd.x = display.contentCenterX - 240
+    kd.y = display.contentCenterY + 35
+    kd.name = "kid"
+    kd:addEventListener("tap", clickSom)
+  else
+    bb = display.newSprite(sheet2, sq2)
+    bb:setSequence("stay")
+    bb:play()
+    bb.x = display.contentCenterX - 450
+    bb.y = display.contentCenterY + 150
+    bb.name = "baby"
+    bb:addEventListener("tap", clickSom)
+  end
 
-   ad:addEventListener("tap", clickSom)
+
+	-- bb:addEventListener("tap", clickSom)
+	-- tn:addEventListener("tap", clickSom)
+	-- kd:addEventListener("tap", clickSom)
 
  local clo1 = display.newImageRect("image/옷/과잠_1.png", 600, 355)
     clo1.x, clo1.y = display.contentWidth/2 - 37, 405

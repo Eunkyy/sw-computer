@@ -132,6 +132,8 @@ print(item.."---")
 			put_apply()
 
 			loadedSettings.eat=1
+
+			loadedSettings.level = loadedSettings.level + 1
 			loadsave.saveTable(loadedFood,"food.json")
 			loadsave.saveTable(loadedItems,"items.json")
 			loadsave.saveTable(loadedSettings,"settings.json")
