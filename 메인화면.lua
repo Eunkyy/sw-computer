@@ -165,8 +165,8 @@ local loadedSettings= loadsave.loadTable( "settings.json" )
    local ad = display.newSprite(sheet1, sq1)
 	ad:setSequence("stay")
 	ad:play()
-	ad.x = display.contentCenterX - 3
-	ad.y = 410
+	ad.x = display.contentCenterX - 2
+	ad.y = 412
 	ad.name = "adult"
    sceneGroup:insert(ad)
 
@@ -558,6 +558,13 @@ local loadedSettings= loadsave.loadTable( "settings.json" )
       ad:setSequence("ad-apply")
       ad:play()
       apply = 0
+      loadsave.saveTable(loadedSettings,"settings.json")
+   end
+
+   if eat == 1 then
+      ad:setSequence("ad-eat")
+      ad:play()
+      eat = 0
       loadsave.saveTable(loadedSettings,"settings.json")
    end
 
