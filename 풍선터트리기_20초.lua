@@ -38,7 +38,7 @@ function scene:create( event )
 	local backgroundMusicChannel = audio.play( soundEffect, {loops=-1} )
 	audio.setVolume( 2 )
 	
-	local background = display.newImageRect("image/풍선터트리기/bg.jpg", display.contentWidth, display.contentHeight)
+	local background = display.newImageRect("image/풍선터트리기/bg2.jpg", display.contentWidth, display.contentHeight)
 	background.x, background.y = display.contentWidth/2, display.contentHeight/2
 	sceneGroup:insert(background)
 
@@ -206,7 +206,7 @@ function scene:create( event )
 	local tmr1 = timer.performWithDelay(1000, Timer, time) --1초마다 Timer를 불러와줌
 
 		
-	local startBG = display.newImageRect("image/풍선터트리기/bg.jpg", display.contentWidth, display.contentHeight)
+	local startBG = display.newImageRect("image/풍선터트리기/bg2.jpg", display.contentWidth, display.contentHeight)
 	startBG.x, startBG.y = display.contentWidth/2, display.contentHeight/2
 	local b1 = display.newImage("image/풍선터트리기/bomb.png")
 	b1.x = image[ok[18]].x

@@ -14,11 +14,11 @@ function scene:create( event )
     audio.setVolume( 1 )
 	
 	
-	local background = display.newImageRect("image/bg3.jpg", display.contentWidth, display.contentHeight)
+	local background = display.newImageRect("image/풍선터트리기/back.jpg", display.contentWidth, display.contentHeight)
 	background.x, background.y = display.contentWidth/2, display.contentHeight/2
 
 	local gameTitle = display.newText("솜 수집하기", display.contentWidth/2, display.contentHeight/2 - 200, "font/NanumYeBbeunMinGyeongCe.ttf", 130)
-	gameTitle:setFillColor(0)
+	gameTitle:setFillColor(1)
 
 	local gBox = display.newRect( display.contentWidth/2, display.contentHeight/2 + 125,370, 80)
 	gBox:setFillColor( 0.5, 0.7, 0.7 )
