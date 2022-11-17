@@ -275,8 +275,12 @@ function scene:create( event )
 
 	function gotoMain( event )
 		audio.pause( backgroundMusicChannel )
+		local options={
+     		effect ="fade",
+      		time=1000
+   		}
 		composer.removeScene("intro")
-		composer.gotoScene( "메인화면" )
+		composer.gotoScene( "메인화면",options )
 	end
 
 	--function inputEvent( event )
