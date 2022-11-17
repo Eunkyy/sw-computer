@@ -225,13 +225,6 @@ function scene:create( event )
       sceneGroup:insert(tn)
       tn:addEventListener("tap", clickSom)
 
-      if apply == 1 then
-         tn:setSequence("tn-apply")
-         tn:play()
-         loadedSettings.apply=0
-         loadsave.saveTable(loadedSettings,"settings.json")      
-      end
-
       if eat == 1 then
          tn:setSequence("tn-eat")
          tn:play()
@@ -250,13 +243,6 @@ function scene:create( event )
       kd.name = "kid"
       sceneGroup:insert(kd)
       kd:addEventListener("tap", clickSom)
-
-      if apply == 1 then
-         kd:setSequence("kd-apply")
-         kd:play()
-         loadedSettings.apply=0
-         loadsave.saveTable(loadedSettings,"settings.json")      
-      end
    
       if eat == 1 then
          kd:setSequence("kd-eat")
@@ -276,13 +262,6 @@ function scene:create( event )
       bb.name = "baby"
       sceneGroup:insert(bb)
       bb:addEventListener("tap", clickSom)
-
-      if apply == 1 then
-         bb:setSequence("bb-apply")
-         bb:play()
-         loadedSettings.apply=0
-         loadsave.saveTable(loadedSettings,"settings.json")      
-      end
    
       if eat == 1 then
          bb:setSequence("bb-eat")
