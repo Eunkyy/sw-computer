@@ -305,11 +305,11 @@ function scene:create( event )
 	newgame.x = 750
 	newgame.y = 400
 	sceneGroup:insert(newgame)
+	newgame.alpha=0
 	
 
 	startButton:addEventListener("tap", tapListener)
 	startButton:addEventListener("tap", gotoMain)
-	newgame:addEventListener("tap", tapListener)
 end
 
 function scene:show( event )
