@@ -36,7 +36,7 @@ function scene:create( event )
 
 	local guideText = display.newText(" ", display.contentWidth/2, display.contentHeight/ 2 - 70, "font/NanumJangMiCe.ttf", 30)
 	guideText:setFillColor(0)
-	guideText.text = "[게임방법]\n\n왼쪽, 오른쪽 버튼을 클릭해 솜솜이를 이동시킬 수 있습니다.\n솜솜이는 A+,A 학점을 받으면 50점, 평균학점인 B+,B를 받으면 30점을 획득하고, \n그 이하 학점를 받으면 -100점이 됩니다.\n기본 점수 500점에서 시작이되고,\n 솜솜이의 점수가 1200점 이상이 되면 게임 CLEAR입니다. \n단, 솜솜이의 점수가 0점이 되면 게임이 종료됩니다.\n 좋은 학점을 받아 포인트를 획득하세요!    "
+	guideText.text = "[게임방법]\n\n왼쪽, 오른쪽 버튼을 클릭해 솜솜이를 이동시킬 수 있습니다.\n솜솜이는 A+,A 학점을 받으면 60점, 평균학점인 B+,B를 받으면 30점을 획득하고, \n그 이하 학점를 받으면 -100점이 됩니다.\n기본 점수 500점에서 시작이되고,\n 솜솜이의 점수가 1200점 이상이 되면 게임 CLEAR입니다. \n단, 솜솜이의 점수가 0점이 되면 게임이 종료됩니다.\n 좋은 학점을 받아 포인트를 획득하세요!    "
 	
 
 	local button = display.newText("돌아가기", display.contentWidth/2, display.contentHeight/ 2 +200, "font/NanumJangMiCe.ttf", 40)
