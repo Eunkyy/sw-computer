@@ -79,7 +79,7 @@ function scene:create( event )
 		{
 			name="ad-eat",
 			frames= {4, 1},
-			time = 2000,
+			time = 1600,
 			loopCount = 3,
 		},
 		{
@@ -91,14 +91,14 @@ function scene:create( event )
       {
 			name="ad-apply",
 			frames= {3, 1},
-			time = 1000,
+			time = 1500,
 			loopCount = 3,
 		},
 
 		{
 			name="tn-eat",
 			frames= {4, 1},
-			time = 2000,
+			time = 1600,
 			loopCount = 3,
 		},
 		{
@@ -111,7 +111,7 @@ function scene:create( event )
 		{
 			name="kd-eat",
 			frames= {4, 1},
-			time = 2000,
+			time = 1600,
 			loopCount = 3,
 		},
 		{
@@ -134,7 +134,7 @@ function scene:create( event )
 		{
 			name="bb-eat",
 			frames= {2, 3},
-			time = 2000,
+			time = 1700,
 			loopCount = 3,
 		},
 		{
@@ -694,7 +694,7 @@ local ht = display.newImageRect( "image/UI/ht.png", 100, 100 )
    			local guideText = display.newText(" ", display.contentWidth/2, display.contentHeight/ 2, "font/NanumJangMiCe.ttf", 30)
    			guideText:setFillColor(0)
    			guideText.text = "솜솜이 키우기\n\n오른쪽에 있는 미니게임으로 코인을 모으세요\n모은 코인으로 상점에서 음식을 구매해 솜솜이를 키워보세요!\n\n돋보기-숨은그림찾기\n솜-솜수집하기\n시험지-학점받기 "
-   			local guideExit = display.newImage("image/메인/exit.png")
+   			local guideExit = display.newImage("image/miniExit.png")
    			guideExit.x = guideBg.x + 260
    			guideExit.y = guideBg.y - 170
 
@@ -764,7 +764,7 @@ local ht = display.newImageRect( "image/UI/ht.png", 100, 100 )
    store:addEventListener("tap", gotoStore)
 
 	buttonUI[5] = widget.newButton(
-		{	defaultFile = "image/메인/question3.png", overFile = "image/메인/question3.png",
+		{	defaultFile = "image/메인/q.png", overFile = "image/메인/q.png",
 			 onPress = inputEvent})
 	buttonUI[5].x = 30
 	buttonUI[5].y = 40

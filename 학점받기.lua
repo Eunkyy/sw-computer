@@ -38,9 +38,9 @@ function scene:create( event )
 	local startButton = display.newText("GAME START", display.contentWidth/2, display.contentHeight/2+250, "font/SunriseInternationalDemo.otf", 70)
 	startButton:setFillColor(0)
 
-	local guideExit = display.newImage("image/메인/exit.png")
-	guideExit.x = 1220
-	guideExit.y = 22
+	local guideExit = display.newImage("image/miniExit.png")
+	guideExit.x = 1150
+	guideExit.y = 60
 
 	local function startGame(event)
 	   	sceneGroup:insert(background)
