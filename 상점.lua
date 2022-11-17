@@ -22,14 +22,16 @@ function scene:create( event )
 	background.x,background.y = display.contentWidth/2,display.contentHeight/2
 	sceneGroup:insert(background)
 
-
+	local coin= display.newImageRect("image/UI/coin.png",50,50)
+	coin.x,coin.y = display.contentWidth*0.38,display.contentHeight*0.2
+	sceneGroup:insert(coin)
+	
 	--돈
 	local m = "money:  "..loadedSettings.money
 	local showLimit = display.newText(m,display.contentWidth*0.5,display.contentHeight*0.2)
 	showLimit:setFillColor(0)
 	showLimit.size =40
 	sceneGroup:insert(showLimit)
-	
 
 	--음식
 	local tteokbokki = display.newImageRect("image/상점/떡볶이.jpeg",150,150)

@@ -31,7 +31,7 @@ function scene:create( event )
 	        --엔딩관련 데이터 파일 생성
 	    end
 	        local settings = {
-				money = 8000,
+				money = 2000,
 				eat = 0,
 				apply =0,
 

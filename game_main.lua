@@ -44,8 +44,9 @@ function scene:create( event )
     physics.start()
     physics.setGravity( 0, 7)
 
-    local background = display.newImageRect(backGroup,"image/bg3.jpg", display.contentWidth, display.contentHeight)
+    local background = display.newImageRect(backGroup,"image/green.jpg", display.contentWidth, display.contentHeight)
     background.x, background.y = display.contentWidth/2, display.contentHeight/2
+    background.alpha = 0.7
 
     local player=display.newImageRect("image/som1.png",170, 250)
     player.x,player.y= display.contentWidth/2, 550
@@ -58,7 +59,7 @@ function scene:create( event )
     local k = 1
     local score = 500
     local scoreText = display.newText( "Score=" .. score, 150, 50, "font/NanumJangMiCe.ttf", 70 )
-    scoreText:setFillColor(0.2)
+    scoreText:setFillColor(1)
 
      print(score.."-score 점수")
 
@@ -212,7 +213,7 @@ function scene:create( event )
                           break
                       end
                     end
-                    score = score - 500
+                    score = score - 100
                    scoreText.text = "Score: " .. score
 
                     print(score.."-score 점수 1")
