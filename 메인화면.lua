@@ -764,7 +764,7 @@ local ht = display.newImageRect( "image/UI/ht.png", 100, 100 )
    store:addEventListener("tap", gotoStore)
 
 	buttonUI[5] = widget.newButton(
-		{	defaultFile = "image/메인/q.png", overFile = "image/메인/question3.png",
+		{	defaultFile = "image/메인/q.png", overFile = "image/메인/q.png",
 			 onPress = inputEvent})
 	buttonUI[5].x = 30
 	buttonUI[5].y = 40
