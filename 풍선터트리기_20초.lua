@@ -3,8 +3,6 @@
 -- game.lua
 --
 -----------------------------------------------------------------------------------------
-math.randomseed( os.time() )
-
 local composer = require( "composer" )
 local scene = composer.newScene()
 local widget = require( "widget" )
@@ -47,10 +45,9 @@ function scene:create( event )
 	som.y = display.contentCenterY+100
 	sceneGroup:insert(som)
 
-    --timer
     local  time = 21
     local  cText = display.newText("20", background.x + 450, background.y-300, "font/꽃소금체.ttf", 80)
-    cText:setFillColor(1) -- 빨간 색
+    cText:setFillColor(1) 
 	sceneGroup:insert(cText)
 
 	local function gotoResult(flag)
@@ -69,6 +66,7 @@ function scene:create( event )
 
        if time == 0 or time < 0 then
 			timer.cancelAll() 
+			audio.pause( backgroundMusicChannel )
 			composer.removeScene("풍선터트리기_20초")
 			composer.gotoScene("풍선_over")
        end
@@ -77,8 +75,7 @@ function scene:create( event )
 	local image = {}
 	function tapEvent(event)
 		if event.phase == "began" then
-
-			if event.target.name == "b1" then -- balloon	
+			if event.target.name == "b1" then
 				transition.fadeOut(image[ok[1]], {time=40})
 			elseif event.target.name == "b2" then
 				transition.fadeOut(image[ok[2]], {time=40})
@@ -125,12 +122,9 @@ function scene:create( event )
 				time = time-5
 				print("시간")
 			end
-
 		end
 
-		----- 종료 조건 -----
 		function checkSom()	
-			-- 풍선을 다 캐치했을 때
 			if image[ok[1]].alpha == 0 and image[ok[2]].alpha == 0 and image[ok[3]].alpha == 0 and image[ok[4]].alpha == 0 and image[ok[5]].alpha == 0 and
 					image[ok[6]].alpha == 0 and image[ok[7]].alpha == 0 and image[ok[8]].alpha == 0 and image[ok[9]].alpha == 0 and
 					image[ok[10]].alpha == 0 and image[ok[11]].alpha == 0 and image[ok[12]].alpha == 0 and image[ok[13]].alpha == 0 and
@@ -140,11 +134,9 @@ function scene:create( event )
 				gotoResult(flag)
 			end
 		end
-
 		timer.performWithDelay(100, checkSom)
 	end
 
-	-- create image button
 	image[ok[1]] = widget.newButton({defaultFile="image/풍선터트리기/balloon.png", overFile="image/풍선터트리기/balloon.png", width=150, height=180, onEvent = tapEvent}) -- gold x 2
 	image[ok[2]] = widget.newButton({defaultFile="image/풍선터트리기/balloon.png", overFile="image/풍선터트리기/balloon.png", width=150, height=180, onEvent = tapEvent})
 	image[ok[3]] = widget.newButton({defaultFile="image/풍선터트리기/balloon.png", overFile="image/풍선터트리기/balloon.png", width=150, height=180, onEvent = tapEvent}) -- silver x 3
@@ -166,7 +158,6 @@ function scene:create( event )
 	image[ok[19]] = widget.newButton({defaultFile="image/풍선터트리기/balloon.png", overFile="image/풍선터트리기/bomb.png", width=150, height=180, onEvent = tapEvent})
 	image[ok[20]] = widget.newButton({defaultFile="image/풍선터트리기/balloon.png", overFile="image/풍선터트리기/bomb.png", width=150, height=180, onEvent = tapEvent})
 	
-	-- image naming
 	image[ok[1]].name = "b1"
 	image[ok[2]].name = "b2"
 	image[ok[3]].name = "b3"
@@ -203,20 +194,19 @@ function scene:create( event )
 		end
 		sceneGroup:insert(image[i])
 	end
-	local tmr1 = timer.performWithDelay(1000, Timer, time) --1초마다 Timer를 불러와줌
+	local tmr1 = timer.performWithDelay(1000, Timer, time) 
 
-		
-	local startBG = display.newImageRect("image/풍선터트리기/bg2.jpg", display.contentWidth, display.contentHeight)
-	startBG.x, startBG.y = display.contentWidth/2, display.contentHeight/2
-	local b1 = display.newImage("image/풍선터트리기/bomb.png")
-	b1.x = image[ok[18]].x
-	b1.y = image[ok[18]].y
-	local b2 = display.newImage("image/풍선터트리기/bomb.png")
-	b2.x = image[ok[19]].x
-	b2.y = image[ok[19]].y
-	local b3 = display.newImage("image/풍선터트리기/bomb.png")
-	b3.x = image[ok[20]].x
-	b3.y = image[ok[20]].y
+	local startBg = display.newImageRect("image/풍선터트리기/bg2.jpg", display.contentWidth, display.contentHeight)
+	startBg.x, startBg.y = display.contentWidth/2, display.contentHeight/2
+	local c1 = display.newImage("image/풍선터트리기/bomb.png")
+	c1.x = image[ok[18]].x
+	c1.y = image[ok[18]].y
+	local c2 = display.newImage("image/풍선터트리기/bomb.png")
+	c2.x = image[ok[19]].x
+	c2.y = image[ok[19]].y
+	local c3 = display.newImage("image/풍선터트리기/bomb.png")
+	c3.x = image[ok[20]].x
+	c3.y = image[ok[20]].y
 
 	local time2 = 0.5
 
@@ -224,13 +214,13 @@ function scene:create( event )
 		time2 = time2 - 0.5
 
 		if time2 == 0 then
-			transition.fadeOut(startBG, {time=500, delay=500})
-			transition.fadeOut(b1, {time=500, delay=500})
-			transition.fadeOut(b2, {time=500, delay=500})
-			transition.fadeOut(b3, {time=500, delay=500})		
+			transition.fadeOut(startBg, {time=500, delay=500})
+			transition.fadeOut(c1, {time=500, delay=500})
+			transition.fadeOut(c2, {time=500, delay=500})
+			transition.fadeOut(c3, {time=500, delay=500})		
 		end
 	end
-	local tmr2 = timer.performWithDelay(500, timer_start, time2) -- 초기 화면
+	local tmr2 = timer.performWithDelay(500, timer_start, time2) 
 
 
 end
