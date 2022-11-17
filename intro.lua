@@ -290,13 +290,13 @@ function scene:create( event )
 	--	end
 	--end
 
-	local startButton = display.newImageRect("image/시작화면/start_button.png",890, 500)
+	local startButton = display.newImageRect("image/시작화면/start_button.png",970, 570)
 	--buttonUI[1] = widget.newButton(
 	--	{ defaultFile = "image/시작화면/start_button.png", overFile = "image/시작화면/start_button.png",
 	--	width = 980, height = 550, onPress = inputEvent }
 	--)
 	startButton.x = 700
-	startButton.y = 338
+	startButton.y = 360
 
 	sceneGroup:insert(background)
 	sceneGroup:insert(startButton)
