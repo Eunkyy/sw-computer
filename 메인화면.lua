@@ -79,7 +79,7 @@ function scene:create( event )
 		{
 			name="ad-eat",
 			frames= {4, 1},
-			time = 2000,
+			time = 1600,
 			loopCount = 3,
 		},
 		{
@@ -91,14 +91,14 @@ function scene:create( event )
       {
 			name="ad-apply",
 			frames= {3, 1},
-			time = 1000,
+			time = 1500,
 			loopCount = 3,
 		},
 
 		{
 			name="tn-eat",
 			frames= {4, 1},
-			time = 2000,
+			time = 1600,
 			loopCount = 3,
 		},
 		{
@@ -111,7 +111,7 @@ function scene:create( event )
 		{
 			name="kd-eat",
 			frames= {4, 1},
-			time = 2000,
+			time = 1600,
 			loopCount = 3,
 		},
 		{
@@ -134,7 +134,7 @@ function scene:create( event )
 		{
 			name="bb-eat",
 			frames= {2, 3},
-			time = 2000,
+			time = 1700,
 			loopCount = 3,
 		},
 		{

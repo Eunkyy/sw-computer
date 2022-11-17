@@ -14,7 +14,7 @@ function scene:create( event )
     audio.setVolume( 1 )
 	
 	
-	local background = display.newImageRect("image/풍선터트리기/bg.jpg", display.contentWidth, display.contentHeight)
+	local background = display.newImageRect("image/bg3.jpg", display.contentWidth, display.contentHeight)
 	background.x, background.y = display.contentWidth/2, display.contentHeight/2
 
 	local gameTitle = display.newText("솜 수집하기", display.contentWidth/2, display.contentHeight/2 - 200, "font/NanumYeBbeunMinGyeongCe.ttf", 130)
@@ -34,9 +34,9 @@ function scene:create( event )
 	local twentyButton = display.newText("GAME START", display.contentWidth/2, display.contentHeight/2+250, "font/SunriseInternationalDemo.otf", 70)
 	twentyButton:setFillColor(0)
 
-	local guideExit = display.newImage("image/메인/exit.png")
-	guideExit.x = 1220
-	guideExit.y = 22
+	local guideExit = display.newImage("image/miniExit.png")
+	guideExit.x = 1150
+	guideExit.y = 60
 
 	local function twentyGame(event)
 	   	sceneGroup:insert(background)

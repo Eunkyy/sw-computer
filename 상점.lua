@@ -106,7 +106,7 @@ function scene:create( event )
 	exit.x,exit.y = display.contentWidth*0.05,display.contentHeight*0.1
 	sceneGroup:insert(exit)
 
-	local exitText = display.newText("나가기",display.contentWidth*0.05,display.contentHeight*0.2)
+	local exitText = display.newText("나가기",display.contentWidth*0.05,display.contentHeight*0.2,"font/NanumJangMiCe.ttf")
 	exitText:setFillColor(0)
 	exitText.size =40
 	sceneGroup:insert(exitText)
