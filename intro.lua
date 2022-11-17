@@ -283,25 +283,33 @@ function scene:create( event )
 		composer.gotoScene( "메인화면",options )
 	end
 
+
 	--function inputEvent( event )
 	--	if event.target.name == "start" then
 	--		local t = timer.performWithDelay(1000, gotoMain, 1)
 	--	end
 	--end
 
-	local startButton = display.newImageRect("image/시작화면/start_button.png",980, 550)
+	local startButton = display.newImageRect("image/시작화면/start_button.png",890, 500)
 	--buttonUI[1] = widget.newButton(
 	--	{ defaultFile = "image/시작화면/start_button.png", overFile = "image/시작화면/start_button.png",
 	--	width = 980, height = 550, onPress = inputEvent }
 	--)
 	startButton.x = 700
-	startButton.y = 360
+	startButton.y = 338
 
 	sceneGroup:insert(background)
 	sceneGroup:insert(startButton)
 
+	local newgame = display.newImageRect("image/시작화면/new_game.png", 890, 500)
+	newgame.x = 750
+	newgame.y = 400
+	sceneGroup:insert(newgame)
+	
+
 	startButton:addEventListener("tap", tapListener)
 	startButton:addEventListener("tap", gotoMain)
+	newgame:addEventListener("tap", tapListener)
 end
 
 function scene:show( event )
