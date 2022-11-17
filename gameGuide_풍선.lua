@@ -37,7 +37,7 @@ function scene:create( event )
 
 	local guideText = display.newText(" ", display.contentWidth/2, display.contentHeight/ 2 - 70, "font/NanumJangMiCe.ttf", 30)
 	guideText:setFillColor(0)
-	guideText.text = "[게임방법]\n\n게임 시작 버튼을 누른 후, 나타나는 폭탄의 위치를 기억하세요!\n솜 안에 숨겨진 폭탄을 피해 솜을 수집하세요\n제한시간은 20초 입니다.\n"
+	guideText.text = "[게임방법]\n\n게임 시작 버튼을 누른 후, 나타나는 폭탄의 위치를 기억하세요!\n솜 안에 숨겨진 폭탄을 피해 솜을 수집하세요\n제한시간은 20초 입니다.\n폭탄은 시간이 5초 줄어듭니다."
 	
 
 	local button = display.newText("돌아가기", display.contentWidth/2, display.contentHeight/ 2 +200, "font/NanumJangMiCe.ttf", 40)
