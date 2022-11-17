@@ -21,14 +21,14 @@ function scene:create( event )
 	gameTitle:setFillColor(1)
 
 	local gBox = display.newRect( display.contentWidth/2, display.contentHeight/2 + 125,370, 80)
-	gBox:setFillColor( 0.5, 0.7, 0.7 )
+	gBox:setFillColor(1 )
 	gBox.alpha = 0.8
 
 	local guide = display.newText("GAME GUIDE", display.contentWidth/2, display.contentHeight/2+130, "font/SunriseInternationalDemo.otf", 70)
 	guide:setFillColor(0)
 	
 	local twentyBox = display.newRect( display.contentWidth/2, display.contentHeight/2+250,370, 80)
-	twentyBox:setFillColor( 0.5, 0.7, 0.7 )
+	twentyBox:setFillColor(1)
 	twentyBox.alpha = 0.8
 
 	local twentyButton = display.newText("GAME START", display.contentWidth/2, display.contentHeight/2+250, "font/SunriseInternationalDemo.otf", 70)

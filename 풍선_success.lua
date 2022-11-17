@@ -23,7 +23,7 @@ function scene:create( event )
 	sceneGroup:insert(background)
 
 	local hintText = display.newText("솜 수집 성공",display.contentWidth*0.5, display.contentHeight*0.5,"font/NanumJangMiCe.ttf")
-	hintText:setFillColor(0)
+	hintText:setFillColor(1)
 	hintText.size = 100
 	sceneGroup:insert(hintText)
 

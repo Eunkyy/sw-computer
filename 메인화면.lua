@@ -133,13 +133,13 @@ function scene:create( event )
 		},
 		{
 			name="bb-eat",
-			frames= {2, 3},
+			frames= {3,2},
 			time = 1700,
 			loopCount = 3,
 		},
 		{
 			name="bb-click",
-			frames= {2, 4},
+			frames= {4,2},
 			time = 1000,
 			loopCount = 2,
 		}

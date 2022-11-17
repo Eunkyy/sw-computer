@@ -50,7 +50,7 @@ function scene:create( event )
     --timer
     local  time = 21
     local  cText = display.newText("20", background.x + 450, background.y-300, "font/꽃소금체.ttf", 80)
-    cText:setFillColor(1, 0.2, 0.2) -- 빨간 색
+    cText:setFillColor(1) -- 빨간 색
 	sceneGroup:insert(cText)
 
 	local function gotoResult(flag)
