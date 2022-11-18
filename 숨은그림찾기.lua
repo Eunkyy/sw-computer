@@ -13,7 +13,7 @@ function scene:create( event )
     local backgroundMusicChannel = audio.play( soundEffect, {loops=-1} )
     audio.setVolume( 1 )
 	
-	local background = display.newImageRect("image/bg3.jpg", display.contentWidth, display.contentHeight)
+	local background = display.newImageRect("image/숨은그림찾기/가이드배경.jpg", display.contentWidth, display.contentHeight)
 	background.x, background.y = display.contentWidth/2, display.contentHeight/2
 
 	local gameTitle = display.newText("숨은그림찾기", display.contentWidth/2, display.contentHeight/2 - 200, "font/NanumYeBbeunMinGyeongCe.ttf", 130)
