@@ -19,14 +19,15 @@ function scene:create( event )
 	item=composer.getVariable("item", item)
 	money=composer.getVariable("money", money)
 
+	local background2= display.newImageRect("image/상점/옷_배경.jpg",1280,720)
+	background2.alpha=1
+	background2.x,background2.y = display.contentWidth/2,display.contentHeight/2
+	sceneGroup:insert(background2)
+
 	local background= display.newImageRect("image/숨은그림찾기/white.png",1280,720)
 	background.x,background.y = display.contentWidth/2,display.contentHeight/2
 	sceneGroup:insert(background)
-
-	local background2= display.newImageRect("image/상점/옷_배경.jpg",1280,720)
-	background2.alpha=0.6
-	background2.x,background2.y = display.contentWidth/2,display.contentHeight/2
-	sceneGroup:insert(background2)
+	background.alpha=0.4
 
 
 print(item)
@@ -287,95 +288,95 @@ print(item)
 	--가격
 
 	local g1 = 500
-	local showLimit = display.newText(g1,display.contentWidth*0.15,display.contentHeight*0.3)
+	local showLimit = display.newText(g1,display.contentWidth*0.15,display.contentHeight*0.3,"font/NanumJangMiCe.ttf")
 	showLimit:setFillColor(0)
-	showLimit.size =40
+	showLimit.size =60
 	sceneGroup:insert(showLimit)
 
 	local g2 = 500
-	local showLimit = display.newText(g2,display.contentWidth*0.33,display.contentHeight*0.3)
+	local showLimit = display.newText(g2,display.contentWidth*0.33,display.contentHeight*0.3,"font/NanumJangMiCe.ttf")
 	showLimit:setFillColor(0)
-	showLimit.size =40
+	showLimit.size =60
 	sceneGroup:insert(showLimit)
 
 	local g3 = 500
-	local showLimit = display.newText(g3,display.contentWidth*0.5,display.contentHeight*0.3)
+	local showLimit = display.newText(g3,display.contentWidth*0.5,display.contentHeight*0.3,"font/NanumJangMiCe.ttf")
 	showLimit:setFillColor(0)
-	showLimit.size =40
+	showLimit.size =60
 	sceneGroup:insert(showLimit)
 
 	local g4 = 500
-	local showLimit = display.newText(g4,display.contentWidth*0.67,display.contentHeight*0.3)
+	local showLimit = display.newText(g4,display.contentWidth*0.67,display.contentHeight*0.3,"font/NanumJangMiCe.ttf")
 	showLimit:setFillColor(0)
-	showLimit.size =40
+	showLimit.size =60
 	sceneGroup:insert(showLimit)
 
 	local g5 = 500
-	local showLimit = display.newText(g5,display.contentWidth*0.85,display.contentHeight*0.3)
+	local showLimit = display.newText(g5,display.contentWidth*0.85,display.contentHeight*0.3,"font/NanumJangMiCe.ttf")
 	showLimit:setFillColor(0)
-	showLimit.size =40
+	showLimit.size =60
 	sceneGroup:insert(showLimit)
 
 
 	local a1 = 1000
-	local showLimit = display.newText(a1,display.contentWidth*0.15,display.contentHeight*0.6)
+	local showLimit = display.newText(a1,display.contentWidth*0.15,display.contentHeight*0.6,"font/NanumJangMiCe.ttf")
 	showLimit:setFillColor(0)
-	showLimit.size =40
+	showLimit.size =60
 	sceneGroup:insert(showLimit)
 
 	local a2 = 1000
-	local showLimit = display.newText(a2,display.contentWidth*0.33,display.contentHeight*0.6)
+	local showLimit = display.newText(a2,display.contentWidth*0.33,display.contentHeight*0.6,"font/NanumJangMiCe.ttf")
 	showLimit:setFillColor(0)
-	showLimit.size =40
+	showLimit.size =60
 	sceneGroup:insert(showLimit)
 
 	local a3 = 1000
-	local showLimit = display.newText(a3,display.contentWidth*0.5,display.contentHeight*0.6)
+	local showLimit = display.newText(a3,display.contentWidth*0.5,display.contentHeight*0.6,"font/NanumJangMiCe.ttf")
 	showLimit:setFillColor(0)
-	showLimit.size =40
+	showLimit.size =60
 	sceneGroup:insert(showLimit)
 
 	local a4 = 1000
-	local showLimit = display.newText(a4,display.contentWidth*0.67,display.contentHeight*0.6)
+	local showLimit = display.newText(a4,display.contentWidth*0.67,display.contentHeight*0.6,"font/NanumJangMiCe.ttf")
 	showLimit:setFillColor(0)
-	showLimit.size =40
+	showLimit.size =60
 	sceneGroup:insert(showLimit)
 
 	local a5 = 1000
-	local showLimit = display.newText(a5,display.contentWidth*0.85,display.contentHeight*0.6)
+	local showLimit = display.newText(a5,display.contentWidth*0.85,display.contentHeight*0.6,"font/NanumJangMiCe.ttf")
 	showLimit:setFillColor(0)
-	showLimit.size =40
+	showLimit.size =60
 	sceneGroup:insert(showLimit)
 
 
 	local t1 = 2000
-	local showLimit = display.newText(t1,display.contentWidth*0.15,display.contentHeight*0.89)
+	local showLimit = display.newText(t1,display.contentWidth*0.15,display.contentHeight*0.89,"font/NanumJangMiCe.ttf")
 	showLimit:setFillColor(0)
-	showLimit.size =40
+	showLimit.size =60
 	sceneGroup:insert(showLimit)
 
 	local t2 = 2000
-	local showLimit = display.newText(t2,display.contentWidth*0.33,display.contentHeight*0.89)
+	local showLimit = display.newText(t2,display.contentWidth*0.33,display.contentHeight*0.89,"font/NanumJangMiCe.ttf")
 	showLimit:setFillColor(0)
-	showLimit.size =40
+	showLimit.size =60
 	sceneGroup:insert(showLimit)
 
 	local t3 = 2000
-	local showLimit = display.newText(t3,display.contentWidth*0.5,display.contentHeight*0.89)
+	local showLimit = display.newText(t3,display.contentWidth*0.5,display.contentHeight*0.89,"font/NanumJangMiCe.ttf")
 	showLimit:setFillColor(0)
-	showLimit.size =40
+	showLimit.size =60
 	sceneGroup:insert(showLimit)
 
 	local t4 = 2000
-	local showLimit = display.newText(t4,display.contentWidth*0.67,display.contentHeight*0.89)
+	local showLimit = display.newText(t4,display.contentWidth*0.67,display.contentHeight*0.89,"font/NanumJangMiCe.ttf")
 	showLimit:setFillColor(0)
-	showLimit.size =40
+	showLimit.size =60
 	sceneGroup:insert(showLimit)
 
 	local t5 = 2000
-	local showLimit = display.newText(t5,display.contentWidth*0.85,display.contentHeight*0.89)
+	local showLimit = display.newText(t5,display.contentWidth*0.85,display.contentHeight*0.89,"font/NanumJangMiCe.ttf")
 	showLimit:setFillColor(0)
-	showLimit.size =40
+	showLimit.size =60
 	sceneGroup:insert(showLimit)
 
 	local next = display.newImageRect("image/상점/화살표_왼.png",80,140)
@@ -393,7 +394,7 @@ print(item)
 	sceneGroup:insert(p_edge)
 
 
-	local buyText = display.newText("        상품을\n구매하시겠습니까?",display.contentWidth*0.5,display.contentHeight*0.54)
+	local buyText = display.newText("        상품을\n구매하시겠습니까?",display.contentWidth*0.5,display.contentHeight*0.54,"font/NanumJangMiCe.ttf")
 	buyText:setFillColor(0)
 	buyText.size =40
 	sceneGroup:insert(buyText)
@@ -498,7 +499,7 @@ print(item)
 	S1:setFillColor(0)
 	sceneGroup:insert(S1)
 
-	local S1text = display.newText("예",display.contentWidth*0.41,display.contentHeight*0.69)
+	local S1text = display.newText("예",display.contentWidth*0.41,display.contentHeight*0.69,"font/NanumJangMiCe.ttf")
 	S1text:setFillColor(1)
 	S1text.size =40
 	sceneGroup:insert(S1text)
@@ -507,7 +508,7 @@ print(item)
 	S2:setFillColor(0)
 	sceneGroup:insert(S2)
 
-	local S2text = display.newText("아니오",display.contentWidth*0.59,display.contentHeight*0.69)
+	local S2text = display.newText("아니오",display.contentWidth*0.59,display.contentHeight*0.69,"font/NanumJangMiCe.ttf")
 	S2text:setFillColor(1)
 	S2text.size =40
 	sceneGroup:insert(S2text)
@@ -516,7 +517,7 @@ print(item)
 	S3:setFillColor(0)
 	sceneGroup:insert(S3)
 
-	local S3text = display.newText("",display.contentWidth*0.5,display.contentHeight*0.69)
+	local S3text = display.newText("",display.contentWidth*0.5,display.contentHeight*0.69,"font/NanumJangMiCe.ttf")
 	S3text:setFillColor(1)
 	S3text.size =40
 	sceneGroup:insert(S3text)

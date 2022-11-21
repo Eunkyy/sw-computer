@@ -20,7 +20,6 @@ function scene:create( event )
 
 	local background= display.newImageRect("image/숨은그림찾기/배경.jpg",1280,720)
 	background.x,background.y = display.contentWidth/2,display.contentHeight/2
-	background.alpha=1
 	sceneGroup:insert(background)
 
 	local map = display.newImageRect("image/숨은그림찾기/캠퍼스.jpg",941,529)

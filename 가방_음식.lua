@@ -34,9 +34,9 @@ function scene:create( event )
 	tteokbokki.id=500
 
 	local tCount = loadedFood.tteokbokki_count
-	local tCount = display.newText(tCount,display.contentWidth*0.21,display.contentHeight*0.3)
+	local tCount = display.newText(tCount,display.contentWidth*0.21,display.contentHeight*0.3,"font/NanumJangMiCe.ttf")
 	tCount:setFillColor(0)
-	tCount.size =30
+	tCount.size =45
 	sceneGroup:insert(tCount)
 
 	local fishCake = display.newImageRect("image/상점/어묵.jpeg",150,150)
@@ -46,9 +46,9 @@ function scene:create( event )
 	fishCake.id=500
 
 	local fcCount = loadedFood.fishCake_count
-	local fcCount = display.newText(fcCount,display.contentWidth*0.39,display.contentHeight*0.3)
+	local fcCount = display.newText(fcCount,display.contentWidth*0.39,display.contentHeight*0.3,"font/NanumJangMiCe.ttf")
 	fcCount:setFillColor(0)
-	fcCount.size =30
+	fcCount.size =45
 	sceneGroup:insert(fcCount)
 
 	local sundae = display.newImageRect("image/상점/순대.jpeg",150,150)
@@ -58,9 +58,9 @@ function scene:create( event )
 	sundae.id=500
 
 	local sdCount = loadedFood.sundae_count
-	local sdCount = display.newText(sdCount,display.contentWidth*0.56,display.contentHeight*0.3)
+	local sdCount = display.newText(sdCount,display.contentWidth*0.56,display.contentHeight*0.3,"font/NanumJangMiCe.ttf")
 	sdCount:setFillColor(0)
-	sdCount.size =30
+	sdCount.size =45
 	sceneGroup:insert(sdCount)
 
 	local steak = display.newImageRect("image/상점/스테이크.jpeg",150,150)
@@ -70,9 +70,9 @@ function scene:create( event )
 	steak.id=500
 
 	local sCount = loadedFood.steak_count
-	local sCount = display.newText(sCount,display.contentWidth*0.73,display.contentHeight*0.3)
+	local sCount = display.newText(sCount,display.contentWidth*0.73,display.contentHeight*0.3,"font/NanumJangMiCe.ttf")
 	sCount:setFillColor(0)
-	sCount.size =30
+	sCount.size =45
 	sceneGroup:insert(sCount)
 
 	local fried = display.newImageRect("image/상점/튀김.jpeg",150,150)
@@ -82,9 +82,9 @@ function scene:create( event )
 	fried.id=500
 
 	local fCount = loadedFood.fried_count
-	local fCount = display.newText(fCount,display.contentWidth*0.91,display.contentHeight*0.3)
+	local fCount = display.newText(fCount,display.contentWidth*0.91,display.contentHeight*0.3,"font/NanumJangMiCe.ttf")
 	fCount:setFillColor(0)
-	fCount.size =30
+	fCount.size =45
 	sceneGroup:insert(fCount)
 
 
@@ -93,33 +93,33 @@ function scene:create( event )
 	--가격
 
 	local tbk = 500
-	local showLimit = display.newText(tbk,display.contentWidth*0.15,display.contentHeight*0.55)
+	local showLimit = display.newText(tbk,display.contentWidth*0.15,display.contentHeight*0.55,"font/NanumJangMiCe.ttf")
 	showLimit:setFillColor(0)
-	showLimit.size =40
+	showLimit.size =60
 	sceneGroup:insert(showLimit)
 
 	local fc = 500
-	local showLimit = display.newText(fc,display.contentWidth*0.33,display.contentHeight*0.55)
+	local showLimit = display.newText(fc,display.contentWidth*0.33,display.contentHeight*0.55,"font/NanumJangMiCe.ttf")
 	showLimit:setFillColor(0)
-	showLimit.size =40
+	showLimit.size =60
 	sceneGroup:insert(showLimit)
 
 	local sd = 500
-	local showLimit = display.newText(sd,display.contentWidth*0.5,display.contentHeight*0.55)
+	local showLimit = display.newText(sd,display.contentWidth*0.5,display.contentHeight*0.55,"font/NanumJangMiCe.ttf")
 	showLimit:setFillColor(0)
-	showLimit.size =40
+	showLimit.size =60
 	sceneGroup:insert(showLimit)
 
 	local stk = 500
-	local showLimit = display.newText(stk,display.contentWidth*0.67,display.contentHeight*0.55)
+	local showLimit = display.newText(stk,display.contentWidth*0.67,display.contentHeight*0.55,"font/NanumJangMiCe.ttf")
 	showLimit:setFillColor(0)
-	showLimit.size =40
+	showLimit.size =60
 	sceneGroup:insert(showLimit)
 
 	local fry = 500
-	local showLimit = display.newText(fry,display.contentWidth*0.85,display.contentHeight*0.55)
+	local showLimit = display.newText(fry,display.contentWidth*0.85,display.contentHeight*0.55,"font/NanumJangMiCe.ttf")
 	showLimit:setFillColor(0)
-	showLimit.size =40
+	showLimit.size =60
 	sceneGroup:insert(showLimit)
 
 

@@ -13,14 +13,15 @@ function scene:create( event )
 	item = composer.getVariable("item")
 	j=0
 
+	local background2= display.newImageRect("image/상점/옷_배경.jpg",1280,720)
+	background2.alpha=1
+	background2.x,background2.y = display.contentWidth/2,display.contentHeight/2
+	sceneGroup:insert(background2)
+
 	local background= display.newImageRect("image/숨은그림찾기/white.png",1280,720)
 	background.x,background.y = display.contentWidth/2,display.contentHeight/2
 	sceneGroup:insert(background)
-
-	local background2= display.newImageRect("image/상점/옷_배경.jpg",1280,720)
-	background2.alpha=0.6
-	background2.x,background2.y = display.contentWidth/2,display.contentHeight/2
-	sceneGroup:insert(background2)
+	background.alpha=0.4
 
 	--아이템 목록--
 

@@ -27,10 +27,10 @@ function scene:create( event )
 	sceneGroup:insert(coin)
 	
 	--돈
-	local m = "money:  "..loadedSettings.money
-	local showLimit = display.newText(m,display.contentWidth*0.5,display.contentHeight*0.2)
+	local m = " money:  "..loadedSettings.money
+	local showLimit = display.newText(m,display.contentWidth*0.5,display.contentHeight*0.2,"font/NanumJangMiCe.ttf")
 	showLimit:setFillColor(0)
-	showLimit.size =40
+	showLimit.size =60
 	sceneGroup:insert(showLimit)
 
 	--음식
@@ -70,33 +70,33 @@ function scene:create( event )
 	--가격
 
 	local tbk = 500
-	local showLimit = display.newText(tbk,display.contentWidth*0.15,display.contentHeight*0.55)
+	local showLimit = display.newText(tbk,display.contentWidth*0.15,display.contentHeight*0.55,"font/NanumJangMiCe.ttf")
 	showLimit:setFillColor(0)
-	showLimit.size =40
+	showLimit.size =60
 	sceneGroup:insert(showLimit)
 
 	local fc = 500
-	local showLimit = display.newText(fc,display.contentWidth*0.33,display.contentHeight*0.55)
+	local showLimit = display.newText(fc,display.contentWidth*0.33,display.contentHeight*0.55,"font/NanumJangMiCe.ttf")
 	showLimit:setFillColor(0)
-	showLimit.size =40
+	showLimit.size =60
 	sceneGroup:insert(showLimit)
 
 	local sd = 500
-	local showLimit = display.newText(sd,display.contentWidth*0.5,display.contentHeight*0.55)
+	local showLimit = display.newText(sd,display.contentWidth*0.5,display.contentHeight*0.55,"font/NanumJangMiCe.ttf")
 	showLimit:setFillColor(0)
-	showLimit.size =40
+	showLimit.size =60
 	sceneGroup:insert(showLimit)
 
 	local stk = 500
-	local showLimit = display.newText(stk,display.contentWidth*0.67,display.contentHeight*0.55)
+	local showLimit = display.newText(stk,display.contentWidth*0.67,display.contentHeight*0.55,"font/NanumJangMiCe.ttf")
 	showLimit:setFillColor(0)
-	showLimit.size =40
+	showLimit.size =60
 	sceneGroup:insert(showLimit)
 
 	local fry = 500
-	local showLimit = display.newText(fry,display.contentWidth*0.85,display.contentHeight*0.55)
+	local showLimit = display.newText(fry,display.contentWidth*0.85,display.contentHeight*0.55,"font/NanumJangMiCe.ttf")
 	showLimit:setFillColor(0)
-	showLimit.size =40
+	showLimit.size =60
 	sceneGroup:insert(showLimit)
 
 

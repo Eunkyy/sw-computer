@@ -62,33 +62,33 @@ function scene:create( event )
 	--가격
 
 	local tbk = 500
-	local showLimit = display.newText(tbk,display.contentWidth*0.15,display.contentHeight*0.55)
+	local showLimit = display.newText(tbk,display.contentWidth*0.15,display.contentHeight*0.55,"font/NanumJangMiCe.ttf")
 	showLimit:setFillColor(0)
-	showLimit.size =40
+	showLimit.size =60
 	sceneGroup:insert(showLimit)
 
 	local fc = 500
-	local showLimit = display.newText(fc,display.contentWidth*0.33,display.contentHeight*0.55)
+	local showLimit = display.newText(fc,display.contentWidth*0.33,display.contentHeight*0.55,"font/NanumJangMiCe.ttf")
 	showLimit:setFillColor(0)
-	showLimit.size =40
+	showLimit.size =60
 	sceneGroup:insert(showLimit)
 
 	local sd = 500
-	local showLimit = display.newText(sd,display.contentWidth*0.5,display.contentHeight*0.55)
+	local showLimit = display.newText(sd,display.contentWidth*0.5,display.contentHeight*0.55,"font/NanumJangMiCe.ttf")
 	showLimit:setFillColor(0)
-	showLimit.size =40
+	showLimit.size =60
 	sceneGroup:insert(showLimit)
 
 	local stk = 500
-	local showLimit = display.newText(stk,display.contentWidth*0.67,display.contentHeight*0.55)
+	local showLimit = display.newText(stk,display.contentWidth*0.67,display.contentHeight*0.55,"font/NanumJangMiCe.ttf")
 	showLimit:setFillColor(0)
-	showLimit.size =40
+	showLimit.size =60
 	sceneGroup:insert(showLimit)
 
 	local fry = 500
-	local showLimit = display.newText(fry,display.contentWidth*0.85,display.contentHeight*0.55)
+	local showLimit = display.newText(fry,display.contentWidth*0.85,display.contentHeight*0.55,"font/NanumJangMiCe.ttf")
 	showLimit:setFillColor(0)
-	showLimit.size =40
+	showLimit.size =60
 	sceneGroup:insert(showLimit)
 
 	local next = display.newImageRect("image/상점/화살표.png",80,140)
@@ -105,7 +105,7 @@ function scene:create( event )
 	p_edge.x,p_edge.y = display.contentWidth*0.5,display.contentHeight*0.5
 	sceneGroup:insert(p_edge)
 
-	local buyText = display.newText("        상품을\n구매하시겠습니까?",display.contentWidth*0.5,display.contentHeight*0.54)
+	local buyText = display.newText("        상품을\n구매하시겠습니까?",display.contentWidth*0.5,display.contentHeight*0.54,"font/NanumJangMiCe.ttf")
 	buyText:setFillColor(0)
 	buyText.size =40
 	sceneGroup:insert(buyText)
@@ -161,7 +161,7 @@ function scene:create( event )
 	S1:setFillColor(0)
 	sceneGroup:insert(S1)
 
-	local S1text = display.newText("예",display.contentWidth*0.41,display.contentHeight*0.69)
+	local S1text = display.newText("예",display.contentWidth*0.41,display.contentHeight*0.69,"font/NanumJangMiCe.ttf")
 	S1text:setFillColor(1)
 	S1text.size =40
 	sceneGroup:insert(S1text)
@@ -170,7 +170,7 @@ function scene:create( event )
 	S2:setFillColor(0)
 	sceneGroup:insert(S2)
 
-	local S2text = display.newText("아니오",display.contentWidth*0.59,display.contentHeight*0.69)
+	local S2text = display.newText("아니오",display.contentWidth*0.59,display.contentHeight*0.69,"font/NanumJangMiCe.ttf")
 	S2text:setFillColor(1)
 	S2text.size =40
 	sceneGroup:insert(S2text)
@@ -178,7 +178,7 @@ function scene:create( event )
 	local S3=display.newRect(display.contentWidth*0.5, display.contentHeight*0.69,150,70)
 	S3:setFillColor(0)
 	sceneGroup:insert(S3)
-	local S3text = display.newText("",display.contentWidth*0.5,display.contentHeight*0.69)
+	local S3text = display.newText("",display.contentWidth*0.5,display.contentHeight*0.69,"font/NanumJangMiCe.ttf")
 	S3text:setFillColor(1)
 	S3text.size =40
 	sceneGroup:insert(S3text)
