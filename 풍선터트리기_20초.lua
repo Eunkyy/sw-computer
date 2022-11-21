@@ -51,26 +51,32 @@ function scene:create( event )
 	sceneGroup:insert(cText)
 
 	local function gotoResult(flag)
-		composer.removeScene("풍선터트리기_20초")
+		timer.cancelAll() 
 		audio.pause( backgroundMusicChannel )
+		composer.removeScene("풍선터트리기_20초")
 		if flag == 1 then
 			composer.gotoScene("풍선_success")
+		elseif flag == -1 then
+			composer.gotoScene("풍선_over")
 		end
-		timer.cancelAll() 
 	end
 
-	local function Timer( event )
-		time = time - 1
-		local tLeft = string.format("%02d", time)
-       	cText.text = tLeft
 
-       if time == 0 or time < 0 then
+	local function timeAttack( event )
+		time = time - 1
+       	cText.text = time
+
+		if time == 0 then
 			timer.cancelAll() 
 			audio.pause( backgroundMusicChannel )
 			composer.removeScene("풍선터트리기_20초")
 			composer.gotoScene("풍선_over")
-       end
+		end
+
     end	
+
+	timer.performWithDelay( 1000, timeAttack, 0 )
+
 
 	local image = {}
 	function tapEvent(event)
@@ -111,16 +117,28 @@ function scene:create( event )
 				transition.fadeOut(image[ok[17]], {time=40})
 			elseif event.target.name == "b18" then
 				transition.fadeOut(image[ok[18]], {time=40})
-				time = time-5
-				print("시간")
+				if time > 5 then
+					time = time-5
+				else
+					flag = -1
+					gotoResult(flag)
+				end
 			elseif event.target.name == "b19" then
 				transition.fadeOut(image[ok[19]], {time=40})
-				time = time-5
-				print("시간")
+				if time > 5 then
+					time = time-5
+				else
+					flag = -1
+					gotoResult(flag)
+				end
 			elseif event.target.name == "b20" then
 				transition.fadeOut(image[ok[20]], {time=40})
-				time = time-5
-				print("시간")
+				if time > 5 then
+					time = time-5
+				else
+					flag = -1
+					gotoResult(flag)
+				end
 			end
 		end
 
@@ -130,10 +148,10 @@ function scene:create( event )
 					image[ok[10]].alpha == 0 and image[ok[11]].alpha == 0 and image[ok[12]].alpha == 0 and image[ok[13]].alpha == 0 and
 					image[ok[14]].alpha == 0 and image[ok[15]].alpha == 0 and image[ok[16]].alpha == 0 and image[ok[17]].alpha == 0 then
 				flag = 1
-				print(flag)
 				gotoResult(flag)
 			end
 		end
+
 		timer.performWithDelay(100, checkSom)
 	end
 
@@ -194,7 +212,6 @@ function scene:create( event )
 		end
 		sceneGroup:insert(image[i])
 	end
-	local tmr1 = timer.performWithDelay(1000, Timer, time) 
 
 	local startBg = display.newImageRect("image/풍선터트리기/bg2.jpg", display.contentWidth, display.contentHeight)
 	startBg.x, startBg.y = display.contentWidth/2, display.contentHeight/2
@@ -207,6 +224,11 @@ function scene:create( event )
 	local c3 = display.newImage("image/풍선터트리기/bomb.png")
 	c3.x = image[ok[20]].x
 	c3.y = image[ok[20]].y
+	sceneGroup:insert(startBg)	
+	sceneGroup:insert(c1)
+	sceneGroup:insert(c2)
+	sceneGroup:insert(c3)
+
 
 	local time2 = 0.5
 
@@ -220,7 +242,7 @@ function scene:create( event )
 			transition.fadeOut(c3, {time=500, delay=500})		
 		end
 	end
-	local tmr2 = timer.performWithDelay(500, timer_start, time2) 
+	local tmr2 = timer.performWithDelay(500, timer_start, 0) 
 
 
 end
